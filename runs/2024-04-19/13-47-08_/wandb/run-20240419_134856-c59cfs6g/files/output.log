@@ -1,0 +1,194 @@
+/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/utilities/parsing.py:263: UserWarning: Attribute 'model' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['model'])`.
+  rank_zero_warn(
+/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/accelerator_connector.py:474: LightningDeprecationWarning: Setting `Trainer(gpus=[4])` is deprecated in v1.7 and will be removed in v2.0. Please use `Trainer(accelerator='gpu', devices=[4])` instead.
+  rank_zero_deprecation(
+/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/lightning_fabric/plugins/environments/slurm.py:166: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python train_ext.py ...
+  rank_zero_warn(
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 4090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3,4,5,6,7]
+  | Name      | Type                | Params
+--------------------------------------------------
+0 | model     | Conv_att_simple_new | 133 K
+1 | criterion | SimCLRLoss          | 0
+--------------------------------------------------
+133 K     Trainable params
+0         Non-trainable params
+133 K     Total params
+0.533     Total estimated model params size (MB)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 0:  88%|████████████████████████████████████████████████▏      | 315/360 [01:51<00:15,  2.83it/s, loss=2.95, v_num=fs6g]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 1:  88%|▉| 315/360 [01:53<00:16,  2.79it/s, loss=2.81, v_num=fs6g, val/loss=2.890, val/acc=21.00, val/acc5=53.30, train/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 2:  88%|▉| 315/360 [01:51<00:15,  2.82it/s, loss=2.7, v_num=fs6g, val/loss=2.780, val/acc=23.10, val/acc5=56.30, train/l
+
+
+Validation DataLoader 0:   2%|█▍                                                               | 1/45 [00:00<00:01, 27.44it/s]
+
+Epoch 2: 100%|█| 360/360 [02:01<00:00,  2.97it/s, loss=2.7, v_num=fs6g, val/loss=2.760, val/acc=25.30, val/acc5=57.70, train/l

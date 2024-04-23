@@ -1,0 +1,93 @@
+train_subs: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+val_subs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+slicing processed dataset
+/mnt/data/model_weights/grm/SEEDV/EEG_processed_sxk
+/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/utilities/parsing.py:263: UserWarning: Attribute 'model' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['model'])`.
+  rank_zero_warn(
+/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/lightning_fabric/plugins/environments/slurm.py:166: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python train_ext.py ...
+  rank_zero_warn(
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+save sliced data finished!
+prepare data finished!
+Sanity Checking: 0it [00:00, ?it/s]
+You are using a CUDA device ('NVIDIA GeForce RTX 4090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3,4,5,6,7]
+  | Name      | Type                | Params
+--------------------------------------------------
+0 | model     | Conv_att_simple_new | 133 K
+1 | criterion | SimCLRLoss          | 0
+--------------------------------------------------
+133 K     Trainable params
+0         Non-trainable params
+133 K     Total params
+0.533     Total estimated model params size (MB)
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "/home/gpt/grm/CLISA_Hydra/train_ext.py", line 88, in main
+    trainer.fit(Extractor, dm)
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 608, in fit
+    call._call_and_handle_interrupt(
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 38, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 650, in _fit_impl
+    self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1112, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1191, in _run_stage
+    self._run_train()
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1204, in _run_train
+    self._run_sanity_check()
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1276, in _run_sanity_check
+    val_loop.run()
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/loops/loop.py", line 199, in run
+    self.advance(*args, **kwargs)
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 152, in advance
+    dl_outputs = self.epoch_loop.run(self._data_fetcher, dl_max_batches, kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/loops/loop.py", line 199, in run
+    self.advance(*args, **kwargs)
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 121, in advance
+    batch = next(data_fetcher)
+            ^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/utilities/fetching.py", line 184, in __next__
+    return self.fetching_function()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/utilities/fetching.py", line 265, in fetching_function
+    self._fetch_next_batch(self.dataloader_iter)
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/utilities/fetching.py", line 280, in _fetch_next_batch
+    batch = next(iterator)
+            ^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1348, in _next_data
+    return self._process_data(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1374, in _process_data
+    data.reraise()
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/torch/_utils.py", line 697, in reraise
+    raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/gpt/grm/CLISA_Hydra/dataset.py", line 74, in __getitem__
+    one_seq = np.load(os.path.join(self.save_dir, 'data', f'data_sample_{idx}.npy'))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/numpy/lib/npyio.py", line 427, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data/model_weights/grm/SEEDV/sliced_data/data/data_sample_229.npy'
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

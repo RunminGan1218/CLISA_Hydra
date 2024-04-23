@@ -1,0 +1,7 @@
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "/home/gpt/grm/CLISA_Hydra/test.py", line 22, in main
+    dm = SEEDVDataModule(cfg.data.load_dir,cfg.data.save_dir, cfg.data.timeLen, cfg.data.timeStep, train_subs, val_subs, cfg.train.train_vids, cfg.train.val_vids, cfg.data.n_session, cfg.train.valid_method=='loo', cfg.train.num_workers)
+                                                                                                   ^^^^^^^^^^
+NameError: name 'train_subs' is not defined
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

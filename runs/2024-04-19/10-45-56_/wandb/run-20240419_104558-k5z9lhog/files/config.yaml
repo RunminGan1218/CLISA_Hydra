@@ -1,0 +1,87 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    python_version: 3.11.3
+    cli_version: 0.16.6
+    framework: huggingface
+    huggingface_version: 4.30.2
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1713494758.0
+    t:
+      1:
+      - 1
+      - 9
+      - 11
+      - 41
+      - 49
+      - 50
+      - 55
+      - 71
+      - 103
+      2:
+      - 1
+      - 9
+      - 11
+      - 41
+      - 49
+      - 50
+      - 55
+      - 71
+      - 103
+      3:
+      - 7
+      - 13
+      - 23
+      4: 3.11.3
+      5: 0.16.6
+      6: 4.30.2
+      8:
+      - 5
+      13: linux-x86_64
+    m:
+    - 1: trainer/global_step
+      6:
+      - 3
+    - 1: train/loss_step
+      5: 1
+      6:
+      - 1
+    - 1: train/acc_step
+      5: 1
+      6:
+      - 1
+    - 1: train/acc5_step
+      5: 1
+      6:
+      - 1
+    - 1: epoch
+      5: 1
+      6:
+      - 1
+    - 1: val/loss
+      5: 1
+      6:
+      - 1
+    - 1: val/acc
+      5: 1
+      6:
+      - 1
+    - 1: val/acc5
+      5: 1
+      6:
+      - 1
+    - 1: train/loss_epoch
+      5: 1
+      6:
+      - 1
+    - 1: train/acc_epoch
+      5: 1
+      6:
+      - 1
+    - 1: train/acc5_epoch
+      5: 1
+      6:
+      - 1

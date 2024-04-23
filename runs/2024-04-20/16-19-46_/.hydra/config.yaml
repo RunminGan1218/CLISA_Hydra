@@ -1,0 +1,83 @@
+seed: 7
+log:
+  proj_name: CLISA_SeedV
+  exp_name: lightning_model_v2
+data:
+  load_dir: /mnt/data/model_weights/grm/SEEDV/EEG_processed_sxk
+  save_dir: /mnt/data/model_weights/grm/SEEDV/sliced_data
+  fs: 250
+  n_channs: 62
+  timeLen: 22
+  timeStep: 11
+  n_session: 3
+  n_subs: 16
+  n_vids: 15
+  n_class: 5
+train:
+  valid_method: loo
+  train_vids:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  val_vids:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  n_subs: ${data.n_subs}
+  lr: 0.0007
+  wd: 0.00015
+  loss_temp: 0.07
+  max_epochs: 3
+  min_epochs: 1
+  gpus:
+  - 4
+  num_workers: 8
+model:
+  n_timeFilters: 16
+  timeFilterLen: 60
+  n_msFilters: 4
+  msFilterLen: 3
+  n_channs: ${data.n_channs}
+  dilation_array:
+  - 1
+  - 6
+  - 12
+  - 24
+  seg_att: 30
+  avgPoolLen: 30
+  timeSmootherLen: 6
+  multiFact: 2
+  stratified:
+  - initial
+  - middle1
+  - middle2
+  activ: softmax
+  saveFea: false
+  has_att: true
+  extract_mode: me
+  global_att: false
+  ext_temp: 1.0

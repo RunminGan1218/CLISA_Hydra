@@ -1,0 +1,543 @@
+2024-04-20 15:15:17,515 INFO    StreamThr :1586517 [internal.py:wandb_internal():86] W&B internal server running at pid: 1586517, started at: 2024-04-20 15:15:17.514467
+2024-04-20 15:15:17,516 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status
+2024-04-20 15:15:17,519 INFO    WriterThread:1586517 [datastore.py:open_for_write():87] open: ./wandb/run-20240420_151517-sbd2azui/run-sbd2azui.wandb
+2024-04-20 15:15:17,519 DEBUG   SenderThread:1586517 [sender.py:send():379] send: header
+2024-04-20 15:15:17,519 DEBUG   SenderThread:1586517 [sender.py:send():379] send: run
+2024-04-20 15:15:17,521 INFO    SenderThread:1586517 [sender.py:_setup_resume():749] checking resume status for None/CLISA_SeedV/sbd2azui
+2024-04-20 15:15:19,444 INFO    SenderThread:1586517 [dir_watcher.py:__init__():211] watching files in: ./wandb/run-20240420_151517-sbd2azui/files
+2024-04-20 15:15:19,444 INFO    SenderThread:1586517 [sender.py:_start_run_threads():1124] run started: sbd2azui with start time 1713597317.514192
+2024-04-20 15:15:19,451 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: check_version
+2024-04-20 15:15:19,452 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: check_version
+2024-04-20 15:15:19,740 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: run_start
+2024-04-20 15:15:19,769 DEBUG   HandlerThread:1586517 [system_info.py:__init__():26] System info init
+2024-04-20 15:15:19,769 DEBUG   HandlerThread:1586517 [system_info.py:__init__():41] System info init done
+2024-04-20 15:15:19,769 INFO    HandlerThread:1586517 [system_monitor.py:start():194] Starting system monitor
+2024-04-20 15:15:19,770 INFO    SystemMonitor:1586517 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-04-20 15:15:19,770 INFO    HandlerThread:1586517 [system_monitor.py:probe():214] Collecting system info
+2024-04-20 15:15:19,771 INFO    SystemMonitor:1586517 [interfaces.py:start():190] Started cpu monitoring
+2024-04-20 15:15:19,771 INFO    SystemMonitor:1586517 [interfaces.py:start():190] Started disk monitoring
+2024-04-20 15:15:19,773 INFO    SystemMonitor:1586517 [interfaces.py:start():190] Started gpu monitoring
+2024-04-20 15:15:19,774 INFO    SystemMonitor:1586517 [interfaces.py:start():190] Started memory monitoring
+2024-04-20 15:15:19,775 INFO    SystemMonitor:1586517 [interfaces.py:start():190] Started network monitoring
+2024-04-20 15:15:19,875 DEBUG   HandlerThread:1586517 [system_info.py:probe():150] Probing system
+2024-04-20 15:15:19,878 DEBUG   HandlerThread:1586517 [gitlib.py:_init_repo():56] git repository is invalid
+2024-04-20 15:15:19,878 DEBUG   HandlerThread:1586517 [system_info.py:probe():198] Probing system done
+2024-04-20 15:15:19,878 DEBUG   HandlerThread:1586517 [system_monitor.py:probe():223] {'os': 'Linux-5.15.0-102-generic-x86_64-with-glibc2.31', 'python': '3.11.3', 'heartbeatAt': '2024-04-20T07:15:19.875215', 'startedAt': '2024-04-20T07:15:17.507705', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/home/gpt/grm/CLISA_Hydra/train_ext.py', 'codePathLocal': None, 'host': 'song4-ESC8000A-E11', 'username': 'gpt', 'executable': '/home/gpt/anaconda3/envs/torch2/bin/python', 'cpu_count': 64, 'cpu_count_logical': 128, 'cpu_freq': {'current': 1.8685078125000005, 'min': 1500.0, 'max': 2900.0}, 'cpu_freq_per_core': [{'current': 1.497, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 3.392, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 3.384, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 3.385, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 2.4, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 3.386, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 3.388, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 3.388, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.586, 'min': 1500.0, 'max': 2900.0}, {'current': 3.387, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 3.391, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 2.9, 'min': 1500.0, 'max': 2900.0}, {'current': 3.382, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 3.387, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}, {'current': 1.5, 'min': 1500.0, 'max': 2900.0}], 'disk': {'/': {'total': 3665.956069946289, 'used': 3307.5807876586914}}, 'gpu': 'NVIDIA GeForce RTX 4090', 'gpu_count': 8, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}, {'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}, {'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}, {'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}, {'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}, {'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}, {'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}, {'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}], 'memory': {'total': 251.71613311767578}}
+2024-04-20 15:15:19,878 INFO    HandlerThread:1586517 [system_monitor.py:probe():224] Finished collecting system info
+2024-04-20 15:15:19,878 INFO    HandlerThread:1586517 [system_monitor.py:probe():227] Publishing system info
+2024-04-20 15:15:19,878 DEBUG   HandlerThread:1586517 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-04-20 15:15:20,446 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_created():271] file/dir created: ./wandb/run-20240420_151517-sbd2azui/files/conda-environment.yaml
+2024-04-20 15:15:24,857 DEBUG   HandlerThread:1586517 [system_info.py:_save_conda():222] Saving conda packages done
+2024-04-20 15:15:24,859 INFO    HandlerThread:1586517 [system_monitor.py:probe():229] Finished publishing system info
+2024-04-20 15:15:24,865 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:15:24,866 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: keepalive
+2024-04-20 15:15:24,866 DEBUG   SenderThread:1586517 [sender.py:send():379] send: files
+2024-04-20 15:15:24,867 INFO    SenderThread:1586517 [sender.py:_save_file():1390] saving file wandb-metadata.json with policy now
+2024-04-20 15:15:25,000 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: python_packages
+2024-04-20 15:15:25,000 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: python_packages
+2024-04-20 15:15:25,001 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:15:25,002 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:15:25,005 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:15:25,447 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/conda-environment.yaml
+2024-04-20 15:15:25,447 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_created():271] file/dir created: ./wandb/run-20240420_151517-sbd2azui/files/requirements.txt
+2024-04-20 15:15:25,447 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_created():271] file/dir created: ./wandb/run-20240420_151517-sbd2azui/files/wandb-metadata.json
+2024-04-20 15:15:25,697 DEBUG   SenderThread:1586517 [sender.py:send():379] send: telemetry
+2024-04-20 15:15:25,697 DEBUG   SenderThread:1586517 [sender.py:send():379] send: metric
+2024-04-20 15:15:25,697 DEBUG   SenderThread:1586517 [sender.py:send():379] send: telemetry
+2024-04-20 15:15:25,697 DEBUG   SenderThread:1586517 [sender.py:send():379] send: metric
+2024-04-20 15:15:25,697 WARNING SenderThread:1586517 [sender.py:send_metric():1341] Seen metric with glob (shouldn't happen)
+2024-04-20 15:15:25,699 DEBUG   SenderThread:1586517 [sender.py:send():379] send: config
+2024-04-20 15:15:26,447 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_created():271] file/dir created: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:26,512 INFO    wandb-upload_0:1586517 [upload_job.py:push():131] Uploaded file /tmp/tmp3dtidb_jwandb/62udcozc-wandb-metadata.json
+2024-04-20 15:15:28,262 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:15:28,448 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:30,449 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:32,450 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:33,454 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:15:34,451 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:36,452 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:38,453 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:38,627 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:15:40,002 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:15:40,002 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:15:40,005 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:15:40,454 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:42,455 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:43,829 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:15:44,455 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:46,456 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:48,457 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:49,060 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:15:49,457 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/config.yaml
+2024-04-20 15:15:50,458 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:52,459 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:54,330 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:15:54,460 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:55,001 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:15:55,002 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:15:55,004 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:15:56,460 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:58,461 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:15:59,523 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:16:00,462 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:02,463 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:04,464 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:04,760 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:16:06,465 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:08,466 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:10,002 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:16:10,002 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:16:10,003 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:16:10,340 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:16:10,466 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:12,467 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:14,468 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:15,570 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:16:16,469 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:18,470 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:19,775 DEBUG   SystemMonitor:1586517 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-04-20 15:16:19,778 DEBUG   SenderThread:1586517 [sender.py:send():379] send: stats
+2024-04-20 15:16:20,470 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:20,826 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:16:22,472 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:24,473 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:25,002 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:16:25,002 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:16:25,003 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:16:26,079 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:16:26,473 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:28,474 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:30,475 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:31,331 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:16:32,476 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:34,477 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:36,478 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:36,588 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:16:38,479 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:40,002 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:16:40,003 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:16:40,004 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:16:40,479 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:41,834 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:16:42,480 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:44,481 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:46,482 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:47,077 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:16:48,482 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:49,781 DEBUG   SenderThread:1586517 [sender.py:send():379] send: stats
+2024-04-20 15:16:50,483 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:52,334 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:16:52,484 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:54,485 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:55,002 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:16:55,002 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:16:55,003 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:16:56,486 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:16:57,584 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:16:58,487 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:00,488 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:02,488 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:02,832 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:17:04,489 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:06,490 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:08,085 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:17:08,490 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:10,002 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:17:10,003 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:17:10,003 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:17:10,491 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:12,492 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:13,101 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:17:13,168 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-20 15:17:13,170 DEBUG   SenderThread:1586517 [sender.py:send():379] send: metric
+2024-04-20 15:17:13,171 DEBUG   SenderThread:1586517 [sender.py:send():379] send: metric
+2024-04-20 15:17:13,171 DEBUG   SenderThread:1586517 [sender.py:send():379] send: metric
+2024-04-20 15:17:13,171 DEBUG   SenderThread:1586517 [sender.py:send():379] send: metric
+2024-04-20 15:17:13,171 DEBUG   SenderThread:1586517 [sender.py:send():379] send: history
+2024-04-20 15:17:13,171 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: summary_record
+2024-04-20 15:17:13,172 INFO    SenderThread:1586517 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-20 15:17:13,492 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_created():271] file/dir created: ./wandb/run-20240420_151517-sbd2azui/files/wandb-summary.json
+2024-04-20 15:17:13,938 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: log_artifact
+2024-04-20 15:17:13,939 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: log_artifact
+2024-04-20 15:17:13,941 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-20 15:17:14,493 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:17,415 INFO    wandb-upload_0:1586517 [upload_job.py:push():89] Uploaded file /home/gpt/.local/share/wandb/artifacts/staging/tmpeoe4fgd8
+2024-04-20 15:17:18,558 INFO    SenderThread:1586517 [sender.py:send_request_log_artifact():1456] logged artifact model-sbd2azui - {'id': 'QXJ0aWZhY3Q6ODAzNTc3Mzc0', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE2NDYxODAyMg==', 'latestArtifact': None}}
+2024-04-20 15:17:18,558 DEBUG   SenderThread:1586517 [sender.py:send():379] send: metric
+2024-04-20 15:17:18,559 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:17:18,578 DEBUG   SenderThread:1586517 [sender.py:send():379] send: metric
+2024-04-20 15:17:18,578 DEBUG   SenderThread:1586517 [sender.py:send():379] send: metric
+2024-04-20 15:17:18,578 DEBUG   SenderThread:1586517 [sender.py:send():379] send: history
+2024-04-20 15:17:18,579 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: summary_record
+2024-04-20 15:17:18,579 INFO    SenderThread:1586517 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-20 15:17:19,495 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/wandb-summary.json
+2024-04-20 15:17:19,782 DEBUG   SenderThread:1586517 [sender.py:send():379] send: stats
+2024-04-20 15:17:20,495 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:22,496 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:23,598 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:17:24,497 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:24,497 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/config.yaml
+2024-04-20 15:17:25,003 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:17:25,004 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:17:25,004 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:17:26,498 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:28,499 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:29,124 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:17:30,500 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:32,500 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:34,382 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:17:34,501 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:36,502 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:38,503 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:39,644 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:17:40,003 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:17:40,003 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:17:40,003 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:17:40,504 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:42,504 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:44,505 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:44,896 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:17:46,506 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:48,507 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:49,784 DEBUG   SenderThread:1586517 [sender.py:send():379] send: stats
+2024-04-20 15:17:50,157 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:17:50,508 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:52,509 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:54,510 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:55,003 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:17:55,003 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:17:55,004 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:17:55,299 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:17:56,510 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:17:58,511 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:00,322 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:18:00,512 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:02,513 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:04,514 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:05,573 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:18:06,515 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:08,516 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:10,003 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:18:10,003 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:18:10,004 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:18:10,517 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:10,819 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:18:12,518 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:14,518 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:16,074 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:18:16,519 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:18,520 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:19,787 DEBUG   SenderThread:1586517 [sender.py:send():379] send: stats
+2024-04-20 15:18:20,521 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:21,325 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:18:22,522 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:24,523 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:25,003 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:18:25,003 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:18:25,004 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:18:26,524 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:26,585 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:18:28,525 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:30,526 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:31,844 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:18:32,526 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:34,527 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:36,528 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:37,100 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:18:38,529 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:40,003 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:18:40,003 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:18:40,004 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:18:40,530 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:42,353 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:18:42,531 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:44,532 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:46,532 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:47,607 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:18:48,533 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:49,790 DEBUG   SenderThread:1586517 [sender.py:send():379] send: stats
+2024-04-20 15:18:50,534 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:52,535 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:52,867 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:18:54,536 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:55,003 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:18:55,004 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:18:55,004 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:18:56,536 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:58,222 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:18:58,537 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:18:59,960 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-20 15:18:59,961 DEBUG   SenderThread:1586517 [sender.py:send():379] send: history
+2024-04-20 15:18:59,962 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: summary_record
+2024-04-20 15:18:59,963 INFO    SenderThread:1586517 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-20 15:19:00,538 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:00,539 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/wandb-summary.json
+2024-04-20 15:19:00,841 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: log_artifact
+2024-04-20 15:19:00,841 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: log_artifact
+2024-04-20 15:19:00,847 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-20 15:19:02,539 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:03,644 INFO    wandb-upload_0:1586517 [upload_job.py:push():89] Uploaded file /home/gpt/.local/share/wandb/artifacts/staging/tmpo6hpx2xa
+2024-04-20 15:19:04,922 INFO    SenderThread:1586517 [sender.py:send_request_log_artifact():1456] logged artifact model-sbd2azui - {'id': 'QXJ0aWZhY3Q6ODAzNTc4NzE3', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE2NDYxODAyMg==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6ODAzNTc3Mzc0', 'versionIndex': 0}}}
+2024-04-20 15:19:04,922 DEBUG   SenderThread:1586517 [sender.py:send():379] send: history
+2024-04-20 15:19:04,922 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: summary_record
+2024-04-20 15:19:04,923 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:19:04,924 INFO    SenderThread:1586517 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-20 15:19:05,540 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/wandb-summary.json
+2024-04-20 15:19:06,541 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:08,542 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:10,005 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:19:10,005 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:19:10,006 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:19:10,006 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:19:10,542 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:12,543 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:14,544 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:15,275 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:19:16,545 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:18,546 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:19,803 DEBUG   SenderThread:1586517 [sender.py:send():379] send: stats
+2024-04-20 15:19:20,538 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:19:20,547 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:22,547 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:24,548 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:25,004 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:19:25,004 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:19:25,005 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:19:25,797 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:19:26,549 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:28,550 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:30,550 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:31,055 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:19:32,552 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:34,552 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:36,313 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:19:36,553 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:38,554 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:40,004 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:19:40,005 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:19:40,005 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:19:40,555 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:41,553 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:19:42,555 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:44,556 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:46,557 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:46,811 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:19:48,557 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:49,796 DEBUG   SenderThread:1586517 [sender.py:send():379] send: stats
+2024-04-20 15:19:50,560 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:52,074 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:19:52,559 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:54,560 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:55,004 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:19:55,005 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:19:55,005 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:19:56,560 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:19:57,305 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:19:58,561 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:00,562 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:02,560 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:20:02,563 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:04,564 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:06,564 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:07,830 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:20:08,565 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:10,004 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:20:10,005 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:20:10,005 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:20:10,566 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:12,567 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:13,085 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:20:14,568 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:16,569 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:18,341 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:20:18,569 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:19,799 DEBUG   SenderThread:1586517 [sender.py:send():379] send: stats
+2024-04-20 15:20:20,570 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:22,572 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:23,597 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:20:24,573 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:25,005 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:20:25,005 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:20:25,005 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:20:26,573 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:28,574 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:28,851 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:20:30,575 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:32,576 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:34,100 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:20:34,577 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:36,578 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:38,579 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:39,345 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:20:40,004 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-20 15:20:40,005 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:20:40,005 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: stop_status
+2024-04-20 15:20:40,579 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:42,580 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:44,577 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:20:44,581 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:46,442 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-20 15:20:46,443 DEBUG   SenderThread:1586517 [sender.py:send():379] send: history
+2024-04-20 15:20:46,443 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: summary_record
+2024-04-20 15:20:46,444 INFO    SenderThread:1586517 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-20 15:20:46,582 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:46,582 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/wandb-summary.json
+2024-04-20 15:20:47,233 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: log_artifact
+2024-04-20 15:20:47,234 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: log_artifact
+2024-04-20 15:20:47,239 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-20 15:20:48,358 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-20 15:20:48,585 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:50,196 INFO    wandb-upload_0:1586517 [upload_job.py:push():89] Uploaded file /home/gpt/.local/share/wandb/artifacts/staging/tmppb5mo8fi
+2024-04-20 15:20:52,710 INFO    SenderThread:1586517 [sender.py:send_request_log_artifact():1456] logged artifact model-sbd2azui - {'id': 'QXJ0aWZhY3Q6ODAzNTc5OTI4', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE2NDYxODAyMg==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6ODAzNTc4NzE3', 'versionIndex': 1}}}
+2024-04-20 15:20:52,710 DEBUG   SenderThread:1586517 [sender.py:send():379] send: history
+2024-04-20 15:20:52,711 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:20:52,711 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: summary_record
+2024-04-20 15:20:52,712 INFO    SenderThread:1586517 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-20 15:20:52,712 DEBUG   SenderThread:1586517 [sender.py:send():379] send: telemetry
+2024-04-20 15:20:52,713 DEBUG   SenderThread:1586517 [sender.py:send():379] send: exit
+2024-04-20 15:20:52,713 INFO    SenderThread:1586517 [sender.py:send_exit():586] handling exit code: 0
+2024-04-20 15:20:52,713 INFO    SenderThread:1586517 [sender.py:send_exit():588] handling runtime: 327
+2024-04-20 15:20:52,716 INFO    SenderThread:1586517 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-20 15:20:52,716 INFO    SenderThread:1586517 [sender.py:send_exit():594] send defer
+2024-04-20 15:20:52,716 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: poll_exit
+2024-04-20 15:20:52,717 DEBUG   SenderThread:1586517 [sender.py:send():379] send: stats
+2024-04-20 15:20:52,718 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:20:52,718 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 0
+2024-04-20 15:20:52,718 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:20:52,718 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 0
+2024-04-20 15:20:52,718 INFO    SenderThread:1586517 [sender.py:transition_state():614] send defer: 1
+2024-04-20 15:20:52,719 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:20:52,719 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 1
+2024-04-20 15:20:52,719 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:20:52,719 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 1
+2024-04-20 15:20:52,719 INFO    SenderThread:1586517 [sender.py:transition_state():614] send defer: 2
+2024-04-20 15:20:52,719 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:20:52,719 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 2
+2024-04-20 15:20:52,719 INFO    HandlerThread:1586517 [system_monitor.py:finish():203] Stopping system monitor
+2024-04-20 15:20:52,719 DEBUG   SystemMonitor:1586517 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-04-20 15:20:52,721 INFO    HandlerThread:1586517 [interfaces.py:finish():202] Joined cpu monitor
+2024-04-20 15:20:52,721 DEBUG   SystemMonitor:1586517 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-04-20 15:20:52,721 INFO    HandlerThread:1586517 [interfaces.py:finish():202] Joined disk monitor
+2024-04-20 15:20:53,587 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/wandb-summary.json
+2024-04-20 15:20:54,131 INFO    HandlerThread:1586517 [interfaces.py:finish():202] Joined gpu monitor
+2024-04-20 15:20:54,132 INFO    HandlerThread:1586517 [interfaces.py:finish():202] Joined memory monitor
+2024-04-20 15:20:54,132 INFO    HandlerThread:1586517 [interfaces.py:finish():202] Joined network monitor
+2024-04-20 15:20:54,132 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: keepalive
+2024-04-20 15:20:54,132 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-20 15:20:54,133 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:20:54,133 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 2
+2024-04-20 15:20:54,133 INFO    SenderThread:1586517 [sender.py:transition_state():614] send defer: 3
+2024-04-20 15:20:54,133 DEBUG   SenderThread:1586517 [sender.py:send():379] send: stats
+2024-04-20 15:20:54,134 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: poll_exit
+2024-04-20 15:20:54,134 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:20:54,134 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 3
+2024-04-20 15:20:54,135 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:20:54,135 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 3
+2024-04-20 15:20:54,135 INFO    SenderThread:1586517 [sender.py:transition_state():614] send defer: 4
+2024-04-20 15:20:54,135 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:20:54,135 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 4
+2024-04-20 15:20:54,135 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:20:54,135 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 4
+2024-04-20 15:20:54,135 INFO    SenderThread:1586517 [sender.py:transition_state():614] send defer: 5
+2024-04-20 15:20:54,135 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:20:54,135 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 5
+2024-04-20 15:20:54,136 DEBUG   SenderThread:1586517 [sender.py:send():379] send: summary
+2024-04-20 15:20:54,136 INFO    SenderThread:1586517 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-20 15:20:54,137 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:20:54,137 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 5
+2024-04-20 15:20:54,137 INFO    SenderThread:1586517 [sender.py:transition_state():614] send defer: 6
+2024-04-20 15:20:54,137 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:20:54,137 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 6
+2024-04-20 15:20:54,137 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:20:54,137 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 6
+2024-04-20 15:20:54,142 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: status_report
+2024-04-20 15:20:54,360 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-20 15:20:54,386 INFO    SenderThread:1586517 [sender.py:transition_state():614] send defer: 7
+2024-04-20 15:20:54,386 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: poll_exit
+2024-04-20 15:20:54,387 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:20:54,387 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 7
+2024-04-20 15:20:54,387 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:20:54,387 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 7
+2024-04-20 15:20:54,588 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:54,588 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/wandb-summary.json
+2024-04-20 15:20:54,588 INFO    Thread-12 :1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/config.yaml
+2024-04-20 15:20:55,361 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-20 15:20:57,758 INFO    SenderThread:1586517 [sender.py:transition_state():614] send defer: 8
+2024-04-20 15:20:57,759 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: poll_exit
+2024-04-20 15:20:57,759 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:20:57,759 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 8
+2024-04-20 15:20:57,759 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:20:57,759 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 8
+2024-04-20 15:20:57,759 INFO    SenderThread:1586517 [job_builder.py:build():318] Attempting to build job artifact
+2024-04-20 15:20:57,760 INFO    SenderThread:1586517 [job_builder.py:_get_source_type():466] no source found
+2024-04-20 15:20:57,760 INFO    SenderThread:1586517 [sender.py:transition_state():614] send defer: 9
+2024-04-20 15:20:57,761 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:20:57,761 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 9
+2024-04-20 15:20:57,761 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:20:57,761 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 9
+2024-04-20 15:20:57,761 INFO    SenderThread:1586517 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-04-20 15:20:58,362 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-20 15:20:58,590 INFO    SenderThread:1586517 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:20:58,590 INFO    SenderThread:1586517 [dir_watcher.py:finish():388] scan: ./wandb/run-20240420_151517-sbd2azui/files
+2024-04-20 15:20:58,590 INFO    SenderThread:1586517 [dir_watcher.py:finish():402] scan save: ./wandb/run-20240420_151517-sbd2azui/files/wandb-metadata.json wandb-metadata.json
+2024-04-20 15:20:58,590 INFO    SenderThread:1586517 [dir_watcher.py:finish():402] scan save: ./wandb/run-20240420_151517-sbd2azui/files/config.yaml config.yaml
+2024-04-20 15:20:58,591 INFO    SenderThread:1586517 [dir_watcher.py:finish():402] scan save: ./wandb/run-20240420_151517-sbd2azui/files/requirements.txt requirements.txt
+2024-04-20 15:20:58,591 INFO    SenderThread:1586517 [dir_watcher.py:finish():402] scan save: ./wandb/run-20240420_151517-sbd2azui/files/conda-environment.yaml conda-environment.yaml
+2024-04-20 15:20:58,597 INFO    SenderThread:1586517 [dir_watcher.py:finish():402] scan save: ./wandb/run-20240420_151517-sbd2azui/files/output.log output.log
+2024-04-20 15:20:58,597 INFO    SenderThread:1586517 [dir_watcher.py:finish():402] scan save: ./wandb/run-20240420_151517-sbd2azui/files/wandb-summary.json wandb-summary.json
+2024-04-20 15:20:58,598 INFO    SenderThread:1586517 [sender.py:transition_state():614] send defer: 10
+2024-04-20 15:20:58,598 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: poll_exit
+2024-04-20 15:20:58,598 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:20:58,599 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 10
+2024-04-20 15:20:58,599 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:20:58,602 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 10
+2024-04-20 15:20:58,602 INFO    SenderThread:1586517 [file_pusher.py:finish():172] shutting down file pusher
+2024-04-20 15:20:59,356 INFO    wandb-upload_0:1586517 [upload_job.py:push():131] Uploaded file ./wandb/run-20240420_151517-sbd2azui/files/requirements.txt
+2024-04-20 15:20:59,364 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-20 15:20:59,366 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: poll_exit
+2024-04-20 15:20:59,830 INFO    wandb-upload_4:1586517 [upload_job.py:push():131] Uploaded file ./wandb/run-20240420_151517-sbd2azui/files/wandb-summary.json
+2024-04-20 15:21:00,339 INFO    wandb-upload_3:1586517 [upload_job.py:push():131] Uploaded file ./wandb/run-20240420_151517-sbd2azui/files/output.log
+2024-04-20 15:21:00,347 INFO    wandb-upload_1:1586517 [upload_job.py:push():131] Uploaded file ./wandb/run-20240420_151517-sbd2azui/files/config.yaml
+2024-04-20 15:21:00,363 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-20 15:21:00,364 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: poll_exit
+2024-04-20 15:21:00,429 INFO    wandb-upload_2:1586517 [upload_job.py:push():131] Uploaded file ./wandb/run-20240420_151517-sbd2azui/files/conda-environment.yaml
+2024-04-20 15:21:00,630 INFO    Thread-11 (_thread_body):1586517 [sender.py:transition_state():614] send defer: 11
+2024-04-20 15:21:00,630 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:21:00,630 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 11
+2024-04-20 15:21:00,631 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:21:00,631 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 11
+2024-04-20 15:21:00,631 INFO    SenderThread:1586517 [file_pusher.py:join():178] waiting for file pusher
+2024-04-20 15:21:00,631 INFO    SenderThread:1586517 [sender.py:transition_state():614] send defer: 12
+2024-04-20 15:21:00,632 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:21:00,632 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 12
+2024-04-20 15:21:00,632 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:21:00,632 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 12
+2024-04-20 15:21:00,632 INFO    SenderThread:1586517 [file_stream.py:finish():614] file stream finish called
+2024-04-20 15:21:01,364 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-20 15:21:01,665 INFO    SenderThread:1586517 [file_stream.py:finish():618] file stream finish is done
+2024-04-20 15:21:01,665 INFO    SenderThread:1586517 [sender.py:transition_state():614] send defer: 13
+2024-04-20 15:21:01,666 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: poll_exit
+2024-04-20 15:21:01,666 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:21:01,666 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 13
+2024-04-20 15:21:01,667 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:21:01,667 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 13
+2024-04-20 15:21:01,667 INFO    SenderThread:1586517 [sender.py:transition_state():614] send defer: 14
+2024-04-20 15:21:01,667 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: defer
+2024-04-20 15:21:01,667 INFO    HandlerThread:1586517 [handler.py:handle_request_defer():172] handle defer: 14
+2024-04-20 15:21:01,667 DEBUG   SenderThread:1586517 [sender.py:send():379] send: final
+2024-04-20 15:21:01,668 DEBUG   SenderThread:1586517 [sender.py:send():379] send: footer
+2024-04-20 15:21:01,668 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: defer
+2024-04-20 15:21:01,668 INFO    SenderThread:1586517 [sender.py:send_request_defer():610] handle sender defer: 14
+2024-04-20 15:21:01,669 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-20 15:21:01,669 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: poll_exit
+2024-04-20 15:21:01,670 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-20 15:21:01,671 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: server_info
+2024-04-20 15:21:01,671 DEBUG   SenderThread:1586517 [sender.py:send_request():406] send_request: server_info
+2024-04-20 15:21:01,712 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: get_summary
+2024-04-20 15:21:01,712 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: sampled_history
+2024-04-20 15:21:01,882 DEBUG   HandlerThread:1586517 [handler.py:handle_request():146] handle_request: shutdown
+2024-04-20 15:21:01,882 INFO    HandlerThread:1586517 [handler.py:finish():866] shutting down handler
+2024-04-20 15:21:02,671 INFO    WriterThread:1586517 [datastore.py:close():296] close: ./wandb/run-20240420_151517-sbd2azui/run-sbd2azui.wandb
+2024-04-20 15:21:02,881 INFO    SenderThread:1586517 [sender.py:finish():1546] shutting down sender
+2024-04-20 15:21:02,881 INFO    SenderThread:1586517 [file_pusher.py:finish():172] shutting down file pusher
+2024-04-20 15:21:02,881 INFO    SenderThread:1586517 [file_pusher.py:join():178] waiting for file pusher

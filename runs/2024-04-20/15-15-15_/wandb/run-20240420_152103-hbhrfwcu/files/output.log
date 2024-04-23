@@ -1,0 +1,179 @@
+train_subs: [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+val_subs: [1, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+sliced data exist!
+prepare data finished!
+Epoch 0:   1%|▉                                                                    | 5/360 [00:01<02:03,  2.86it/s, loss=3.61, v_num=fwcu]
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 4090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:613: UserWarning: Checkpoint directory /home/gpt/grm/CLISA_Hydra/runs/2024-04-20/15-15-15_/lightning_model_v2/checkpoints exists and is not empty.
+  rank_zero_warn(f"Checkpoint directory {dirpath} exists and is not empty.")
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3,4,5,6,7]
+  | Name      | Type                | Params
+--------------------------------------------------
+0 | model     | Conv_att_simple_new | 133 K
+1 | criterion | SimCLRLoss          | 0
+--------------------------------------------------
+133 K     Trainable params
+0         Non-trainable params
+133 K     Total params
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 0:  89%|███████████████████████████████████████████████████████████▎       | 319/360 [01:44<00:13,  3.06it/s, loss=2.75, v_num=fwcu]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 1:  88%|▉| 315/360 [01:43<00:14,  3.03it/s, loss=2.52, v_num=fwcu, val/loss=3.310, val/acc=9.560, val/acc5=34.70, train/loss=3.110,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 2:  98%|▉| 351/360 [01:45<00:02,  3.32it/s, loss=2.32, v_num=fwcu, val/loss=3.180, val/acc=13.70, val/acc5=42.10, train/loss=2.740,
+
+Validation DataLoader 0:  80%|████████████████████████████████████████████████████████████▊               | 36/45 [00:01<00:00, 29.78it/s]
+
+Epoch 2: 100%|█| 360/360 [01:46<00:00,  3.37it/s, loss=2.32, v_num=fwcu, val/loss=3.170, val/acc=15.00, val/acc5=44.20, train/loss=2.580,

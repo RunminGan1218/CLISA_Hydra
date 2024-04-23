@@ -1,0 +1,142 @@
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 4090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3,4,5,6,7]
+  | Name      | Type                | Params
+--------------------------------------------------
+0 | model     | Conv_att_simple_new | 133 K
+1 | criterion | SimCLRLoss          | 0
+--------------------------------------------------
+133 K     Trainable params
+0         Non-trainable params
+133 K     Total params
+0.533     Total estimated model params size (MB)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 0:  88%|██▋| 315/360 [02:00<00:17,  2.62it/s, loss=2.69, v_num=ggyw, train/loss_step=1.710, train/acc_step=73.30, train/acc5_step=100.0]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 1:  88%|▉| 315/360 [02:00<00:17,  2.62it/s, loss=2.62, v_num=ggyw, train/loss_step=1.990, train/acc_step=43.30, train/acc5_step=96.70, v
+
+
+
+
+
+
+
+
+Epoch 2:  88%|▉| 315/360 [02:02<00:17,  2.57it/s, loss=2.62, v_num=ggyw, train/loss_step=1.990, train/acc_step=43.30, train/acc5_step=96.70, v
+
+
+Validation DataLoader 0:  53%|██████████████████████████████████████████▋                                     | 24/45 [00:00<00:00, 29.83it/s]
+
+Epoch 2: 100%|█| 360/360 [02:21<00:00,  2.54it/s, loss=2.62, v_num=ggyw, train/loss_step=1.990, train/acc_step=43.30, train/acc5_step=96.70, v

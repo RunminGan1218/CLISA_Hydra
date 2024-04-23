@@ -1,0 +1,50 @@
+sliced data exist!
+prepare data finished!
+/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/lightning_fabric/plugins/environments/slurm.py:166: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python test.py ...
+  rank_zero_warn(
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 4090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3,4,5,6,7]
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "/home/gpt/grm/CLISA_Hydra/test.py", line 29, in main
+    trainer.validate(Extractor, dm)
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 697, in validate
+    return call._call_and_handle_interrupt(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 38, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 745, in _validate_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1112, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1188, in _run_stage
+    return self._run_evaluate()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1220, in _run_evaluate
+    self._evaluation_loop._reload_evaluation_dataloaders()
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 234, in _reload_evaluation_dataloaders
+    self.trainer.reset_val_dataloader()
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1649, in reset_val_dataloader
+    self.num_val_batches, self.val_dataloaders = self._data_connector._reset_eval_dataloader(
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py", line 357, in _reset_eval_dataloader
+    dataloaders = self._request_dataloader(mode)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py", line 446, in _request_dataloader
+    dataloader = source.dataloader()
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py", line 524, in dataloader
+    return method()
+           ^^^^^^^^
+  File "/home/gpt/grm/CLISA_Hydra/train_ext.py", line 165, in val_dataloader
+    return DataLoader(self.valset, batch_sampler=val_sampler, pin_memory=True, num_workers=self.num_workers)
+                      ^^^^^^^^^^^
+AttributeError: 'SEEDVDataModule' object has no attribute 'valset'
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

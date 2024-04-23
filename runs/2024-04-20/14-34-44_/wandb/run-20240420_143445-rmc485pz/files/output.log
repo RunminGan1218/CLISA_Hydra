@@ -1,0 +1,39 @@
+train_subs: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+val_subs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+/mnt/data/model_weights/grm/SEEDV/EEG_processed_sxk
+/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/utilities/parsing.py:263: UserWarning: Attribute 'model' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['model'])`.
+  rank_zero_warn(
+/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/lightning_fabric/plugins/environments/slurm.py:166: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python train_ext.py ...
+  rank_zero_warn(
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "/home/gpt/grm/CLISA_Hydra/train_ext.py", line 88, in main
+    trainer.fit(Extractor, dm)
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 608, in fit
+    call._call_and_handle_interrupt(
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 38, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 650, in _fit_impl
+    self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1042, in _run
+    self._data_connector.prepare_data()
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py", line 109, in prepare_data
+    self.trainer._call_lightning_datamodule_hook("prepare_data")
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1375, in _call_lightning_datamodule_hook
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/grm/CLISA_Hydra/train_ext.py", line 147, in prepare_data
+    SEEDV_Dataset_new(self.load_dir,self.save_dir,self.timeLen,self.timeStep,sliced=False)
+  File "/home/gpt/grm/CLISA_Hydra/dataset.py", line 56, in __init__
+    self.onesub_label = torch.from_numpy(np.load(os.path.join(save_dir, 'metadata', 'labels', 'onesub_labels.npy')))
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/numpy/lib/npyio.py", line 427, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data/model_weights/grm/SEEDV/sliced_data/metadata/labels/onesub_labels.npy'
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

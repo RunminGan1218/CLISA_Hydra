@@ -1,0 +1,181 @@
+train_subs: [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+val_subs: [1, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+sliced data exist!
+prepare data finished!
+Epoch 0:   1%|▌                                                                        | 3/360 [00:01<02:53,  2.06it/s, loss=3.55, v_num=rxq5]
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 4090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+/home/gpt/anaconda3/envs/torch2/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:613: UserWarning: Checkpoint directory /home/gpt/grm/CLISA_Hydra/runs/2024-04-20/18-00-12_/lightning_model_v2/checkpoints exists and is not empty.
+  rank_zero_warn(f"Checkpoint directory {dirpath} exists and is not empty.")
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3,4,5,6,7]
+  | Name      | Type                | Params
+--------------------------------------------------
+0 | model     | Conv_att_simple_new | 133 K
+1 | criterion | SimCLRLoss          | 0
+--------------------------------------------------
+133 K     Trainable params
+0         Non-trainable params
+133 K     Total params
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 0: 100%|██████████████████████████████████████████████████████████████████████▊| 359/360 [01:45<00:00,  3.39it/s, loss=2.75, v_num=rxq5]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 1:  93%|▉| 334/360 [01:45<00:08,  3.18it/s, loss=2.52, v_num=rxq5, val/loss=3.310, val/acc=9.560, val/acc5=34.70, train/loss=3.110, trai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 2:  90%|▉| 324/360 [01:44<00:11,  3.10it/s, loss=2.32, v_num=rxq5, val/loss=3.180, val/acc=13.70, val/acc5=42.10, train/loss=2.740, trai
+
+Validation DataLoader 0:  20%|████████████████▏                                                                | 9/45 [00:00<00:01, 26.26it/s]
+
+Epoch 2: 100%|█| 360/360 [01:46<00:00,  3.38it/s, loss=2.32, v_num=rxq5, val/loss=3.170, val/acc=15.00, val/acc5=44.20, train/loss=2.580, trai

@@ -1,0 +1,7 @@
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "/home/gpt/grm/CLISA_Hydra/train_ext.py", line 53, in main
+    checkpoint_callback = ModelCheckpoint(monitor="val/acc", mode="max", dir_path=cp_dir, filename=f'f_{fold}_best.ckpt')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ModelCheckpoint.__init__() got an unexpected keyword argument 'dir_path'
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
