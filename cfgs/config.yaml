@@ -9,17 +9,22 @@ log:
 
 
 data:
-  load_dir: '/mnt/data/model_weights/grm/SEEDV/EEG_processed_sxk'
-  save_dir: '/mnt/data/model_weights/grm/SEEDV/sliced_data'
-  fs: 250
-  n_channs: 62
+  # load_dir: '/mnt/data/model_weights/grm/SEEDV/EEG_processed_sxk'
+  load_dir: '/mnt/data/model_weights/grm/SEEDV-NEW/processed_data_new'
+  # save_dir: '/mnt/data/model_weights/grm/SEEDV/sliced_data'
+  save_dir: '/mnt/data/model_weights/grm/SEEDV-NEW/sliced_data'
+  # fs: 250
+  fs: 125
+  # n_channs: 62
+  n_channs: 60
   timeLen: 22
   timeStep: 11
   timeLen2: 1
   timeStep2: 1
   n_session: 3
   n_subs: 16
-  n_vids: 15
+  # n_vids: 15
+  n_vids: 45
   n_class: 5
   
 
@@ -72,8 +77,10 @@ mlp:
   batch_size: 256
 
 ext_fea:
-  cp_dir: '/mnt/data/model_weights/grm/SEEDV/runs/2024-04-23/03-38-42_/22_11_5fold_run1/checkpoints/'
-  save_dir: '/mnt/data/model_weights/grm/SEEDV/sliced_data/sliced_len22_step11/fea_5fold_run1'
+  # cp_dir: '/mnt/data/model_weights/grm/SEEDV/runs/2024-04-23/03-38-42_/22_11_5fold_run1/checkpoints/'
+  cp_dir: '/mnt/data/model_weights/grm/SEEDV/runs/2024-05-06/21-21-55_/10_5_run1/checkpoints/'
+  # save_dir: '/mnt/data/model_weights/grm/SEEDV/sliced_data/sliced_len22_step11/fea_5fold_run1'
+  save_dir: '/mnt/data/model_weights/grm/SEEDV-NEW/sliced_data/sliced_len22_step11/fea_5fold_run1'
   normTrain: False
   batch_size: 16
   mode: 'me'
