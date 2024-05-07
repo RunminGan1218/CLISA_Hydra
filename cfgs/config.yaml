@@ -23,8 +23,7 @@ data:
   timeStep2: 1
   n_session: 3
   n_subs: 16
-  # n_vids: 15
-  n_vids: 45
+  n_vids: 15
   n_class: 5
   
 
