@@ -5,7 +5,8 @@ import numpy as np
 from train_ext import ExtractorModel, SEEDVDataModule
 import pytorch_lightning as pl
 from pytorch_lightning.loggers.wandb import WandbLogger
-from data.dataset import load_processed_SEEDV_data, SEEDV_Dataset, TrainSampler_SEEDV
+from data.dataset import SEEDV_Dataset, TrainSampler_SEEDV
+from data.io_utils  import load_processed_SEEDV_data
 from torch.utils.data import DataLoader
 import torch
 
@@ -175,6 +176,16 @@ def fea_distribution(cfg: DictConfig):
         plt.legend(loc='upper right')
         plt.show()
 
+def test_partial():
+    import functools
+    def add(a,b,c):
+        print(a)
+        print(b)
+        print(c)
+    add_ = functools.partial(add,a=1)
+    print(add_(c=3,b=4))
+
+
 if __name__ == "__main__":
     # path_test()
     # grad_test()
@@ -183,4 +194,5 @@ if __name__ == "__main__":
     # add()
     # test_array()
     # norm_test()
-    fea_distribution()
+    # fea_distribution()
+    test_partial()
