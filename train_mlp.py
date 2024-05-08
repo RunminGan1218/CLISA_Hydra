@@ -28,7 +28,7 @@ def train_mlp(cfg: DictConfig) -> None:
 
     n_per = round(cfg.data.n_subs / n_folds)
     
-    for fold in range(2):
+    for fold in range(n_folds):
         cp_dir = './'+cfg.log.mlp_exp_name+'/checkpoints'
         wandb_logger = WandbLogger(name=cfg.log.mlp_exp_name+f'_{fold}', project=cfg.log.mlp_proj_name, log_model="all")
         checkpoint_callback = ModelCheckpoint(monitor="val/acc", mode="max", dirpath=cp_dir, filename=f'mlp_f_{fold}_best.ckpt')

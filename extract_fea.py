@@ -1,6 +1,6 @@
  
 import numpy as np
-from data.io_utils import load_processed_SEEDV_data
+from data.io_utils import load_processed_SEEDV_data, load_processed_SEEDV_NEW_data
 from data.data_process import running_norm_onesub, LDS, LDS_acc
 import hydra
 from omegaconf import DictConfig
@@ -15,7 +15,7 @@ from tqdm import tqdm
 @hydra.main(config_path="cfgs", config_name="config", version_base="1.3")
 def ext_fea(cfg: DictConfig) -> None:
     # print(cfg.mlp.fea_dim, cfg.mlp.hidden_dim, cfg.mlp.out_dim)
-    data2, onesub_label2, n_samples2_onesub, n_samples2_sessions = load_processed_SEEDV_data(
+    data2, onesub_label2, n_samples2_onesub, n_samples2_sessions = load_processed_SEEDV_NEW_data(
             cfg.data.load_dir, cfg.data.fs, cfg.data.n_channs, cfg.data.timeLen2,cfg.data.timeStep2,cfg.data.n_session,cfg.data.n_subs,cfg.data.n_vids,cfg.data.n_class)
     data2 = data2.reshape(cfg.data.n_subs, -1, data2.shape[-2], data2.shape[-1])
     if not os.path.exists(cfg.ext_fea.save_dir):
@@ -33,7 +33,7 @@ def ext_fea(cfg: DictConfig) -> None:
 
     n_per = round(cfg.data.n_subs / n_folds)
     
-    for fold in range(2):
+    for fold in range(n_folds):
         print("fold:", fold)
         if n_folds == 1:
             val_subs = []
