@@ -33,7 +33,7 @@ def ext_fea(cfg: DictConfig) -> None:
 
     n_per = round(cfg.data.n_subs / n_folds)
     
-    for fold in range(3):
+    for fold in range(2):
         print("fold:", fold)
         if n_folds == 1:
             val_subs = []
