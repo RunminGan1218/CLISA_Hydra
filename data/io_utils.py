@@ -2,6 +2,7 @@ import os
 import numpy as np
 import scipy.io as sio
 import re
+import pickle
 
 def load_processed_FACED_data(dir, fs, n_chans, t, timeLen,timeStep, n_class):
     # input data shape(onesub):(vid,channel,time)
