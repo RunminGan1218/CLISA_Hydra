@@ -51,9 +51,9 @@ class SEEDV_Dataset_new(Dataset):
         if not sliced:
             if not os.path.exists(self.sliced_data_dir+'/saved.npy'):
                 print('slicing processed dataset')
-                data, onesub_label, n_samples_onesub, n_samples_sessions = self.load_processed_SEEDV_NEW_data(
+                data, onesub_labels, n_samples_onesub, n_samples_sessions = self.load_processed_SEEDV_NEW_data(
                     fs=fs, n_chans=n_chans, n_session=n_session, n_subs=n_subs, n_vids=n_vids, n_class=n_class)
-                self.save_sliced_data(data=data, onesub_label=onesub_label, n_samples_onesub=n_samples_onesub, n_samples_sessions=n_samples_sessions)
+                self.save_sliced_data(data=data, onesub_labels=onesub_labels, n_samples_onesub=n_samples_onesub, n_samples_sessions=n_samples_sessions)
             else:
                 print('sliced data exist!')
         

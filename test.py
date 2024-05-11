@@ -185,6 +185,12 @@ def test_partial():
     add_ = functools.partial(add,a=1)
     print(add_(c=3,b=4))
 
+@hydra.main(config_path="cfgs", config_name="config", version_base="1.3")
+def test_hydra(cfg: DictConfig) -> None:
+    a = '123'
+    b = a+str(cfg.log.run)
+    print(b)
+    
 
 if __name__ == "__main__":
     # path_test()
@@ -195,4 +201,5 @@ if __name__ == "__main__":
     # test_array()
     # norm_test()
     # fea_distribution()
-    test_partial()
+    # test_partial()
+    test_hydra()

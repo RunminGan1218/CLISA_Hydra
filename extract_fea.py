@@ -18,9 +18,10 @@ def ext_fea(cfg: DictConfig) -> None:
     data2, onesub_label2, n_samples2_onesub, n_samples2_sessions = load_processed_SEEDV_NEW_data(
             cfg.data.load_dir, cfg.data.fs, cfg.data.n_channs, cfg.data.timeLen2,cfg.data.timeStep2,cfg.data.n_session,cfg.data.n_subs,cfg.data.n_vids,cfg.data.n_class)
     data2 = data2.reshape(cfg.data.n_subs, -1, data2.shape[-2], data2.shape[-1])
-    if not os.path.exists(cfg.ext_fea.save_dir):
-        os.makedirs(cfg.ext_fea.save_dir) 
-    np.save(cfg.ext_fea.save_dir+'/onesub_label2.npy',onesub_label2)
+    save_dir = cfg.ext_fea.save_dir+f'_r{cfg.log.run}'
+    if not os.path.exists(save_dir):
+        os.makedirs(save_dir) 
+    np.save(save_dir+'/onesub_label2.npy',onesub_label2)
     
     
     
@@ -147,7 +148,7 @@ def ext_fea(cfg: DictConfig) -> None:
         else:
             print('no nan')
 
-        save_path = os.path.join(cfg.ext_fea.save_dir,f'fold_{fold}_fea_'+cfg.ext_fea.mode+'.npy')
+        save_path = os.path.join(save_dir,f'fold_{fold}_fea_'+cfg.ext_fea.mode+'.npy')
         # if not os.path.exists(cfg.ext_fea.save_dir):
         #     os.makedirs(cfg.ext_fea.save_dir)  
         np.save(save_path,fea)

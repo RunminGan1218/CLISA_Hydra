@@ -1,18 +1,19 @@
 seed: 7
 
 log:
-  proj_name: 'CLISA_SeedV_pretrain'
-  mlp_proj_name: 'CLISA_SeedV_finetune'
+  run: 1
+  proj_name: 'CLISA_SeedV_new_pretrain'
+  mlp_proj_name: 'CLISA_SeedV_new_finetune'
   # proj_name: 'CLISA_SeedV'
-  exp_name: '10_5_run1'
-  mlp_exp_name: 'mlp_22_11_5fold_run1'
+  exp_name: ''
+  mlp_exp_name: ''
 
 
 data:
   # load_dir: '/mnt/data/model_weights/grm/SEEDV/EEG_processed_sxk'
-  load_dir: '/mnt/data/model_weights/grm/SEEDV-NEW/processed_data_new'
+  load_dir: '/mnt/data/model_weights/grm/SEEDV_new2/processed_data'
   # save_dir: '/mnt/data/model_weights/grm/SEEDV/sliced_data'
-  save_dir: '/mnt/data/model_weights/grm/SEEDV-NEW/sliced_data'
+  save_dir: '/mnt/data/model_weights/grm/SEEDV_new2/sliced_data'
   # fs: 250
   fs: 125
   # n_channs: 62
@@ -29,7 +30,7 @@ data:
 
 
 train:
-  valid_method: '5-folds'
+  valid_method: 'loo'
   train_vids: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
   val_vids: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
   n_subs: ${data.n_subs}
@@ -77,9 +78,9 @@ mlp:
 
 ext_fea:
   # cp_dir: '/mnt/data/model_weights/grm/SEEDV/runs/2024-04-23/03-38-42_/22_11_5fold_run1/checkpoints/'
-  cp_dir: '/mnt/data/model_weights/grm/SEEDV/runs/2024-05-06/21-21-55_/10_5_run1/checkpoints/'
+  cp_dir: '/mnt/data/model_weights/grm/SEEDV_new2/runs/2024-05-06/21-21-55_/10_5_run1/checkpoints/'
   # save_dir: '/mnt/data/model_weights/grm/SEEDV/sliced_data/sliced_len22_step11/fea_5fold_run1'
-  save_dir: '/mnt/data/model_weights/grm/SEEDV-NEW/sliced_data/sliced_len22_step11/fea_5fold_run1'
+  save_dir: '/mnt/data/model_weights/grm/SEEDV_new2/ext_fea/fea'
   normTrain: False
   batch_size: 16
   mode: 'me'
@@ -90,4 +91,4 @@ hydra:
   job:
     chdir: true
   run:
-    dir: /mnt/data/model_weights/grm/SEEDV/runs/${now:%Y-%m-%d}/${now:%H-%M-%S}_${hydra.job.override_dirname}
+    dir: /mnt/data/model_weights/grm/SEEDV_new2/runs/${now:%Y-%m-%d}/${now:%H-%M-%S}_${hydra.job.override_dirname}
