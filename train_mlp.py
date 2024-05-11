@@ -19,12 +19,10 @@ def train_mlp(cfg: DictConfig) -> None:
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
     
-    if cfg.train.valid_method == '5-folds':
-        n_folds = 5
+    if isinstance(cfg.train.valid_method, int):
+        n_folds = cfg.train.valid_method
     elif cfg.train.valid_method == 'loo':
         n_folds = cfg.train.n_subs
-    elif cfg.train.valid_method == 'all':
-        n_folds = 1
 
     n_per = round(cfg.data.n_subs / n_folds)
     

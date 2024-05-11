@@ -16,7 +16,8 @@ from tqdm import tqdm
 def ext_fea(cfg: DictConfig) -> None:
     # print(cfg.mlp.fea_dim, cfg.mlp.hidden_dim, cfg.mlp.out_dim)
     data2, onesub_label2, n_samples2_onesub, n_samples2_sessions = load_processed_SEEDV_NEW_data(
-            cfg.data.load_dir, cfg.data.fs, cfg.data.n_channs, cfg.data.timeLen2,cfg.data.timeStep2,cfg.data.n_session,cfg.data.n_subs,cfg.data.n_vids,cfg.data.n_class)
+            cfg.data.load_dir, cfg.data.fs, cfg.data.n_channs, cfg.data.timeLen2,cfg.data.timeStep2,
+            cfg.data.n_session,cfg.data.n_subs,cfg.data.n_vids,cfg.data.n_class)
     data2 = data2.reshape(cfg.data.n_subs, -1, data2.shape[-2], data2.shape[-1])
     save_dir = os.path.join(cfg.data.data_dir,'ext_fea',f'fea_r{cfg.log.run}')
     if not os.path.exists(save_dir):
@@ -25,12 +26,10 @@ def ext_fea(cfg: DictConfig) -> None:
     
     
     
-    if cfg.train.valid_method == '5-folds':
-        n_folds = 5
+    if isinstance(cfg.train.valid_method, int):
+        n_folds = cfg.train.valid_method
     elif cfg.train.valid_method == 'loo':
         n_folds = cfg.train.n_subs
-    elif cfg.train.valid_method == 'all':
-        n_folds = 1
 
     n_per = round(cfg.data.n_subs / n_folds)
     

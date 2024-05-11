@@ -4,14 +4,18 @@ import scipy.io as sio
 import re
 import pickle
 
-def load_processed_FACED_data(dir, fs, n_chans, t, timeLen,timeStep, n_class):
+def load_processed_FACED_NEW_data(dir, fs, n_chans, timeLen,timeStep,n_session=1, 
+                                  n_subs=123, n_vids = 28, n_class=9, t=30):
+    # t: we only use last 30s data for each video
     # input data shape(onesub):(vid,channel,time)
-    # output : subs*(slices*vids)*channals*time
-    #           123*(28*30)*32*(250)
+    # output : (subs*slices*vids)*channals*time
+    #           (123*28*30)*30*(125)
 
     list_files = os.listdir(dir)
+    list_files = sorted(list_files, key=lambda x: int(re.search(r'\d+', x).group()))
     n_samples = int((t-timeLen)/timeStep)+1
-    
+    points_len = int(timeLen*fs)
+    points_step = int(timeStep*fs)
 
     if n_class == 2:
         vid_sel = list(range(12))
@@ -22,16 +26,24 @@ def load_processed_FACED_data(dir, fs, n_chans, t, timeLen,timeStep, n_class):
         vid_sel = list(range(28))
         n_vids = 28
     data = np.empty((len(list_files),n_vids*n_samples,n_chans,fs*timeLen),float)
+    # subs(*slices*vids)*channals*time
 
     for idx,fn in enumerate(list_files):
         file_path = os.path.join(dir,fn)
+        d = sio.loadmat(file_path)
         
-        with open(file_path, 'rb') as fo:     # 读取pkl文件数据
-            onesub_data = pickle.load(fo, encoding='bytes')
-            for k, vid in enumerate(vid_sel):
-                for i in range(n_samples):
-                    data[idx,k*n_samples+i] = onesub_data[vid,:,int(i*fs*timeStep):int(i*fs*timeStep+timeLen*fs)]
-
+        onesubsession_data = d['data_all_cleaned']
+        n_points = d['n_samples_one'][0]*fs
+        n_points_cum = np.cumsum(n_points).astype(int)
+        start_points = n_points_cum-t*fs
+        
+        for k, vid in enumerate(vid_sel):
+            for i in range(n_samples):
+                data[idx,k*n_samples+i] = onesubsession_data[:,start_points[vid]+i*points_step:start_points[vid]+i*points_step+points_len]        
+    
+    data = data.reshape(-1,data.shape[-2],data.shape[-1])
+    # (subs*slices*vids)*channals*time
+    
     if n_class == 2:
         label = [0] * 12
         label.extend([1] * 12)
@@ -43,11 +55,15 @@ def load_processed_FACED_data(dir, fs, n_chans, t, timeLen,timeStep, n_class):
         for i in range(5,9):
             label.extend([i] * 3)
     
-    label_repeat = []
+    onesub_labels = []
     for i in range(len(label)):
-        label_repeat = label_repeat + [label[i]]*n_samples
+        onesub_labels = onesub_labels + [label[i]]*n_samples
+        
+    n_samples_onesub = np.array([n_samples]*n_vids)
+    n_samples_sessions = n_samples_onesub.reshape(n_session,-1)
 
-    return data, np.array(label_repeat), n_samples
+    return data, np.array(onesub_labels), n_samples_onesub, n_samples_sessions
+
 
 def load_processed_SEEDV_data(dir, fs, n_chans, timeLen,timeStep, n_session, n_subs=16, n_vids = 15, n_class=5):
     # input data shape(onesub_onesession):(channels,tot_time) tot_time = sum(eachvids_n_points) 
@@ -113,15 +129,16 @@ def load_processed_SEEDV_data(dir, fs, n_chans, timeLen,timeStep, n_session, n_s
     n_samples_onesub = np.array(n_samples_onesub)
     n_samples_sessions = n_samples_onesub.reshape(n_session,-1)
     label = [4, 1, 3, 2, 0] * 3 + [2, 1, 3, 0, 4, 4, 0, 3, 2, 1, 3, 4, 1, 2, 0] * 2
-    onesub_label = []
+    onesub_labels = []
     for i in range(len(label)):
-        onesub_label = onesub_label + [label[i]]*n_samples_onesub[i]
+        onesub_labels = onesub_labels + [label[i]]*n_samples_onesub[i]
     
     print('load processed data finished!')   
 
-    return data, np.array(onesub_label), n_samples_onesub, n_samples_sessions
+    return data, np.array(onesub_labels), n_samples_onesub, n_samples_sessions
 
-def load_processed_SEEDV_NEW_data(dir, fs, n_chans, timeLen, timeStep, n_session=3, n_subs=16, n_vids = 15, n_class=5):
+def load_processed_SEEDV_NEW_data(dir, fs, n_chans, timeLen, timeStep, n_session=3, 
+                                  n_subs=16, n_vids = 15, n_class=5):
     # input data shape(onesub_onesession):(channels,tot_time) tot_time = sum(eachvids_n_points) 
     # *input data shape（onesub_3session):(channels,tot_time)
     # output : (subs*sum(n_samples_onesub))*channals*time
@@ -165,10 +182,10 @@ def load_processed_SEEDV_NEW_data(dir, fs, n_chans, timeLen, timeStep, n_session
     n_samples_onesub = np.array(n_samples_onesub)
     n_samples_sessions = n_samples_onesub.reshape(n_session,-1)
     label = [4, 1, 3, 2, 0] * 3 + [2, 1, 3, 0, 4, 4, 0, 3, 2, 1, 3, 4, 1, 2, 0] * 2
-    onesub_label = []
+    onesub_labels = []
     for i in range(len(label)):
-        onesub_label = onesub_label + [label[i]]*n_samples_onesub[i]   
-    return data, np.array(onesub_label), n_samples_onesub, n_samples_sessions
+        onesub_labels = onesub_labels + [label[i]]*n_samples_onesub[i]   
+    return data, np.array(onesub_labels), n_samples_onesub, n_samples_sessions
 
 
 def save_sliced_data(sliced_data_dir, data, onesub_labels, n_samples_onesub, n_samples_sessions):
@@ -195,14 +212,14 @@ def test_load_processed_SEEDV_data():
     n_channs = 62
     n_session = 3
 
-    data, onesub_label, n_samples_onesub, n_samples_sessions = load_processed_SEEDV_data(data_dir,fs,n_channs,timeLen,timeStep,n_session)
+    data, onesub_labels, n_samples_onesub, n_samples_sessions = load_processed_SEEDV_data(data_dir,fs,n_channs,timeLen,timeStep,n_session)
     print(data.shape)
-    print(onesub_label)
+    print(onesub_labels)
     print(n_samples_onesub)
     print(n_samples_sessions)
     sampled_data = {}
     sampled_data['data'] = data
-    sampled_data['onesub_label'] = onesub_label
+    sampled_data['onesub_labels'] = onesub_labels
     sampled_data['n_samples_onesub'] = n_samples_onesub
     sampled_data['n_samples_sessions'] = n_samples_sessions
 
@@ -218,14 +235,14 @@ def test_load_processed_SEEDV_NEW_data():
     n_channs = 60
     n_session = 3
 
-    data, onesub_label, n_samples_onesub, n_samples_sessions = load_processed_SEEDV_NEW_data(data_dir,fs,n_channs,timeLen,timeStep,n_session)
+    data, onesub_labels, n_samples_onesub, n_samples_sessions = load_processed_SEEDV_NEW_data(data_dir,fs,n_channs,timeLen,timeStep,n_session)
     print(data.shape)
-    print(onesub_label)
+    print(onesub_labels)
     print(n_samples_onesub)
     print(n_samples_sessions)
     sampled_data = {}
     sampled_data['data'] = data
-    sampled_data['onesub_label'] = onesub_label
+    sampled_data['onesub_labels'] = onesub_labels
     sampled_data['n_samples_onesub'] = n_samples_onesub
     sampled_data['n_samples_sessions'] = n_samples_sessions
 

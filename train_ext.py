@@ -7,7 +7,7 @@ import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
 import wandb
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
-from data.pl_datamodule import SEEDVDataModule
+from data.pl_datamodule import SEEDVDataModule, FACEDDataModule
 import os
 
 # normalize data
@@ -22,12 +22,10 @@ def train_ext(cfg: DictConfig) -> None:
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
     
-    if cfg.train.valid_method == '5-folds':
-        n_folds = 5
+    if isinstance(cfg.train.valid_method, int):
+        n_folds = cfg.train.valid_method
     elif cfg.train.valid_method == 'loo':
         n_folds = cfg.train.n_subs
-    elif cfg.train.valid_method == 'all':
-        n_folds = 1
 
     n_per = round(cfg.data.n_subs / n_folds)
     
@@ -54,7 +52,18 @@ def train_ext(cfg: DictConfig) -> None:
         
         load_dir = os.path.join(cfg.data.data_dir,'processed_data')
         save_dir = os.path.join(cfg.data.data_dir,'sliced_data')
-        dm = SEEDVDataModule(load_dir, save_dir, cfg.data.timeLen, cfg.data.timeStep, train_subs, val_subs, cfg.train.train_vids, cfg.train.val_vids, cfg.data.n_session, cfg.train.valid_method=='loo', cfg.train.num_workers)
+        train_vids = np.arange(cfg.data.n_vids)
+        val_vids = np.arange(cfg.data.n_vids)
+        if cfg.data.dataset_name == 'SEEDV':
+            dm = SEEDVDataModule(load_dir, save_dir, cfg.data.timeLen, cfg.data.timeStep, train_subs,
+                                 val_subs, train_vids, val_vids, cfg.data.n_session, cfg.data.fs, 
+                                 cfg.data.n_channs, cfg.data.n_subs, cfg.data.n_vids, cfg.data.n_class,
+                                 cfg.train.valid_method=='loo', cfg.train.num_workers)
+        elif cfg.data.dataset_name == 'FACED':
+            dm = FACEDDataModule(load_dir, save_dir, cfg.data.timeLen, cfg.data.timeStep, train_subs,
+                                 val_subs, train_vids, val_vids, cfg.data.n_session, cfg.data.fs, 
+                                 cfg.data.n_channs, cfg.data.n_subs, cfg.data.n_vids, cfg.data.n_class,
+                                 cfg.train.valid_method=='loo', cfg.train.num_workers)
 
         # load model
         model = Conv_att_simple_new(cfg.model.n_timeFilters, cfg.model.timeFilterLen, cfg.model.n_msFilters, cfg.model.msFilterLen, cfg.model.n_channs, cfg.model.dilation_array, cfg.model.seg_att, 
