@@ -2,7 +2,7 @@
 import numpy as np
 from data.io_utils import load_finetune_EEG_data, get_load_data_func, load_processed_SEEDV_NEW_data
 from data.data_process import running_norm_onesubsession, LDS, LDS_acc
-from reorder_vids import video_order_load, reorder_vids_sepVideo, reorder_vids_back
+from utils.reorder_vids import video_order_load, reorder_vids_sepVideo, reorder_vids_back
 import hydra
 from omegaconf import DictConfig
 from model import ExtractorModel
@@ -35,7 +35,7 @@ def ext_fea(cfg: DictConfig) -> None:
 
     n_per = round(cfg.data.n_subs / n_folds)
     
-    for fold in range(n_folds):
+    for fold in range(0,n_folds):
         log.info(f"fold:{fold}")
         if n_folds == 1:
             val_subs = []
