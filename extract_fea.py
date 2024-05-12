@@ -123,12 +123,11 @@ def ext_fea(cfg: DictConfig) -> None:
         log.info('running norm:')
         for sub in range(cfg.data.n_subs):
             log.info(f'sub:{sub}')
-            for s in  tqdm(range(len(n_sample_sum_sessions)), desc='sessions', leave=False):
+            for s in  tqdm(range(len(n_sample_sum_sessions)), desc=f'running norm sub: {sub}', leave=False):
                 fea[sub,n_sample_sum_sessions_cum[s]:n_sample_sum_sessions_cum[s+1]] = running_norm_onesubsession(
                                             fea[sub,n_sample_sum_sessions_cum[s]:n_sample_sum_sessions_cum[s+1]],
                                             data_mean,data_var,cfg.ext_fea.rn_decay)
                 
-                tqdm.set_postfix({'sub': s})
         # print('rn:',fea[0,0])
         if np.isinf(fea).any():
             log.warning("There are inf values in the array")
@@ -148,10 +147,9 @@ def ext_fea(cfg: DictConfig) -> None:
         log.info('LDS:')
         for sub in range(cfg.data.n_subs):
             log.info(f'sub:{sub}')
-            for vid in tqdm(range(len(n_samples2_onesub)), desc='vids', leave=False):
+            for vid in tqdm(range(len(n_samples2_onesub)), desc=f'LDS Processing sub: {sub}', leave=False):
                 fea[sub,n_samples2_onesub_cum[vid]:n_samples2_onesub_cum[vid+1]] = LDS(fea[sub,n_samples2_onesub_cum[vid]:n_samples2_onesub_cum[vid+1]])
             # print('LDS:',fea[sub,0])
-                tqdm.set_postfix({'vid': vid})
         fea = fea.reshape(-1,fea.shape[-1])
         
         

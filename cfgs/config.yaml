@@ -2,7 +2,7 @@
 defaults:
   - data: SEEDV
 
-hydra/job_logging: warning
+hydra/job_logging: disabled
 
 seed: 7
 
@@ -19,7 +19,7 @@ log:
 train:
   gpus: [2]
   valid_method: 10
-  iftest: False
+  iftest: True
   n_subs: ${data.n_subs}
   lr: 0.0007
   wd: 0.00015
