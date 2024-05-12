@@ -124,7 +124,7 @@ def running_norm(data,data_mean,data_var,decay_rate):
             data_norm[sub, counter, :] = data_one
     return data_norm
 
-def running_norm_onesub(data,data_mean,data_var,decay_rate):
+def running_norm_onesubsession(data,data_mean,data_var,decay_rate):
     # data  (n_points,dim,...)
     # output data_norm:(n_points,dim,...)
     # one session represent one sub

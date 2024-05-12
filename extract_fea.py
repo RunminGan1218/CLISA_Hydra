@@ -1,7 +1,8 @@
  
 import numpy as np
 from data.io_utils import load_processed_SEEDV_data, load_processed_SEEDV_NEW_data
-from data.data_process import running_norm_onesub, LDS, LDS_acc
+from data.data_process import running_norm_onesubsession, LDS, LDS_acc
+from reorder_vids import video_order_load, reorder_vids_sepVideo, reorder_vids_back
 import hydra
 from omegaconf import DictConfig
 from model import ExtractorModel
@@ -63,13 +64,13 @@ def ext_fea(cfg: DictConfig) -> None:
         label2_fold = np.tile(onesub_label2, cfg.data.n_subs)
         foldset = SEEDV_Dataset(data2_fold, label2_fold)
         del data2_fold, label2_fold
-        fold_load = DataLoader(foldset, batch_size=cfg.ext_fea.batch_size, shuffle=False, num_workers=cfg.train.num_workers)
+        fold_loader = DataLoader(foldset, batch_size=cfg.ext_fea.batch_size, shuffle=False, num_workers=cfg.train.num_workers)
         checkpoint =  cfg.ext_fea.cp_dir+f'f_{fold}_best.ckpt.ckpt'
         Extractor = ExtractorModel.load_from_checkpoint(checkpoint_path=checkpoint)
         Extractor.model.stratified = []
         print('load model:', checkpoint)
         trainer = pl.Trainer(accelerator='gpu', devices=cfg.train.gpus)
-        pred = trainer.predict(Extractor, fold_load)
+        pred = trainer.predict(Extractor, fold_loader)
         # data
         pred = torch.stack(pred,dim=0)
         pred = pred.reshape(-1,pred.shape[-3],pred.shape[-2],pred.shape[-1]).cpu().numpy()
@@ -100,6 +101,16 @@ def ext_fea(cfg: DictConfig) -> None:
             print("There are nan values in the array")
         else:
             print('no nan')
+            
+        # reorder
+        if cfg.data.dataset_name == 'FACED':
+            vid_order = video_order_load(cfg.data.n_vids)
+            if cfg.data.n_class == 2:
+                n_vids = 24
+            elif cfg.data.n_class == 9:
+                n_vids = 28
+            vid_inds = np.arange(n_vids)
+            fea, vid_play_order_new = reorder_vids_sepVideo(fea, vid_order, vid_inds, n_vids)
 
 
         n_sample_sum_sessions = np.sum(n_samples2_sessions,1)
@@ -110,7 +121,7 @@ def ext_fea(cfg: DictConfig) -> None:
         for sub in range(cfg.data.n_subs):
             print('sub:',sub)
             for s in  tqdm(range(len(n_sample_sum_sessions)), desc='sessions', leave=False):
-                fea[sub,n_sample_sum_sessions_cum[s]:n_sample_sum_sessions_cum[s+1]] = running_norm_onesub(
+                fea[sub,n_sample_sum_sessions_cum[s]:n_sample_sum_sessions_cum[s+1]] = running_norm_onesubsession(
                         fea[sub,n_sample_sum_sessions_cum[s]:n_sample_sum_sessions_cum[s+1]],data_mean,data_var,cfg.ext_fea.rn_decay)
         # print('rn:',fea[0,0])
         if np.isinf(fea).any():
@@ -121,6 +132,10 @@ def ext_fea(cfg: DictConfig) -> None:
             print("There are nan values in the array")
         else:
             print('no nan')
+
+        # order back
+        if cfg.data.dataset_name == 'FACED':
+            fea = reorder_vids_back(fea, len(vid_inds), vid_play_order_new)
         
         n_samples2_onesub_cum = np.concatenate((np.array([0]), np.cumsum(n_samples2_onesub)))
         # LDS

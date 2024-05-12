@@ -1,40 +1,22 @@
+
+defaults:
+  - data: FACED
+
+
 seed: 7
 
 log:
-  run: 3
-  proj_name: 'CLISA_SeedV_new2'
+  run: 4
+  proj_name: 'CLISA_FACED_new'
   # mlp_proj_name: 'CLISA_SeedV_new_hdata'
   # proj_name: 'CLISA_SeedV'
   exp_name: ''
   # mlp_exp_name: ''
 
 
-data:
-  dataset_name: 'SEEDV'
-  data_dir: '/mnt/data/model_weights/grm/SEEDV_new2'
-  # load_dir: '/mnt/data/model_weights/grm/SEEDV/EEG_processed_sxk'
-  # load_dir: '/mnt/data/model_weights/grm/SEEDV-NEW/processed_data'
-  # save_dir: '/mnt/data/model_weights/grm/SEEDV/sliced_data'
-  # save_dir: '/mnt/data/model_weights/grm/SEEDV-NEW/sliced_data'
-  # fs: 250
-  fs: 125
-  # n_channs: 62
-  n_channs: 60
-  timeLen: 22
-  timeStep: 11
-  timeLen2: 1
-  timeStep2: 1
-  n_session: 3
-  n_subs: 16
-  n_vids: 15
-  n_class: 5
-  
-
 
 train:
-  valid_method: 'loo'
-  train_vids: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
-  val_vids: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+  valid_method: 10
   n_subs: ${data.n_subs}
   lr: 0.0007
   wd: 0.00015
@@ -42,7 +24,7 @@ train:
   max_epochs: 100
   min_epochs: 30
   patience: 30
-  gpus: [0]
+  gpus: [2]
   num_workers: 8
 
 
