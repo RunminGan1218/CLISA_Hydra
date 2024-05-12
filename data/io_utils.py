@@ -58,8 +58,8 @@ def load_processed_FACED_NEW_data(dir, fs, n_chans, timeLen,timeStep,n_session=1
         onesubsession_data = sio.loadmat(file_path)
         
         EEG_data = onesubsession_data['data_all_cleaned']
-        # thr = 30 * np.median(np.abs(EEG_data))
-        # EEG_data = (EEG_data - np.mean(EEG_data[EEG_data<thr])) / np.std(EEG_data[EEG_data<thr])
+        thr = 30 * np.median(np.abs(EEG_data))
+        EEG_data = (EEG_data - np.mean(EEG_data[EEG_data<thr])) / np.std(EEG_data[EEG_data<thr])
         n_points = onesubsession_data['n_samples_one'][0]*fs
         n_points_cum = np.cumsum(n_points).astype(int)
         start_points = n_points_cum-t*fs
