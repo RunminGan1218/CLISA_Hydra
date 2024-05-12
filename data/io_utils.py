@@ -55,16 +55,18 @@ def load_processed_FACED_NEW_data(dir, fs, n_chans, timeLen,timeStep,n_session=1
 
     for idx,fn in enumerate(list_files):
         file_path = os.path.join(dir,fn)
-        d = sio.loadmat(file_path)
+        onesubsession_data = sio.loadmat(file_path)
         
-        onesubsession_data = d['data_all_cleaned']
-        n_points = d['n_samples_one'][0]*fs
+        EEG_data = onesubsession_data['data_all_cleaned']
+        # thr = 30 * np.median(np.abs(EEG_data))
+        # EEG_data = (EEG_data - np.mean(EEG_data[EEG_data<thr])) / np.std(EEG_data[EEG_data<thr])
+        n_points = onesubsession_data['n_samples_one'][0]*fs
         n_points_cum = np.cumsum(n_points).astype(int)
         start_points = n_points_cum-t*fs
         
         for k, vid in enumerate(vid_sel):
             for i in range(n_samples):
-                data[idx,k*n_samples+i] = onesubsession_data[:,start_points[vid]+i*points_step:start_points[vid]+i*points_step+points_len]        
+                data[idx,k*n_samples+i] = EEG_data[:,start_points[vid]+i*points_step:start_points[vid]+i*points_step+points_len]        
     
     data = data.reshape(-1,data.shape[-2],data.shape[-1])
     # (subs*slices*vids)*channals*time
