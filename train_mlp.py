@@ -25,6 +25,7 @@ def train_mlp(cfg: DictConfig) -> None:
         n_folds = cfg.train.n_subs
 
     n_per = round(cfg.data.n_subs / n_folds)
+    best_val_acc_list = []
     
     for fold in range(1):
         cp_dir = './mlp_checkpoints'
@@ -66,7 +67,15 @@ def train_mlp(cfg: DictConfig) -> None:
         predictor = MLPModel(model_mlp, cfg.mlp)
         trainer = pl.Trainer(logger=wandb_logger, callbacks=[checkpoint_callback, earlyStopping_callback],max_epochs=cfg.mlp.max_epochs, min_epochs=cfg.mlp.min_epochs, accelerator='gpu', devices=cfg.mlp.gpus)
         trainer.fit(predictor, trainLoader, valLoader)
+        best_val_acc_list.append(checkpoint_callback.best_model_score.item())
         wandb.finish()
+
+    print("Best validation accuracies for each fold:")
+    for fold, acc in enumerate(best_val_acc_list):
+        print(f"    Fold {fold}: {acc}")
+    
+    average_val_acc = np.mean(best_val_acc_list)
+    print(f"Average validation accuracy across all folds: {average_val_acc}")
 
 if __name__ == '__main__':
     train_mlp()
