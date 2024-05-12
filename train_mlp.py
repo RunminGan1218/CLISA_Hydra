@@ -26,7 +26,7 @@ def train_mlp(cfg: DictConfig) -> None:
 
     n_per = round(cfg.data.n_subs / n_folds)
     
-    for fold in range(n_folds):
+    for fold in range(1):
         cp_dir = './mlp_checkpoints'
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'mlp'+'v'+str(cfg.train.valid_method)
                                    +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
