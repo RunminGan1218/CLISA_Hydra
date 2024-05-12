@@ -7,7 +7,7 @@ import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
 import wandb
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
-from data.pl_datamodule import SEEDVDataModule, FACEDDataModule
+from data.pl_datamodule import EEGDataModule,SEEDVDataModule, FACEDDataModule
 import os
 
 # normalize data
@@ -50,20 +50,32 @@ def train_ext(cfg: DictConfig) -> None:
         print('train_subs:', train_subs)
         print('val_subs:', val_subs)
         
-        load_dir = os.path.join(cfg.data.data_dir,'processed_data')
-        save_dir = os.path.join(cfg.data.data_dir,'sliced_data')
-        train_vids = np.arange(cfg.data.n_vids)
-        val_vids = np.arange(cfg.data.n_vids)
-        if cfg.data.dataset_name == 'SEEDV':
-            dm = SEEDVDataModule(load_dir, save_dir, cfg.data.timeLen, cfg.data.timeStep, train_subs,
-                                 val_subs, train_vids, val_vids, cfg.data.n_session, cfg.data.fs, 
-                                 cfg.data.n_channs, cfg.data.n_subs, cfg.data.n_vids, cfg.data.n_class,
-                                 cfg.train.valid_method=='loo', cfg.train.num_workers)
-        elif cfg.data.dataset_name == 'FACED':
-            dm = FACEDDataModule(load_dir, save_dir, cfg.data.timeLen, cfg.data.timeStep, train_subs,
-                                 val_subs, train_vids, val_vids, cfg.data.n_session, cfg.data.fs, 
-                                 cfg.data.n_channs, cfg.data.n_subs, cfg.data.n_vids, cfg.data.n_class,
-                                 cfg.train.valid_method=='loo', cfg.train.num_workers)
+        # load_dir = os.path.join(cfg.data.data_dir,'processed_data')
+        # save_dir = os.path.join(cfg.data.data_dir,'sliced_data')
+        if cfg.data.dataset_name == 'FACED':
+            if cfg.data.n_class == 2:
+                n_vids = 24
+            elif cfg.data.n_class == 9:
+                n_vids = 28
+        else:
+            n_vids = cfg.data.n_vids
+        train_vids = np.arange(n_vids)
+        val_vids = np.arange(n_vids)
+        # if cfg.data.dataset_name == 'SEEDV':
+        #     dm = SEEDVDataModule(load_dir, save_dir, cfg.data.timeLen, cfg.data.timeStep, train_subs,
+        #                          val_subs, train_vids, val_vids, cfg.data.n_session, cfg.data.fs, 
+        #                          cfg.data.n_channs, cfg.data.n_subs, cfg.data.n_vids, cfg.data.n_class,
+        #                          cfg.train.valid_method=='loo', cfg.train.num_workers)
+        # elif cfg.data.dataset_name == 'FACED':
+        #     dm = FACEDDataModule(load_dir, save_dir, cfg.data.timeLen, cfg.data.timeStep, train_subs,
+        #                          val_subs, train_vids, val_vids, cfg.data.n_session, cfg.data.fs, 
+        #                          cfg.data.n_channs, cfg.data.n_subs, cfg.data.n_vids, cfg.data.n_class,
+        #                          cfg.train.valid_method=='loo', cfg.train.num_workers)
+        # elif cfg.data.dataset_name == 'SEED':
+        #     pass
+        dm = EEGDataModule(cfg.data, train_subs, val_subs, train_vids, val_vids,
+                           cfg.train.valid_method=='loo', cfg.train.num_workers)
+            
 
         # load model
         model = Conv_att_simple_new(cfg.model.n_timeFilters, cfg.model.timeFilterLen, cfg.model.n_msFilters, cfg.model.msFilterLen, cfg.model.n_channs, cfg.model.dilation_array, cfg.model.seg_att, 

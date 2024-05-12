@@ -1,6 +1,6 @@
 from torch.utils.data import Dataset, DataLoader, Sampler
 import torch
-from .io_utils import load_processed_SEEDV_NEW_data, load_processed_FACED_NEW_data, save_sliced_data
+from .io_utils import load_EEG_data, load_processed_SEEDV_NEW_data, load_processed_FACED_NEW_data, save_sliced_data
 import os
 import numpy as np
 import random
@@ -120,6 +120,53 @@ class FACED_Dataset_new(Dataset):
         # one_sub_label = self.sub_label[idx]
         return one_seq, one_label
     
+class EEG_Dataset(Dataset):
+    def __init__(self, cfg, train_subs=None, val_subs=None, sliced=True, mods=None):
+        self.load_dir = os.path.join(cfg.data_dir,'processed_data')
+        self.save_dir = os.path.join(cfg.data_dir,'sliced_data')
+
+        self.train_subs = train_subs
+        self.val_subs = val_subs
+        self.mods = mods
+        
+        self.sliced_data_dir = os.path.join(self.save_dir, f'sliced_len{cfg.timeLen}_step{cfg.timeStep}')
+
+        if not sliced:
+            if not os.path.exists(self.sliced_data_dir+'/saved.npy'):
+                print('slicing processed dataset')
+                data, onesub_labels, n_samples_onesub, n_samples_sessions = load_EEG_data(self.load_dir,cfg)
+                save_sliced_data(sliced_data_dir=self.sliced_data_dir,data=data, onesub_labels=onesub_labels, 
+                                 n_samples_onesub=n_samples_onesub, n_samples_sessions=n_samples_sessions)
+            else:
+                print('sliced data exist!')
+        
+        self.onesub_labels = torch.from_numpy(np.load(os.path.join(self.sliced_data_dir, 'metadata', 'onesub_labels.npy')))
+        self.labels = self.onesub_labels.repeat(cfg.n_subs)
+        self.onesubLen = len(self.onesub_labels)
+        
+    def __len__(self):
+        if self.mods == 'train':
+            if self.train_subs is not None:
+                return len(self.train_subs)*self.onesubLen
+        elif self.mods == 'val':
+            if self.val_subs is not None:
+                return len(self.val_subs)*self.onesubLen
+        else:
+            return len(self.labels)
+    
+    def __getitem__(self, idx):
+        if self.mods == 'train':
+            if self.train_subs is not None:
+                idx = self.train_subs[idx//self.onesubLen]*self.onesubLen + idx%self.onesubLen
+        elif self.mods == 'val':
+            if self.val_subs is not None:
+                idx = self.val_subs[idx//self.onesubLen]*self.onesubLen + idx%self.onesubLen
+        one_seq = np.load(os.path.join(self.sliced_data_dir, 'data', f'data_sample_{idx}.npy'))
+        one_seq = torch.FloatTensor(one_seq.reshape(1,one_seq.shape[-2],one_seq.shape[-1]))    # 32*(250)->1*32*250  2d conv  c*h*w
+        one_label = self.labels[idx]
+        # one_sub_label = self.sub_label[idx]
+        return one_seq, one_label
+  
     
 class PDataset(Dataset):
     def __init__(self, data, label):
@@ -278,7 +325,7 @@ class TrainSampler_SEEDV():
 
 
 class PretrainSampler():
-    def __init__(self, n_subs, batch_size, n_samples_session, n_session=1, n_times=1, if_val_loo=False):
+    def __init__(self, n_subs, batch_size, n_samples_session, n_times=1, if_val_loo=False):
         # input
         # n_per_session: 一个sub的采样数总和   n_samples_inonesub = n_vids*n_samples_inonevid  session维度
         # n_sub: 数据集被试数量，不包括同一个被试的不同session 
@@ -295,17 +342,18 @@ class PretrainSampler():
         self.n_per_session_cum = np.concatenate((np.array([0]), np.cumsum(self.n_per_session)))
         self.n_subs = n_subs
         self.batch_size = batch_size
-        self.n_samples_cum_session = np.concatenate((np.zeros((n_session,1)), np.cumsum(n_samples_session,1)),1)
         self.n_samples_per_trial = int(batch_size / n_samples_session.shape[1])
         self.subsession_pairs = []
-        self.n_session = n_session
+        self.n_session = n_samples_session.shape[0]
+        self.n_samples_cum_session = np.concatenate((np.zeros((self.n_session,1)), np.cumsum(n_samples_session,1)),1)
+        
         if if_val_loo:
             self.n_pairsubs = 1
         else:
             self.n_pairsubs = self.n_subs
         for i in range(self.n_pairsubs*self.n_session):
             # j = i
-            for j in range(i+n_session, self.n_subs*self.n_session, n_session):
+            for j in range(i+self.n_session, self.n_subs*self.n_session, self.n_session):
                 self.subsession_pairs.append([i, j])
         random.shuffle(self.subsession_pairs)
         # 采样次数

@@ -2,7 +2,31 @@ import os
 import numpy as np
 import scipy.io as sio
 import re
-import pickle
+
+def get_load_data_func(dataset_name):
+    if dataset_name == 'SEEDV':
+        return load_processed_SEEDV_NEW_data
+    elif dataset_name == 'SEED':
+        return load_processed_SEED_NEW_data
+    elif dataset_name == 'FACED':
+        return load_processed_FACED_NEW_data
+    else:
+        raise ValueError('dataset_name not found')
+
+def load_EEG_data(data_dir, cfg):
+    load_data_func = get_load_data_func(cfg.dataset_name)
+    data, onesub_labels, n_samples_onesub, n_samples_sessions = load_data_func(
+                                data_dir, cfg.fs, cfg.n_channs, cfg.timeLen, cfg.timeStep, 
+                                cfg.n_session, cfg.n_subs, cfg.n_vids, cfg.n_class)
+    return data, onesub_labels, n_samples_onesub, n_samples_sessions
+
+def load_finetune_EEG_data(data_dir, cfg):
+    load_data_func = get_load_data_func(cfg.dataset_name)
+    data, onesub_labels, n_samples_onesub, n_samples_sessions = load_data_func(
+                                data_dir, cfg.fs, cfg.n_channs, cfg.timeLen2, cfg.timeStep2, 
+                                cfg.n_session, cfg.n_subs, cfg.n_vids, cfg.n_class)
+    return data, onesub_labels, n_samples_onesub, n_samples_sessions
+
 
 def load_processed_FACED_NEW_data(dir, fs, n_chans, timeLen,timeStep,n_session=1, 
                                   n_subs=123, n_vids = 28, n_class=9, t=30):
@@ -13,6 +37,7 @@ def load_processed_FACED_NEW_data(dir, fs, n_chans, timeLen,timeStep,n_session=1
 
     list_files = os.listdir(dir)
     list_files = sorted(list_files, key=lambda x: int(re.search(r'\d+', x).group()))
+    assert len(list_files) == n_subs
     n_samples = int((t-timeLen)/timeStep)+1
     points_len = int(timeLen*fs)
     points_step = int(timeStep*fs)
@@ -25,7 +50,7 @@ def load_processed_FACED_NEW_data(dir, fs, n_chans, timeLen,timeStep,n_session=1
     elif n_class == 9:
         vid_sel = list(range(28))
         n_vids = 28
-    data = np.empty((len(list_files),n_vids*n_samples,n_chans,fs*timeLen),float)
+    data = np.empty((n_subs,n_vids*n_samples,n_chans,fs*timeLen),float)
     # subs(*slices*vids)*channals*time
 
     for idx,fn in enumerate(list_files):
@@ -147,6 +172,7 @@ def load_processed_SEEDV_NEW_data(dir, fs, n_chans, timeLen, timeStep, n_session
 
     list_files = os.listdir(dir)
     list_files = sorted(list_files, key=lambda x: int(re.search(r'\d+', x).group()))
+    assert len(list_files) == n_subs
     points_len = int(timeLen*fs)
     points_step = int(timeStep*fs)
     
@@ -171,8 +197,8 @@ def load_processed_SEEDV_NEW_data(dir, fs, n_chans, timeLen, timeStep, n_session
         n_points_cum = np.concatenate((np.array([0]),np.cumsum(n_points)))
 
         
-        n_vids = 45
-        for vid in range(n_vids):
+        n_vids_all = n_vids*n_session
+        for vid in range(n_vids_all):
             # print('vid:',vid)
             for i in range(n_samples_onesub[vid]):
                 # print('sample:',i)
@@ -186,6 +212,58 @@ def load_processed_SEEDV_NEW_data(dir, fs, n_chans, timeLen, timeStep, n_session
     for i in range(len(label)):
         onesub_labels = onesub_labels + [label[i]]*n_samples_onesub[i]   
     return data, np.array(onesub_labels), n_samples_onesub, n_samples_sessions
+
+def load_processed_SEED_NEW_data(dir, fs, n_chans, timeLen, timeStep, n_session=3, 
+                                  n_subs=15, n_vids = 15, n_class=3):
+    # input data shape(onesub_onesession):(channels,tot_time) tot_time = sum(eachvids_n_points) 
+    # *input data shape（onesub_3session):(channels,tot_time)
+    # output : (subs*sum(n_samples_onesub))*channals*time
+    #           (16*(sum(n_samples_onesub)))*62*point_len(1250)
+    
+
+    list_files = os.listdir(dir)
+    list_files = sorted(list_files, key=lambda x: int(re.search(r'\d+', x).group()))
+    assert len(list_files) == n_subs
+    points_len = int(timeLen*fs)
+    points_step = int(timeStep*fs)
+    
+    # 3 session in all change delete the loop
+    file_path = os.path.join(dir,list_files[0])
+    onesub_data = sio.loadmat(file_path)  
+    n_time = np.squeeze(onesub_data['merged_n_samples_one']).astype(int)
+    n_points = np.array(n_time) * fs
+    n_samples_onesub = ((n_points-points_len)//points_step+1).astype(int)
+    n_samples_sum_onesub = np.sum(n_samples_onesub)
+    
+    data = np.empty((n_subs*n_samples_sum_onesub,n_chans,points_len),float)
+
+    cnt = 0
+    for idx,fn in enumerate(list_files):
+        file_path = os.path.join(dir,fn)
+        # print(fn)
+        onesub_data = sio.loadmat(file_path)     #keys: data,n_points
+        EEG_data = onesub_data['merged_data_all_cleaned']   #(channels,tot_n_points_3session)  (60,tot_n_points_3session)
+        thr = 30 * np.median(np.abs(EEG_data))
+        EEG_data = (EEG_data - np.mean(EEG_data[EEG_data<thr])) / np.std(EEG_data[EEG_data<thr])
+        n_points_cum = np.concatenate((np.array([0]),np.cumsum(n_points)))
+
+        
+        n_vids_all = n_vids*n_session
+        for vid in range(n_vids_all):
+            # print('vid:',vid)
+            for i in range(n_samples_onesub[vid]):
+                # print('sample:',i)
+                data[cnt] = EEG_data[:,n_points_cum[vid]+i*points_step:n_points_cum[vid]+i*points_step+points_len]
+                cnt+=1
+    
+    n_samples_onesub = np.array(n_samples_onesub)
+    n_samples_sessions = n_samples_onesub.reshape(n_session,-1)
+    label =  list(np.array([1, 0, -1, -1, 0, 1, -1, 0, 1, 1, 0, -1, 0, 1, -1])+1) * 3
+    onesub_labels = []
+    for i in range(len(label)):
+        onesub_labels = onesub_labels + [label[i]]*n_samples_onesub[i]   
+    return data, np.array(onesub_labels), n_samples_onesub, n_samples_sessions
+
 
 
 def save_sliced_data(sliced_data_dir, data, onesub_labels, n_samples_onesub, n_samples_sessions):
