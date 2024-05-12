@@ -12,6 +12,9 @@ import pytorch_lightning as pl
 import torch
 import os
 from tqdm import tqdm
+import logging
+
+log = logging.getLogger(__name__)
 
 @hydra.main(config_path="cfgs", config_name="config", version_base="1.3")
 def ext_fea(cfg: DictConfig) -> None:
@@ -38,7 +41,7 @@ def ext_fea(cfg: DictConfig) -> None:
     n_per = round(cfg.data.n_subs / n_folds)
     
     for fold in range(1):
-        print("fold:", fold)
+        log.info(f"fold:{fold}")
         if n_folds == 1:
             val_subs = []
         elif fold < n_folds - 1:
@@ -48,8 +51,8 @@ def ext_fea(cfg: DictConfig) -> None:
         train_subs = list(set(np.arange(cfg.data.n_subs)) - set(val_subs))
         # if len(val_subs) == 1:
         #     val_subs = list(val_subs) + train_subs
-        print('train_subs:', train_subs)
-        print('val_subs:', val_subs)
+        log.info(f'train_subs:{train_subs}')
+        log.info(f'val_subs:{val_subs}' )
         
 
 
@@ -59,7 +62,7 @@ def ext_fea(cfg: DictConfig) -> None:
         if cfg.ext_fea.normTrain:
             data2_fold = normTrain(data2,data2_train)
         else:
-            print('no normTrain')
+            log.info('no normTrain')
             data2_fold = data2
         # print(data2_fold[0,0])
         
@@ -71,13 +74,13 @@ def ext_fea(cfg: DictConfig) -> None:
         checkpoint =  os.path.join(cfg.ext_fea.cp_dir,f'f_{fold}_best.ckpt.ckpt')
         Extractor = ExtractorModel.load_from_checkpoint(checkpoint_path=checkpoint)
         Extractor.model.stratified = []
-        print('load model:', checkpoint)
+        log.info('load model:'+checkpoint)
         trainer = pl.Trainer(accelerator='gpu', devices=cfg.train.gpus)
         pred = trainer.predict(Extractor, fold_loader)
         # data
         # pred = torch.stack(pred,dim=0)
         pred = torch.cat(pred, dim=0).cpu().numpy()
-        print(pred.shape)
+        log.debug(pred.shape)
         # pred = pred
         
         # max_fea = np.max(pred)
@@ -99,13 +102,13 @@ def ext_fea(cfg: DictConfig) -> None:
         # print('fea_mean:',data_mean) 
         # print('fea_var:',data_var)
         if np.isinf(fea).any():
-            print("There are inf values in the array")
+            log.warning("There are inf values in the array")
         else:
-            print('no inf')
+            log.info('no inf')
         if np.isnan(fea).any():
-            print("There are nan values in the array")
+            log.warning("There are nan values in the array")
         else:
-            print('no nan')
+            log.info('no nan')
             
         # reorder
         if cfg.data.dataset_name == 'FACED':
@@ -122,21 +125,21 @@ def ext_fea(cfg: DictConfig) -> None:
         n_sample_sum_sessions_cum = np.concatenate((np.array([0]), np.cumsum(n_sample_sum_sessions)))
 
         # fea_processed = np.zeros_like(fea)
-        print('running norm:')
+        log.info('running norm:')
         for sub in range(cfg.data.n_subs):
-            print('sub:',sub)
+            log.info(f'sub:{sub}')
             for s in  tqdm(range(len(n_sample_sum_sessions)), desc='sessions', leave=False):
                 fea[sub,n_sample_sum_sessions_cum[s]:n_sample_sum_sessions_cum[s+1]] = running_norm_onesubsession(
                         fea[sub,n_sample_sum_sessions_cum[s]:n_sample_sum_sessions_cum[s+1]],data_mean,data_var,cfg.ext_fea.rn_decay)
         # print('rn:',fea[0,0])
         if np.isinf(fea).any():
-            print("There are inf values in the array")
+            log.warning("There are inf values in the array")
         else:
-            print('no inf')
+            log.info('no inf')
         if np.isnan(fea).any():
-            print("There are nan values in the array")
+            log.warning("There are nan values in the array")
         else:
-            print('no nan')
+            log.info('no nan')
 
         # order back
         if cfg.data.dataset_name == 'FACED':
@@ -144,9 +147,9 @@ def ext_fea(cfg: DictConfig) -> None:
         
         n_samples2_onesub_cum = np.concatenate((np.array([0]), np.cumsum(n_samples2_onesub)))
         # LDS
-        print('LDS:')
+        log.info('LDS:')
         for sub in range(cfg.data.n_subs):
-            print('sub:',sub)
+            log.info(f'sub:{sub}')
             for vid in tqdm(range(len(n_samples2_onesub)), desc='vids', leave=False):
                 fea[sub,n_samples2_onesub_cum[vid]:n_samples2_onesub_cum[vid+1]] = LDS(fea[sub,n_samples2_onesub_cum[vid]:n_samples2_onesub_cum[vid+1]])
             # print('LDS:',fea[sub,0])
@@ -159,13 +162,13 @@ def ext_fea(cfg: DictConfig) -> None:
         # min_fea = np.min(fea)
         # print(max_fea,min_fea)
         if np.isinf(fea).any():
-            print("There are inf values in the array")
+            log.warning("There are inf values in the array")
         else:
-            print('no inf')
+            log.info('no inf')
         if np.isnan(fea).any():
-            print("There are nan values in the array")
+            log.warning("There are nan values in the array")
         else:
-            print('no nan')
+            log.info('no nan')
 
         save_path = os.path.join(save_dir,f'fold_{fold}_fea_'+cfg.ext_fea.mode+'.npy')
         # if not os.path.exists(cfg.ext_fea.save_dir):
@@ -174,7 +177,7 @@ def ext_fea(cfg: DictConfig) -> None:
 
     
 def normTrain(data2,data2_train):
-    print('normTrain')
+    log.info('normTrain')
     temp = np.transpose(data2_train,(0,1,3,2))
     temp = temp.reshape(-1,temp.shape[-1])
     data2_mean = np.mean(temp, axis=0)

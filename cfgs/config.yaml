@@ -73,6 +73,7 @@ ext_fea:
 
 
 hydra:
+  job_logging: default
   job:
     chdir: true
   run:
