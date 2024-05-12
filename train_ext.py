@@ -29,7 +29,7 @@ def train_ext(cfg: DictConfig) -> None:
 
     n_per = round(cfg.data.n_subs / n_folds)
     
-    for fold in range(1):
+    for fold in range(n_folds):
         print("fold:", fold)
         cp_dir = './ext_checkpoints'
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'v'+str(cfg.train.valid_method)
@@ -85,6 +85,9 @@ def train_ext(cfg: DictConfig) -> None:
         trainer = pl.Trainer(logger=wandb_logger, callbacks=[checkpoint_callback, earlyStopping_callback],max_epochs=cfg.train.max_epochs, min_epochs=cfg.train.min_epochs, accelerator='gpu', devices=cfg.train.gpus)
         trainer.fit(Extractor, dm)
         wandb.finish()
+        
+        if cfg.train.iftest :
+            break
 
 
     

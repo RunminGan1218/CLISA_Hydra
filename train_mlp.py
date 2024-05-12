@@ -27,7 +27,7 @@ def train_mlp(cfg: DictConfig) -> None:
     n_per = round(cfg.data.n_subs / n_folds)
     best_val_acc_list = []
     
-    for fold in range(1):
+    for fold in range(n_folds):
         cp_dir = './mlp_checkpoints'
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'mlp'+'v'+str(cfg.train.valid_method)
                                    +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
@@ -69,6 +69,9 @@ def train_mlp(cfg: DictConfig) -> None:
         trainer.fit(predictor, trainLoader, valLoader)
         best_val_acc_list.append(checkpoint_callback.best_model_score.item())
         wandb.finish()
+        
+        if cfg.train.iftest :
+            break
 
     print("Best validation accuracies for each fold:")
     for fold, acc in enumerate(best_val_acc_list):

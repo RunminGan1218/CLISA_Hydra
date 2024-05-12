@@ -35,7 +35,7 @@ def ext_fea(cfg: DictConfig) -> None:
 
     n_per = round(cfg.data.n_subs / n_folds)
     
-    for fold in range(1):
+    for fold in range(n_folds):
         log.info(f"fold:{fold}")
         if n_folds == 1:
             val_subs = []
@@ -125,7 +125,10 @@ def ext_fea(cfg: DictConfig) -> None:
             log.info(f'sub:{sub}')
             for s in  tqdm(range(len(n_sample_sum_sessions)), desc='sessions', leave=False):
                 fea[sub,n_sample_sum_sessions_cum[s]:n_sample_sum_sessions_cum[s+1]] = running_norm_onesubsession(
-                        fea[sub,n_sample_sum_sessions_cum[s]:n_sample_sum_sessions_cum[s+1]],data_mean,data_var,cfg.ext_fea.rn_decay)
+                                            fea[sub,n_sample_sum_sessions_cum[s]:n_sample_sum_sessions_cum[s+1]],
+                                            data_mean,data_var,cfg.ext_fea.rn_decay)
+                
+                tqdm.set_postfix({'sub': s})
         # print('rn:',fea[0,0])
         if np.isinf(fea).any():
             log.warning("There are inf values in the array")
@@ -148,6 +151,7 @@ def ext_fea(cfg: DictConfig) -> None:
             for vid in tqdm(range(len(n_samples2_onesub)), desc='vids', leave=False):
                 fea[sub,n_samples2_onesub_cum[vid]:n_samples2_onesub_cum[vid+1]] = LDS(fea[sub,n_samples2_onesub_cum[vid]:n_samples2_onesub_cum[vid+1]])
             # print('LDS:',fea[sub,0])
+                tqdm.set_postfix({'vid': vid})
         fea = fea.reshape(-1,fea.shape[-1])
         
         
@@ -169,6 +173,9 @@ def ext_fea(cfg: DictConfig) -> None:
         # if not os.path.exists(cfg.ext_fea.save_dir):
         #     os.makedirs(cfg.ext_fea.save_dir)  
         np.save(save_path,fea)
+        
+        if cfg.train.iftest :
+            break
 
     
 def normTrain(data2,data2_train):
