@@ -18,12 +18,7 @@ log = logging.getLogger(__name__)
 
 @hydra.main(config_path="cfgs", config_name="config", version_base="1.3")
 def ext_fea(cfg: DictConfig) -> None:
-    # print(cfg.mlp.fea_dim, cfg.mlp.hidden_dim, cfg.mlp.out_dim)
     load_dir = os.path.join(cfg.data.data_dir,'processed_data')
-    # load_EEG_data = get_load_data_func(cfg.data.dataset_name)
-    # data2, onesub_label2, n_samples2_onesub, n_samples2_sessions = load_EEG_data(
-    #         load_dir, cfg.data.fs, cfg.data.n_channs, cfg.data.timeLen2,cfg.data.timeStep2,
-    #         cfg.data.n_session,cfg.data.n_subs,cfg.data.n_vids,cfg.data.n_class)
     data2, onesub_label2, n_samples2_onesub, n_samples2_sessions = load_finetune_EEG_data(load_dir, cfg.data)
     data2 = data2.reshape(cfg.data.n_subs, -1, data2.shape[-2], data2.shape[-1])
     save_dir = os.path.join(cfg.data.data_dir,'ext_fea',f'fea_r{cfg.log.run}')

@@ -7,7 +7,7 @@ import copy
 
 
 def video_order_load(n_vids=28):
-    datapath = './After_remarks'
+    datapath = '/home/gpt/grm/CLISA_Hydra/After_remarks'
     filesPath = os.listdir(datapath)
     filesPath.sort()
     vid_orders = np.zeros((len(filesPath), n_vids),dtype=int)
