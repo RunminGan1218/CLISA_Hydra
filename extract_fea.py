@@ -68,15 +68,17 @@ def ext_fea(cfg: DictConfig) -> None:
         foldset = SEEDV_Dataset(data2_fold, label2_fold)
         del data2_fold, label2_fold
         fold_loader = DataLoader(foldset, batch_size=cfg.ext_fea.batch_size, shuffle=False, num_workers=cfg.train.num_workers)
-        checkpoint =  cfg.ext_fea.cp_dir+f'f_{fold}_best.ckpt.ckpt'
+        checkpoint =  os.path.join(cfg.ext_fea.cp_dir,f'f_{fold}_best.ckpt.ckpt')
         Extractor = ExtractorModel.load_from_checkpoint(checkpoint_path=checkpoint)
         Extractor.model.stratified = []
         print('load model:', checkpoint)
         trainer = pl.Trainer(accelerator='gpu', devices=cfg.train.gpus)
         pred = trainer.predict(Extractor, fold_loader)
         # data
-        pred = torch.stack(pred,dim=0)
-        pred = pred.reshape(-1,pred.shape[-3],pred.shape[-2],pred.shape[-1]).cpu().numpy()
+        # pred = torch.stack(pred,dim=0)
+        pred = torch.cat(pred, dim=0).cpu().numpy()
+        print(pred.shape)
+        # pred = pred
         
         # max_fea = np.max(pred)
         # min_fea = np.min(pred)
