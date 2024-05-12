@@ -2,6 +2,7 @@
 defaults:
   - data: FACED
 
+hydra/job_logging: warning
 
 seed: 7
 
@@ -73,7 +74,6 @@ ext_fea:
 
 
 hydra:
-  job_logging: default
   job:
     chdir: true
   run:
