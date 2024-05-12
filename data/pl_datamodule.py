@@ -8,8 +8,8 @@ class EEGDataModule(pl.LightningDataModule):
     def __init__(self, cfg, train_subs, val_subs, 
                  train_vids, val_vids, loo=False, num_workers=8):
         super().__init__()
-        self.load_dir = os.path.join(cfg.data.data_dir,'processed_data')
-        self.save_dir = os.path.join(cfg.data.data_dir,'sliced_data')
+        self.load_dir = os.path.join(cfg.data_dir,'processed_data')
+        self.save_dir = os.path.join(cfg.data_dir,'sliced_data')
 
         self.num_workers = num_workers
         self.train_subs = train_subs
