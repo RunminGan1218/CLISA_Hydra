@@ -29,7 +29,7 @@ def train_ext(cfg: DictConfig) -> None:
 
     n_per = round(cfg.data.n_subs / n_folds)
     
-    for fold in range(n_folds):
+    for fold in range(3):
         print("fold:", fold)
         cp_dir = './ext_checkpoints'
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'v'+str(cfg.train.valid_method)
