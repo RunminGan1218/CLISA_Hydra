@@ -65,7 +65,7 @@ ext_fea:
   # cp_dir: '/mnt/data/model_weights/grm/SEEDV/runs/2024-04-23/03-38-42_/22_11_5fold_run1/checkpoints/'
   # cp_dir: '/mnt/data/model_weights/grm/SEEDV_new2/runs/2024-05-06/21-21-55_/10_5_run1/checkpoints/'
   # cp_dir: '/mnt/data/model_weights/grm/clisa_run/SEED/2024-05-12/16-41-53_run6_data=SEED,log.proj_name=SEED,log.run=6,train.gpus=[0],train.valid_method=loo/ext_checkpoints'
-  cp_dir: '/mnt/data/model_weights/grm/clisa_run/FACED/2024-05-12/08-51-13_run4_/ext_checkpoints/'
+  cp_dir: '/mnt/data/model_weights/grm/clisa_run/FACED/2024-05-12/22-35-33_run10_data=FACED,log.proj_name=FACED_test,log.run=10,train.gpus=[0],train.iftest=True,train.valid_method=10/ext_checkpoints/'
   # save_dir: '/mnt/data/model_weights/grm/SEEDV/sliced_data/sliced_len22_step11/fea_5fold_run1'
   # save_dir: '/mnt/data/model_weights/grm/SEEDV-NEW/ext_fea/fea'
   normTrain: True
@@ -78,4 +78,5 @@ hydra:
   job:
     chdir: true
   run:
-    dir: /mnt/data/model_weights/grm/clisa_run/${data.dataset_name}/${now:%Y-%m-%d}/${now:%H-%M-%S}_run${log.run}_${hydra.job.override_dirname}
+    # dir: /mnt/data/model_weights/grm/clisa_run/${data.dataset_name}/${now:%Y-%m-%d}/${now:%H-%M-%S}_run${log.run}_${hydra.job.override_dirname}
+    dir: /mnt/data/model_weights/grm/clisa_run/${data.dataset_name}/${now:%Y-%m-%d}/${now:%H-%M-%S}_run${log.run}

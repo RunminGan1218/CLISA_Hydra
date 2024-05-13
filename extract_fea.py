@@ -122,7 +122,7 @@ def ext_fea(cfg: DictConfig) -> None:
         # fea_processed = np.zeros_like(fea)
         log.info('running norm:')
         for sub in range(cfg.data.n_subs):
-            log.info(f'sub:{sub}')
+            log.debug(f'sub:{sub}')
             for s in  tqdm(range(len(n_sample_sum_sessions)), desc=f'running norm sub: {sub}', leave=False):
                 fea[sub,n_sample_sum_sessions_cum[s]:n_sample_sum_sessions_cum[s+1]] = running_norm_onesubsession(
                                             fea[sub,n_sample_sum_sessions_cum[s]:n_sample_sum_sessions_cum[s+1]],
@@ -146,7 +146,7 @@ def ext_fea(cfg: DictConfig) -> None:
         # LDS
         log.info('LDS:')
         for sub in range(cfg.data.n_subs):
-            log.info(f'sub:{sub}')
+            log.debug(f'sub:{sub}')
             for vid in tqdm(range(len(n_samples2_onesub)), desc=f'LDS Processing sub: {sub}', leave=False):
                 fea[sub,n_samples2_onesub_cum[vid]:n_samples2_onesub_cum[vid+1]] = LDS(fea[sub,n_samples2_onesub_cum[vid]:n_samples2_onesub_cum[vid+1]])
             # print('LDS:',fea[sub,0])
@@ -173,6 +173,7 @@ def ext_fea(cfg: DictConfig) -> None:
         np.save(save_path,fea)
         
         if cfg.train.iftest :
+            log.info('test mode!')
             break
 
     
