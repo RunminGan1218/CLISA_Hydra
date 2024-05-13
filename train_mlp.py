@@ -11,6 +11,9 @@ import wandb
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
 from torch.utils.data import DataLoader
 import torch
+import logging
+
+log = logging.getLogger(__name__)
 
 @hydra.main(config_path="cfgs", config_name="config", version_base="1.3")
 def train_mlp(cfg: DictConfig) -> None:
@@ -34,7 +37,7 @@ def train_mlp(cfg: DictConfig) -> None:
                                    project=cfg.log.proj_name, log_model="all")
         checkpoint_callback = ModelCheckpoint(monitor="mlp/val/acc", mode="max", dirpath=cp_dir, filename=f'mlp_f_{fold}_best.ckpt')
         earlyStopping_callback = EarlyStopping(monitor="mlp/val/acc", mode="max", patience=cfg.mlp.patience)
-        print("fold:", fold)
+        log.info(f"fold:{fold}")
         if n_folds == 1:
             val_subs = []
         elif fold < n_folds - 1:
@@ -44,15 +47,15 @@ def train_mlp(cfg: DictConfig) -> None:
         train_subs = list(set(np.arange(cfg.data.n_subs)) - set(val_subs))
         # if len(val_subs) == 1:
         #     val_subs = list(val_subs) + train_subs
-        print('train_subs:', train_subs)
-        print('val_subs:', val_subs)
+        log.info(f'train_subs:{train_subs}')
+        log.info(f'val_subs:{val_subs}')
         
         save_dir = os.path.join(cfg.data.data_dir,'ext_fea',f'fea_r{cfg.log.run}')
         save_path = os.path.join(save_dir,f'fold_{fold}_fea_'+cfg.ext_fea.mode+'.npy')
         data2 = np.load(save_path)
         # print(data2[:,160])
         if np.isnan(data2).any():
-            print('nan in data2')
+            log.warning('nan in data2')
             data2 = np.where(np.isnan(data2), 0, data2)
         data2 = data2.reshape(cfg.data.n_subs, -1, data2.shape[-1])
         onesub_label2 = np.load(save_dir+'/onesub_label2.npy')
@@ -73,12 +76,12 @@ def train_mlp(cfg: DictConfig) -> None:
         if cfg.train.iftest :
             break
 
-    print("Best validation accuracies for each fold:")
+    log.info("Best validation accuracies for each fold:")
     for fold, acc in enumerate(best_val_acc_list):
-        print(f"    Fold {fold}: {acc}")
+        log.info(f"    Fold {fold}: {acc}")
     
     average_val_acc = np.mean(best_val_acc_list)
-    print(f"Average validation accuracy across all folds: {average_val_acc}")
+    log.info(f"Average validation accuracy across all folds: {average_val_acc}")
 
 if __name__ == '__main__':
     train_mlp()
