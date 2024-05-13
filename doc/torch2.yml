@@ -1,9 +1,9 @@
 name: torch2
 channels:
+  - pytorch-nightly
   - nvidia
   - nvidia/label/cuda-12.1.0
   - conda-forge
-  - pytorch-nightly
   - defaults
 dependencies:
   - _libgcc_mutex=0.1=main
