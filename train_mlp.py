@@ -30,12 +30,12 @@ def train_mlp(cfg: DictConfig) -> None:
     n_per = round(cfg.data.n_subs / n_folds)
     best_val_acc_list = []
     
-    for fold in range(n_folds):
-        cp_dir = './mlp_checkpoints'
+    for fold in range(0,n_folds):
+        cp_dir = os.path.join(cfg.log.cp_dir, cfg.data.dataset_name)
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'mlp'+'v'+str(cfg.train.valid_method)
                                    +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
                                    project=cfg.log.proj_name, log_model="all")
-        checkpoint_callback = ModelCheckpoint(monitor="mlp/val/acc", mode="max", dirpath=cp_dir, filename=f'mlp_f_{fold}_best.ckpt')
+        checkpoint_callback = ModelCheckpoint(monitor="mlp/val/acc", mode="max", dirpath=cp_dir, filename=cfg.log.exp_name+'_mlp_r'+cfg.log.run+f'_f{fold}_best.ckpt')
         earlyStopping_callback = EarlyStopping(monitor="mlp/val/acc", mode="max", patience=cfg.mlp.patience)
         log.info(f"fold:{fold}")
         if n_folds == 1:
@@ -51,7 +51,7 @@ def train_mlp(cfg: DictConfig) -> None:
         log.info(f'val_subs:{val_subs}')
         
         save_dir = os.path.join(cfg.data.data_dir,'ext_fea',f'fea_r{cfg.log.run}')
-        save_path = os.path.join(save_dir,f'fold_{fold}_fea_'+cfg.ext_fea.mode+'.npy')
+        save_path = os.path.join(save_dir,cfg.log.exp_name+'_r'+cfg.log.run+f'_f{fold}_fea_'+cfg.ext_fea.mode+'.npy')
         data2 = np.load(save_path)
         # print(data2[:,160])
         if np.isnan(data2).any():
