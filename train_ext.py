@@ -35,7 +35,7 @@ def train_ext(cfg: DictConfig) -> None:
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'v'+str(cfg.train.valid_method)
                                    +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
                                    project=cfg.log.proj_name, log_model="all")
-        checkpoint_callback = ModelCheckpoint(monitor="ext/val/acc", mode="max", dirpath=cp_dir, filename=cfg.log.exp_name+'_r'+cfg.log.run+f'_f{fold}_best.ckpt')
+        checkpoint_callback = ModelCheckpoint(monitor="ext/val/acc", mode="max", dirpath=cp_dir, filename=cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_best.ckpt')
         earlyStopping_callback = EarlyStopping(monitor="ext/val/acc", mode="max", patience=cfg.train.patience)
         # split data
         if n_folds == 1:

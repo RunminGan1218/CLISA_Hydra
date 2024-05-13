@@ -66,7 +66,7 @@ def ext_fea(cfg: DictConfig) -> None:
         foldset = SEEDV_Dataset(data2_fold, label2_fold)
         del data2_fold, label2_fold
         fold_loader = DataLoader(foldset, batch_size=cfg.ext_fea.batch_size, shuffle=False, num_workers=cfg.train.num_workers)
-        checkpoint =  os.path.join(cfg.log.cp_dir,cfg.data.dataset_name,cfg.log.exp_name+'_r'+cfg.log.run+f'_f{fold}_best.ckpt')
+        checkpoint =  os.path.join(cfg.log.cp_dir,cfg.data.dataset_name,cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_best.ckpt')
         Extractor = ExtractorModel.load_from_checkpoint(checkpoint_path=checkpoint)
         Extractor.model.stratified = []
         log.info('load model:'+checkpoint)
@@ -167,7 +167,7 @@ def ext_fea(cfg: DictConfig) -> None:
         else:
             log.info('no nan')
 
-        save_path = os.path.join(save_dir,cfg.log.exp_name+'_r'+cfg.log.run+f'_f{fold}_fea_'+cfg.ext_fea.mode+'.npy')
+        save_path = os.path.join(save_dir,cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_fea_'+cfg.ext_fea.mode+'.npy')
         # if not os.path.exists(cfg.ext_fea.save_dir):
         #     os.makedirs(cfg.ext_fea.save_dir)  
         np.save(save_path,fea)
