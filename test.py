@@ -102,6 +102,35 @@ def grad_test():
     print(x_.grad)
     print(y.grad)
 
+def test_clone():
+    # 深拷贝且直接成为叶子节点的方法
+    a = torch.tensor(1.0, requires_grad=True)
+    a_ = a.clone().detach_()
+    # a_.requires_grad = False
+    a_.requires_grad = True
+    # a_.data = 2 * a_
+    b = 2 * a_
+    b.backward()
+    print(a.grad)   
+    print(a_.grad)  
+
+def test_to():
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    a = torch.tensor([1.0])
+    print(a)
+    b = a.to(device)
+    a[0] = 2    
+    b[0] = 3    
+    print(a,b)
+    
+    print('-----------------')
+    c = b.cpu()
+    print(b)
+    print(c)
+    b[0] = 4
+    print(b)
+    print(c)    
+        
 def test_array():
     # def add(a,b):
     #     a = a+b
@@ -202,4 +231,6 @@ if __name__ == "__main__":
     # norm_test()
     # fea_distribution()
     # test_partial()
-    test_hydra()
+    # test_hydra()
+    # test_clone()
+    test_to()
