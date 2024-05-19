@@ -1,5 +1,6 @@
 dataset_name: 'FACED'
-data_dir: '/mnt/data/model_weights/grm/FACED_new'
+# data_dir: '/mnt/data/model_weights/grm/FACED_new'
+data_dir: '/mnt/data/model_weights/grm/FACED_cus'
 fs: 125
 n_channs: 30
 n_session: 1  
