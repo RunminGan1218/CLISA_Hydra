@@ -214,14 +214,56 @@ def test_partial():
     add_ = functools.partial(add,a=1)
     print(add_(c=3,b=4))
 
+def test_for():
+    a = 5
+    for i in range(a):
+        print(i)
+        a -= 1
+
+
+def test_isin():
+    
+
+    arr1 = np.array([1, 2, 3, 4, 5])
+    arr2 = np.array([3, 4, 6, 7, 8])
+
+    # 检查 arr1 中的元素是否存在于 arr2 中
+    result = np.isin(arr1, arr2)
+    print(result)
+
+def test_extend():
+    a = []
+    b = [[4,5,6],[1,2,3]]
+    a.extend(b)
+    print(a)
+
+def test_zerolenarray():
+    a = [1,2,3]
+    b = a[:-4]
+    print(b)
+    print(len(b))
+
 @hydra.main(config_path="cfgs", config_name="config", version_base="1.3")
 def test_hydra(cfg: DictConfig) -> None:
     a = '123'
     b = a+str(cfg.log.run)
     print(b)
-    
+
+def test_iter():
+    a = [1,2,3,4]
+    b = iter(a)
+    print(next(b))  # 输出: 1
+    print(next(b))  # 输出: 2
+    print(next(b))  # 输出: 3
+    print(next(b))  # 输出: 3
+    print(next(b))  # 输出: 3
 
 if __name__ == "__main__":
+    # pass
+    test_iter()
+    # test_zerolenarray()
+    # test_extend()
+    # test_isin()
     # path_test()
     # grad_test()
     # main2()
@@ -233,4 +275,5 @@ if __name__ == "__main__":
     # test_partial()
     # test_hydra()
     # test_clone()
-    test_to()
+    # test_to()
+    # test_for()

@@ -70,7 +70,7 @@ ext_fea:
   # save_dir: '/mnt/data/model_weights/grm/SEEDV/sliced_data/sliced_len22_step11/fea_5fold_run1'
   # save_dir: '/mnt/data/model_weights/grm/SEEDV-NEW/ext_fea/fea'
   normTrain: True
-  batch_size: 16
+  batch_size: 256
   mode: 'me'
   rn_decay: 0.990
 
