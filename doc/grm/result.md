@@ -23,6 +23,21 @@ seg_att=20
 seg_att=25
 ![alt text](image-8.png)
 
+seg_att=30
+![alt text](image-13.png)
+
+
+mslen=1
+![alt text](image-12.png)
+
+mslen=3
+![alt text](image-3.png)
+
+mslen=5
+![alt text](image-14.png)
+
+mslen=7
+![alt text](image-15.png)
 
 lr=0.00005
 ![alt text](image-1.png)

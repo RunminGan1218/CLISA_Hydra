@@ -1,6 +1,6 @@
-run=29
+run=32
 seg_att=15
-msFilterLen=7
+msFilterLen=6
 gpus='[7]'
 
 dataset=FACED_def
