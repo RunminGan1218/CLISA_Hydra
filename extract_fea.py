@@ -21,7 +21,7 @@ def ext_fea(cfg: DictConfig) -> None:
     load_dir = os.path.join(cfg.data.data_dir,'processed_data')
     data2, onesub_label2, n_samples2_onesub, n_samples2_sessions = load_finetune_EEG_data(load_dir, cfg.data)
     data2 = data2.reshape(cfg.data.n_subs, -1, data2.shape[-2], data2.shape[-1])
-    save_dir = os.path.join(cfg.data.data_dir,'ext_fea',f'fea_r{cfg.log.run}')
+    save_dir = os.path.join(cfg.data.data_dir,'ext_fea',f'fea_abl_r{cfg.log.run}')
     if not os.path.exists(save_dir):
         os.makedirs(save_dir) 
     np.save(save_dir+'/onesub_label2.npy',onesub_label2)
@@ -67,6 +67,8 @@ def ext_fea(cfg: DictConfig) -> None:
         del data2_fold, label2_fold
         fold_loader = DataLoader(foldset, batch_size=cfg.ext_fea.batch_size, shuffle=False, num_workers=cfg.train.num_workers)
         checkpoint =  os.path.join(cfg.log.cp_dir,cfg.data.dataset_name,cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_best.ckpt')
+        # checkpoint =  os.path.join(cfg.log.cp_dir,f'f_{fold}_best.ckpt.ckpt')
+
         Extractor = ExtractorModel.load_from_checkpoint(checkpoint_path=checkpoint)
         Extractor.model.stratified = []
         log.info('load model:'+checkpoint)
@@ -171,6 +173,7 @@ def ext_fea(cfg: DictConfig) -> None:
         # if not os.path.exists(cfg.ext_fea.save_dir):
         #     os.makedirs(cfg.ext_fea.save_dir)  
         np.save(save_path,fea)
+        log.info(f'fea saved to {save_path}')
         
         if cfg.train.iftest :
             log.info('test mode!')

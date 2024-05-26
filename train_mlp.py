@@ -50,7 +50,7 @@ def train_mlp(cfg: DictConfig) -> None:
         log.info(f'train_subs:{train_subs}')
         log.info(f'val_subs:{val_subs}')
         
-        save_dir = os.path.join(cfg.data.data_dir,'ext_fea',f'fea_r{cfg.log.run}')
+        save_dir = os.path.join(cfg.data.data_dir,'ext_fea',f'fea_abl_r{cfg.log.run}')
         save_path = os.path.join(save_dir,cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_fea_'+cfg.ext_fea.mode+'.npy')
         data2 = np.load(save_path)
         # print(data2[:,160])
