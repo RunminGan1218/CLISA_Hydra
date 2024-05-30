@@ -35,7 +35,7 @@ def train_mlp(cfg: DictConfig) -> None:
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'mlp'+'v'+str(cfg.train.valid_method)
                                    +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
                                    project=cfg.log.proj_name, log_model="all")
-        checkpoint_callback = ModelCheckpoint(monitor="mlp/val/acc", mode="max", dirpath=cp_dir, filename=cfg.log.exp_name+'_mlp_r'+str(cfg.log.run)+f'_f{fold}_best')
+        checkpoint_callback = ModelCheckpoint(monitor="mlp/val/acc", mode="max", dirpath=cp_dir, filename=cfg.log.exp_name+'_mlp_r'+str(cfg.log.run)+f'_f{fold}_best_wd{cfg.mlp.wd}')
         earlyStopping_callback = EarlyStopping(monitor="mlp/val/acc", mode="max", patience=cfg.mlp.patience)
         log.info(f"fold:{fold}")
         if n_folds == 1:
@@ -82,6 +82,7 @@ def train_mlp(cfg: DictConfig) -> None:
     
     average_val_acc = np.mean(best_val_acc_list)
     log.info(f"Average validation accuracy across all folds: {average_val_acc}")
+    log.info(f"Extracting features with {cfg.mlp.wd}: $mlp_wd and ext_wd: {cfg.train.wd}")
 
 if __name__ == '__main__':
     train_mlp()

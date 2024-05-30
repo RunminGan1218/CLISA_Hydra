@@ -24,8 +24,8 @@ train:
   lr: 0.0007
   wd: 0.00015
   loss_temp: 0.07
-  max_epochs: 100
-  min_epochs: 30
+  max_epochs: 30
+  min_epochs: 10
   patience: 30
   num_workers: 8
 
