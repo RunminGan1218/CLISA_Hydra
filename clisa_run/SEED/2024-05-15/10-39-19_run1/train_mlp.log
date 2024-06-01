@@ -1,6 +1,0 @@
-[2024-05-15 10:40:38,004][__main__][INFO] - fold:0
-[2024-05-15 10:40:38,004][__main__][INFO] - train_subs:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-[2024-05-15 10:40:38,005][__main__][INFO] - val_subs:[0]
-[2024-05-15 10:45:10,576][__main__][INFO] - Best validation accuracies for each fold:
-[2024-05-15 10:45:10,576][__main__][INFO] -     Fold 0: 87.69200897216797
-[2024-05-15 10:45:10,576][__main__][INFO] - Average validation accuracy across all folds: 87.69200897216797

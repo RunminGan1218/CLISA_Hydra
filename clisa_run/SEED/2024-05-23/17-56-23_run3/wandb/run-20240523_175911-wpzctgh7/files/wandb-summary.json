@@ -1,1 +1,0 @@
-{"mlp/val/loss": 2.2149085998535156, "mlp/val/acc": 54.07494354248047, "epoch": 30, "trainer/global_step": 17328, "_timestamp": 1716458480.3726757, "_runtime": 128.91288375854492, "_step": 61, "mlp/train/loss": 0.021256526932120323, "mlp/train/acc": 99.80851745605469, "_wandb": {"runtime": 126}}

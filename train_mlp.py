@@ -30,10 +30,8 @@ def train_mlp(cfg: DictConfig) -> None:
     n_per = round(cfg.data.n_subs / n_folds)
     best_val_acc_list = []
     
-    for fold in range(0,n_folds-2):
+    for fold in range(0,n_folds):
         cp_dir = os.path.join(cfg.log.cp_dir, cfg.data.dataset_name)
-        # wandb.init(settings=wandb.Settings(start_method="fork")) # add
-        wandb.init(project="test_run", mode="offline")
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'mlp'+'v'+str(cfg.train.valid_method)
                                    +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
                                    project=cfg.log.proj_name, log_model="all")
