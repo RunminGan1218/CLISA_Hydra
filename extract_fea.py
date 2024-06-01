@@ -35,7 +35,7 @@ def ext_fea(cfg: DictConfig) -> None:
 
     n_per = round(cfg.data.n_subs / n_folds)
     
-    for fold in range(0,n_folds):
+    for fold in range(n_folds):
         log.info(f"fold:{fold}")
         if n_folds == 1:
             val_subs = []
@@ -67,6 +67,8 @@ def ext_fea(cfg: DictConfig) -> None:
         del data2_fold, label2_fold
         fold_loader = DataLoader(foldset, batch_size=cfg.ext_fea.batch_size, shuffle=False, num_workers=cfg.train.num_workers)
         checkpoint =  os.path.join(cfg.log.cp_dir,cfg.data.dataset_name,cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_best.ckpt')
+        # checkpoint =  '/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-15/11-43-23_run2/clisa_cp/SEED/_r2_f%d_best.ckpt' % fold
+        # checkpoint = '/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-19/14-23-10_run3/clisa_cp/SEED/_r3_f%d_best.ckpt' % fold
         Extractor = ExtractorModel.load_from_checkpoint(checkpoint_path=checkpoint)
         Extractor.model.stratified = []
         log.info('load model:'+checkpoint)

@@ -1,0 +1,111 @@
+2024-05-15 10:31:30,779 INFO    StreamThr :32105 [internal.py:wandb_internal():86] W&B internal server running at pid: 32105, started at: 2024-05-15 10:31:30.778765
+2024-05-15 10:31:30,783 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: status
+2024-05-15 10:31:30,787 INFO    WriterThread:32105 [datastore.py:open_for_write():87] open: ./wandb/run-20240515_103130-fwginq0d/run-fwginq0d.wandb
+2024-05-15 10:31:30,787 DEBUG   SenderThread:32105 [sender.py:send():379] send: header
+2024-05-15 10:31:30,789 DEBUG   SenderThread:32105 [sender.py:send():379] send: run
+2024-05-15 10:31:30,793 INFO    SenderThread:32105 [sender.py:_setup_resume():749] checking resume status for None/SEED_test/fwginq0d
+2024-05-15 10:31:35,792 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:31:40,796 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:31:45,799 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:31:50,802 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:31:55,805 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:32:00,808 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:32:05,812 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:32:10,814 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:32:15,817 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:32:20,820 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:32:25,822 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:32:30,825 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:32:35,473 INFO    SenderThread:32105 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/http/client.py", line 1375, in getresponse
+    response.begin()
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/ssl.py", line 1278, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/ssl.py", line 1134, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 538, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 370, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Read timed out. (read timeout=20)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/sdk/internal/internal_api.py", line 369, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.wandb.ai', port=443): Read timed out. (read timeout=20)
+2024-05-15 10:32:35,827 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:32:40,830 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:32:45,832 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:32:50,835 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:32:55,838 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-15 10:33:00,841 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: cancel
+2024-05-15 10:33:00,841 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: cancel
+2024-05-15 10:33:00,842 DEBUG   SenderThread:32105 [sender.py:send():388] Record cancelled: run
+2024-05-15 10:33:00,843 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: status_report
+2024-05-15 10:33:01,212 DEBUG   HandlerThread:32105 [handler.py:handle_request():146] handle_request: shutdown
+2024-05-15 10:33:01,212 INFO    HandlerThread:32105 [handler.py:finish():866] shutting down handler
+2024-05-15 10:33:01,843 INFO    SenderThread:32105 [sender.py:finish():1546] shutting down sender
+2024-05-15 10:33:01,844 INFO    WriterThread:32105 [datastore.py:close():296] close: ./wandb/run-20240515_103130-fwginq0d/run-fwginq0d.wandb

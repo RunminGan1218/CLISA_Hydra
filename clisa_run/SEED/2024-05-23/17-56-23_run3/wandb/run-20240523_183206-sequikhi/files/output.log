@@ -1,0 +1,81 @@
+[2024-05-23 18:32:16,081][__main__][INFO] - fold:10
+[2024-05-23 18:32:16,082][__main__][INFO] - train_subs:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14]
+[2024-05-23 18:32:16,082][__main__][INFO] - val_subs:[10]
+/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/pytorch_lightning/utilities/parsing.py:263: UserWarning: Attribute 'model' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['model'])`.
+  rank_zero_warn(
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3080') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:613: UserWarning: Checkpoint directory ./clisa_cp/SEED exists and is not empty.
+  rank_zero_warn(f"Checkpoint directory {dirpath} exists and is not empty.")
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type             | Params
+-----------------------------------------------
+0 | model     | simpleNN3        | 41.3 K
+1 | criterion | CrossEntropyLoss | 0
+-----------------------------------------------
+41.3 K    Trainable params
+0         Non-trainable params
+41.3 K    Total params
+0.165     Total estimated model params size (MB)
+
+
+
+
+Epoch 3:  93%|▉| 559/599 [00:03<00:00, 158.40it/s, loss=0.06, v_
+
+Epoch 4:  98%|▉| 588/599 [00:03<00:00, 152.47it/s, loss=0.0501,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 13:  93%|▉| 559/599 [00:03<00:00, 165.05it/s, loss=0.0226,
+
+
+
+
+
+
+
+
+
+
+Epoch 19:  93%|▉| 559/599 [00:03<00:00, 164.27it/s, loss=0.0222,
+
+Epoch 20:  98%|▉| 585/599 [00:03<00:00, 161.85it/s, loss=0.0195,
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 27:  98%|▉| 590/599 [00:03<00:00, 156.85it/s, loss=0.021,
+
+
+
+
+
+
+
+
+Epoch 31: 100%|█| 599/599 [00:03<00:00, 152.14it/s, loss=0.0208,

@@ -1,0 +1,85 @@
+[2024-05-15 10:40:38,004][__main__][INFO] - fold:0
+[2024-05-15 10:40:38,004][__main__][INFO] - train_subs:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+[2024-05-15 10:40:38,005][__main__][INFO] - val_subs:[0]
+Epoch 0:   4%|██████▉                                                                                                                                                                       | 24/599 [00:00<00:04, 123.71it/s, loss=1.1, v_num=rw5f]
+[34m[1mwandb[39m[22m: Network error resolved after 0:01:10.086416, resuming normal operation.
+/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/pytorch_lightning/utilities/parsing.py:263: UserWarning: Attribute 'model' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['model'])`.
+  rank_zero_warn(
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3080') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type             | Params
+-----------------------------------------------
+0 | model     | simpleNN3        | 41.3 K
+1 | criterion | CrossEntropyLoss | 0
+-----------------------------------------------
+41.3 K    Trainable params
+0         Non-trainable params
+41.3 K    Total params
+0.165     Total estimated model params size (MB)
+/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:224: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 36 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:224: PossibleUserWarning: The dataloader, train_dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 36 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 32:  97%|███████████████████████████████████████████████████████████████████████████████████▍  | 581/599 [00:02<00:00, 203.00it/s, loss=0.0105, v_num=rw5f, mlp/val/loss=0.335, mlp/val/acc=86.70, mlp/train/loss=0.0112, mlp/train/acc=100.0]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 44: 100%|█████████████████████████████████████████████████████████████████████████████████████| 599/599 [00:02<00:00, 220.83it/s, loss=0.00978, v_num=rw5f, mlp/val/loss=0.324, mlp/val/acc=86.70, mlp/train/loss=0.0109, mlp/train/acc=100.0]

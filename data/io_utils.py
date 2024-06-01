@@ -35,6 +35,7 @@ def load_processed_FACED_NEW_data(dir, fs, n_chans, timeLen,timeStep,n_session=1
     # output : (subs*slices*vids)*channals*time
     #           (123*28*30)*30*(125)
 
+    print(dir)
     list_files = os.listdir(dir)
     list_files = sorted(list_files, key=lambda x: int(re.search(r'\d+', x).group()))
     assert len(list_files) == n_subs

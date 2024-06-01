@@ -1,0 +1,107 @@
+[2024-05-23 19:35:03,815][__main__][INFO] - fold:9
+[2024-05-23 19:35:03,816][__main__][INFO] - train_subs:[0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14]
+[2024-05-23 19:35:03,817][__main__][INFO] - val_subs:[9]
+Sanity Checking: 0it [00:00, ?it/s]
+/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/pytorch_lightning/utilities/parsing.py:263: UserWarning: Attribute 'model' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['model'])`.
+  rank_zero_warn(
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3080') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:613: UserWarning: Checkpoint directory ./clisa_cp/SEED exists and is not empty.
+  rank_zero_warn(f"Checkpoint directory {dirpath} exists and is not empty.")
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type             | Params
+-----------------------------------------------
+0 | model     | simpleNN3        | 41.3 K
+1 | criterion | CrossEntropyLoss | 0
+-----------------------------------------------
+41.3 K    Trainable params
+0         Non-trainable params
+41.3 K    Total params
+
+
+
+Epoch 2:  96%|▉| 578/599 [00:03<00:00, 152.39it/s, loss=0.111, v
+
+
+
+Epoch 4:  93%|▉| 559/599 [00:03<00:00, 156.06it/s, loss=0.0812,
+
+
+
+
+
+
+
+Epoch 9:  93%|▉| 559/599 [00:03<00:00, 167.07it/s, loss=0.0621,
+
+Epoch 10:  93%|▉| 559/599 [00:03<00:00, 160.78it/s, loss=0.0537,
+
+
+
+
+Epoch 13: 100%|█| 599/599 [00:03<00:00, 173.99it/s, loss=0.0567,
+
+Epoch 14:  96%|▉| 577/599 [00:03<00:00, 152.59it/s, loss=0.0574,
+
+Epoch 15:  93%|▉| 559/599 [00:03<00:00, 154.18it/s, loss=0.0537,
+
+Epoch 16:  93%|▉| 559/599 [00:03<00:00, 156.41it/s, loss=0.0553,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 24:  93%|▉| 559/599 [00:03<00:00, 157.61it/s, loss=0.0526,
+
+Epoch 25:  97%|▉| 580/599 [00:03<00:00, 158.11it/s, loss=0.0509,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 33:  93%|▉| 559/599 [00:03<00:00, 156.96it/s, loss=0.0503,
+
+Epoch 34:  93%|▉| 559/599 [00:03<00:00, 163.51it/s, loss=0.0514,
+
+
+
+
+
+
+
+
+
+
+Epoch 40:  98%|▉| 589/599 [00:03<00:00, 161.04it/s, loss=0.0528,
+
+Epoch 41:  93%|▉| 559/599 [00:03<00:00, 151.00it/s, loss=0.0493,
+
+
+
+
+
+
+
+
+Epoch 45: 100%|█| 599/599 [00:03<00:00, 161.58it/s, loss=0.0493,

@@ -1,0 +1,134 @@
+[2024-05-18 09:54:13,898][__main__][INFO] - fold:0
+[2024-05-18 09:54:13,898][__main__][INFO] - train_subs:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+[2024-05-18 09:54:13,899][__main__][INFO] - val_subs:[0]
+[2024-05-18 09:54:16,390][__main__][INFO] - normTrain
+[2024-05-18 09:54:32,216][__main__][INFO] - load model:/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-15/11-43-23_run2/clisa_cp/SEED/_r2_f0_best.ckpt
+[2024-05-18 09:55:06,827][__main__][INFO] - no inf
+[2024-05-18 09:55:06,852][__main__][INFO] - no nan
+[2024-05-18 09:55:06,852][__main__][INFO] - running norm:
+[2024-05-18 09:55:09,941][__main__][INFO] - no inf
+[2024-05-18 09:55:09,966][__main__][INFO] - no nan
+[2024-05-18 09:55:09,966][__main__][INFO] - LDS:
+[2024-05-18 10:11:09,333][__main__][INFO] - no inf
+[2024-05-18 10:11:09,359][__main__][INFO] - no nan
+[2024-05-18 10:11:12,408][__main__][INFO] - fold:1
+[2024-05-18 10:11:12,408][__main__][INFO] - train_subs:[0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+[2024-05-18 10:11:12,408][__main__][INFO] - val_subs:[1]
+[2024-05-18 10:11:14,890][__main__][INFO] - normTrain
+[2024-05-18 10:11:30,467][__main__][INFO] - load model:/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-15/11-43-23_run2/clisa_cp/SEED/_r2_f1_best.ckpt
+[2024-05-18 10:12:13,987][__main__][INFO] - no inf
+[2024-05-18 10:12:14,012][__main__][INFO] - no nan
+[2024-05-18 10:12:14,012][__main__][INFO] - running norm:
+[2024-05-18 10:12:17,084][__main__][INFO] - no inf
+[2024-05-18 10:12:17,109][__main__][INFO] - no nan
+[2024-05-18 10:12:17,109][__main__][INFO] - LDS:
+[2024-05-18 10:28:28,236][__main__][INFO] - no inf
+[2024-05-18 10:28:28,262][__main__][INFO] - no nan
+[2024-05-18 10:28:30,057][__main__][INFO] - fold:2
+[2024-05-18 10:28:30,058][__main__][INFO] - train_subs:[0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+[2024-05-18 10:28:30,058][__main__][INFO] - val_subs:[2]
+[2024-05-18 10:28:32,508][__main__][INFO] - normTrain
+[2024-05-18 10:28:48,020][__main__][INFO] - load model:/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-15/11-43-23_run2/clisa_cp/SEED/_r2_f2_best.ckpt
+[2024-05-18 10:29:31,737][__main__][INFO] - no inf
+[2024-05-18 10:29:31,763][__main__][INFO] - no nan
+[2024-05-18 10:29:31,763][__main__][INFO] - running norm:
+[2024-05-18 10:29:34,944][__main__][INFO] - no inf
+[2024-05-18 10:29:34,969][__main__][INFO] - no nan
+[2024-05-18 10:29:34,970][__main__][INFO] - LDS:
+[2024-05-18 10:45:33,507][__main__][INFO] - no inf
+[2024-05-18 10:45:33,533][__main__][INFO] - no nan
+[2024-05-18 10:45:35,338][__main__][INFO] - fold:3
+[2024-05-18 10:45:35,338][__main__][INFO] - train_subs:[0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+[2024-05-18 10:45:35,338][__main__][INFO] - val_subs:[3]
+[2024-05-18 10:45:37,825][__main__][INFO] - normTrain
+[2024-05-18 10:45:52,410][__main__][INFO] - load model:/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-15/11-43-23_run2/clisa_cp/SEED/_r2_f3_best.ckpt
+[2024-05-18 10:46:35,075][__main__][INFO] - no inf
+[2024-05-18 10:46:35,096][__main__][INFO] - no nan
+[2024-05-18 10:46:35,096][__main__][INFO] - running norm:
+[2024-05-18 10:46:38,291][__main__][INFO] - no inf
+[2024-05-18 10:46:38,312][__main__][INFO] - no nan
+[2024-05-18 10:46:38,312][__main__][INFO] - LDS:
+[2024-05-18 11:02:40,171][__main__][INFO] - no inf
+[2024-05-18 11:02:40,192][__main__][INFO] - no nan
+[2024-05-18 11:02:41,990][__main__][INFO] - fold:4
+[2024-05-18 11:02:41,991][__main__][INFO] - train_subs:[0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+[2024-05-18 11:02:41,991][__main__][INFO] - val_subs:[4]
+[2024-05-18 11:02:44,436][__main__][INFO] - normTrain
+[2024-05-18 11:03:00,060][__main__][INFO] - load model:/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-15/11-43-23_run2/clisa_cp/SEED/_r2_f4_best.ckpt
+[2024-05-18 11:03:44,846][__main__][INFO] - no inf
+[2024-05-18 11:03:44,872][__main__][INFO] - no nan
+[2024-05-18 11:03:44,872][__main__][INFO] - running norm:
+[2024-05-18 11:03:48,022][__main__][INFO] - no inf
+[2024-05-18 11:03:48,047][__main__][INFO] - no nan
+[2024-05-18 11:03:48,047][__main__][INFO] - LDS:
+[2024-05-18 11:19:51,739][__main__][INFO] - no inf
+[2024-05-18 11:19:51,764][__main__][INFO] - no nan
+[2024-05-18 11:19:53,578][__main__][INFO] - fold:5
+[2024-05-18 11:19:53,578][__main__][INFO] - train_subs:[0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+[2024-05-18 11:19:53,578][__main__][INFO] - val_subs:[5]
+[2024-05-18 11:19:56,003][__main__][INFO] - normTrain
+[2024-05-18 11:20:11,694][__main__][INFO] - load model:/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-15/11-43-23_run2/clisa_cp/SEED/_r2_f5_best.ckpt
+[2024-05-18 11:20:55,105][__main__][INFO] - no inf
+[2024-05-18 11:20:55,129][__main__][INFO] - no nan
+[2024-05-18 11:20:55,130][__main__][INFO] - running norm:
+[2024-05-18 11:20:58,254][__main__][INFO] - no inf
+[2024-05-18 11:20:58,278][__main__][INFO] - no nan
+[2024-05-18 11:20:58,278][__main__][INFO] - LDS:
+[2024-05-18 11:36:57,700][__main__][INFO] - no inf
+[2024-05-18 11:36:57,724][__main__][INFO] - no nan
+[2024-05-18 11:36:59,565][__main__][INFO] - fold:6
+[2024-05-18 11:36:59,566][__main__][INFO] - train_subs:[0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14]
+[2024-05-18 11:36:59,566][__main__][INFO] - val_subs:[6]
+[2024-05-18 11:37:02,038][__main__][INFO] - normTrain
+[2024-05-18 11:37:17,613][__main__][INFO] - load model:/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-15/11-43-23_run2/clisa_cp/SEED/_r2_f6_best.ckpt
+[2024-05-18 11:38:01,953][__main__][INFO] - no inf
+[2024-05-18 11:38:01,979][__main__][INFO] - no nan
+[2024-05-18 11:38:01,979][__main__][INFO] - running norm:
+[2024-05-18 11:38:05,168][__main__][INFO] - no inf
+[2024-05-18 11:38:05,193][__main__][INFO] - no nan
+[2024-05-18 11:38:05,193][__main__][INFO] - LDS:
+[2024-05-18 11:54:15,543][__main__][INFO] - no inf
+[2024-05-18 11:54:15,569][__main__][INFO] - no nan
+[2024-05-18 11:54:17,770][__main__][INFO] - fold:7
+[2024-05-18 11:54:17,770][__main__][INFO] - train_subs:[0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14]
+[2024-05-18 11:54:17,770][__main__][INFO] - val_subs:[7]
+[2024-05-18 11:54:20,203][__main__][INFO] - normTrain
+[2024-05-18 11:54:35,157][__main__][INFO] - load model:/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-15/11-43-23_run2/clisa_cp/SEED/_r2_f7_best.ckpt
+[2024-05-18 11:55:20,067][__main__][INFO] - no inf
+[2024-05-18 11:55:20,092][__main__][INFO] - no nan
+[2024-05-18 11:55:20,092][__main__][INFO] - running norm:
+[2024-05-18 11:55:23,274][__main__][INFO] - no inf
+[2024-05-18 11:55:23,298][__main__][INFO] - no nan
+[2024-05-18 11:55:23,299][__main__][INFO] - LDS:
+[2024-05-18 12:11:25,359][__main__][INFO] - no inf
+[2024-05-18 12:11:25,382][__main__][INFO] - no nan
+[2024-05-18 12:11:27,211][__main__][INFO] - fold:8
+[2024-05-18 12:11:27,212][__main__][INFO] - train_subs:[0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14]
+[2024-05-18 12:11:27,212][__main__][INFO] - val_subs:[8]
+[2024-05-18 12:11:29,639][__main__][INFO] - normTrain
+[2024-05-18 12:11:45,019][__main__][INFO] - load model:/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-15/11-43-23_run2/clisa_cp/SEED/_r2_f8_best.ckpt
+[2024-05-18 12:12:28,633][__main__][INFO] - no inf
+[2024-05-18 12:12:28,659][__main__][INFO] - no nan
+[2024-05-18 12:12:28,659][__main__][INFO] - running norm:
+[2024-05-18 12:12:31,839][__main__][INFO] - no inf
+[2024-05-18 12:12:31,864][__main__][INFO] - no nan
+[2024-05-18 12:12:31,864][__main__][INFO] - LDS:
+[2024-05-18 12:28:37,231][__main__][INFO] - no inf
+[2024-05-18 12:28:37,257][__main__][INFO] - no nan
+[2024-05-18 12:28:39,073][__main__][INFO] - fold:9
+[2024-05-18 12:28:39,074][__main__][INFO] - train_subs:[0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14]
+[2024-05-18 12:28:39,074][__main__][INFO] - val_subs:[9]
+[2024-05-18 12:28:41,537][__main__][INFO] - normTrain
+[2024-05-18 12:28:55,905][__main__][INFO] - load model:/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-15/11-43-23_run2/clisa_cp/SEED/_r2_f9_best.ckpt
+[2024-05-18 12:29:38,560][__main__][INFO] - no inf
+[2024-05-18 12:29:38,581][__main__][INFO] - no nan
+[2024-05-18 12:29:38,581][__main__][INFO] - running norm:
+[2024-05-18 12:29:41,759][__main__][INFO] - no inf
+[2024-05-18 12:29:41,779][__main__][INFO] - no nan
+[2024-05-18 12:29:41,779][__main__][INFO] - LDS:
+[2024-05-18 12:45:45,618][__main__][INFO] - no inf
+[2024-05-18 12:45:45,638][__main__][INFO] - no nan
+[2024-05-18 12:45:47,458][__main__][INFO] - fold:10
+[2024-05-18 12:45:47,458][__main__][INFO] - train_subs:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14]
+[2024-05-18 12:45:47,459][__main__][INFO] - val_subs:[10]
+[2024-05-18 12:45:49,977][__main__][INFO] - normTrain

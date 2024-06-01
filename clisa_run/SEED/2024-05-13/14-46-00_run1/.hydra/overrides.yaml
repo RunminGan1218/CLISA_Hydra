@@ -1,0 +1,6 @@
+- log.run=1
+- log.proj_name=SEED_test
+- data=SEED
+- train.gpus=[0]
+- train.valid_method=loo
+- train.iftest=True

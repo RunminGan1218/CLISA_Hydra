@@ -1,0 +1,79 @@
+[2024-05-23 18:01:36,979][__main__][INFO] - fold:2
+[2024-05-23 18:01:36,980][__main__][INFO] - train_subs:[0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+[2024-05-23 18:01:36,980][__main__][INFO] - val_subs:[2]
+/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/pytorch_lightning/utilities/parsing.py:263: UserWarning: Attribute 'model' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['model'])`.
+  rank_zero_warn(
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3080') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:613: UserWarning: Checkpoint directory ./clisa_cp/SEED exists and is not empty.
+  rank_zero_warn(f"Checkpoint directory {dirpath} exists and is not empty.")
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type             | Params
+-----------------------------------------------
+0 | model     | simpleNN3        | 41.3 K
+1 | criterion | CrossEntropyLoss | 0
+-----------------------------------------------
+41.3 K    Trainable params
+0         Non-trainable params
+41.3 K    Total params
+0.165     Total estimated model params size (MB)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 9:  93%|▉| 559/599 [00:03<00:00, 162.64it/s, loss=0.0303,
+
+Epoch 10:  93%|▉| 559/599 [00:03<00:00, 162.70it/s, loss=0.0277,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 23:  93%|▉| 559/599 [00:03<00:00, 163.26it/s, loss=0.02, v
+
+Epoch 24:  93%|▉| 559/599 [00:03<00:00, 160.78it/s, loss=0.0201,
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 30: 100%|█| 599/599 [00:03<00:00, 161.06it/s, loss=0.0193,

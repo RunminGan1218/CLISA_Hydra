@@ -1,0 +1,14 @@
+[2024-05-15 09:46:37,559][__main__][INFO] - fold:0
+[2024-05-15 09:46:37,559][__main__][INFO] - train_subs:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+[2024-05-15 09:46:37,559][__main__][INFO] - val_subs:[0]
+[2024-05-15 09:46:40,050][__main__][INFO] - normTrain
+[2024-05-15 09:46:56,155][__main__][INFO] - load model:/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-13/15-42-11_run1/clisa_cp/SEED/_r1_f0_best.ckpt.ckpt
+[2024-05-15 09:47:24,447][__main__][INFO] - no inf
+[2024-05-15 09:47:24,474][__main__][INFO] - no nan
+[2024-05-15 09:47:24,474][__main__][INFO] - running norm:
+[2024-05-15 09:47:27,650][__main__][INFO] - no inf
+[2024-05-15 09:47:27,676][__main__][INFO] - no nan
+[2024-05-15 09:47:27,676][__main__][INFO] - LDS:
+[2024-05-15 10:04:31,053][__main__][INFO] - no inf
+[2024-05-15 10:04:31,079][__main__][INFO] - no nan
+[2024-05-15 10:04:32,870][__main__][INFO] - test mode!

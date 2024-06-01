@@ -1,0 +1,104 @@
+2024-05-18 12:46:12,319 INFO    StreamThr :136675 [internal.py:wandb_internal():86] W&B internal server running at pid: 136675, started at: 2024-05-18 12:46:12.318822
+2024-05-18 12:46:12,323 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: status
+2024-05-18 12:46:12,326 INFO    WriterThread:136675 [datastore.py:open_for_write():87] open: ./wandb/run-20240518_124612-rgmp62xa/run-rgmp62xa.wandb
+2024-05-18 12:46:12,327 DEBUG   SenderThread:136675 [sender.py:send():379] send: header
+2024-05-18 12:46:12,330 DEBUG   SenderThread:136675 [sender.py:send():379] send: run
+2024-05-18 12:46:12,334 INFO    SenderThread:136675 [sender.py:_setup_resume():749] checking resume status for None/SEED_test_loo/rgmp62xa
+2024-05-18 12:46:17,333 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:46:22,336 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:46:27,339 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:46:32,342 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:46:37,345 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:46:42,349 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:46:47,352 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:46:52,355 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:46:57,358 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:47:02,362 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:47:05,967 INFO    SenderThread:136675 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1096, in _validate_conn
+    conn.connect()
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connection.py", line 212, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7fbc5e7f1210>, 'Connection to api.wandb.ai timed out. (connect timeout=20)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fbc5e7f1210>, 'Connection to api.wandb.ai timed out. (connect timeout=20)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/sdk/internal/internal_api.py", line 369, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fbc5e7f1210>, 'Connection to api.wandb.ai timed out. (connect timeout=20)'))
+2024-05-18 12:47:07,365 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:47:12,371 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:47:17,371 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:47:22,374 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:47:27,377 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:47:32,381 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:47:37,384 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: keepalive
+2024-05-18 12:47:42,386 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: cancel
+2024-05-18 12:47:42,387 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: cancel
+2024-05-18 12:47:42,658 DEBUG   HandlerThread:136675 [handler.py:handle_request():146] handle_request: shutdown
+2024-05-18 12:47:42,658 INFO    HandlerThread:136675 [handler.py:finish():866] shutting down handler
+2024-05-18 12:47:43,388 INFO    WriterThread:136675 [datastore.py:close():296] close: ./wandb/run-20240518_124612-rgmp62xa/run-rgmp62xa.wandb
+2024-05-18 12:47:59,488 DEBUG   SenderThread:136675 [sender.py:send():388] Record cancelled: run
+2024-05-18 12:47:59,488 INFO    SenderThread:136675 [sender.py:finish():1546] shutting down sender

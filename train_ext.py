@@ -29,9 +29,10 @@ def train_ext(cfg: DictConfig) -> None:
 
     n_per = round(cfg.data.n_subs / n_folds)
     
-    for fold in range(0,n_folds):
+    for fold in range(n_folds):
         print("fold:", fold)
         cp_dir = os.path.join(cfg.log.cp_dir, cfg.data.dataset_name)
+        wandb.init(project="test_run", mode="offline")
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'v'+str(cfg.train.valid_method)
                                    +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
                                    project=cfg.log.proj_name, log_model="all")

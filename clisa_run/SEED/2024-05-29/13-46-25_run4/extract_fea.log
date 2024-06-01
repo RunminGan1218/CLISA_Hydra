@@ -1,0 +1,26 @@
+[2024-05-29 13:49:25,657][__main__][INFO] - fold:13
+[2024-05-29 13:49:25,657][__main__][INFO] - train_subs:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14]
+[2024-05-29 13:49:25,657][__main__][INFO] - val_subs:[13]
+[2024-05-29 13:49:27,954][__main__][INFO] - normTrain
+[2024-05-29 13:49:41,782][__main__][INFO] - load model:/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_cp/SEED/_r4_f13_best.ckpt
+[2024-05-29 13:50:26,241][__main__][INFO] - no inf
+[2024-05-29 13:50:26,261][__main__][INFO] - no nan
+[2024-05-29 13:50:26,261][__main__][INFO] - running norm:
+[2024-05-29 13:50:29,345][__main__][INFO] - no inf
+[2024-05-29 13:50:29,365][__main__][INFO] - no nan
+[2024-05-29 13:50:29,365][__main__][INFO] - LDS:
+[2024-05-29 14:06:23,394][__main__][INFO] - no inf
+[2024-05-29 14:06:23,415][__main__][INFO] - no nan
+[2024-05-29 14:06:25,250][__main__][INFO] - fold:14
+[2024-05-29 14:06:25,250][__main__][INFO] - train_subs:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+[2024-05-29 14:06:25,250][__main__][INFO] - val_subs:[14]
+[2024-05-29 14:06:27,743][__main__][INFO] - normTrain
+[2024-05-29 14:06:45,246][__main__][INFO] - load model:/home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_cp/SEED/_r4_f14_best.ckpt
+[2024-05-29 14:07:43,107][__main__][INFO] - no inf
+[2024-05-29 14:07:43,135][__main__][INFO] - no nan
+[2024-05-29 14:07:43,136][__main__][INFO] - running norm:
+[2024-05-29 14:07:46,233][__main__][INFO] - no inf
+[2024-05-29 14:07:46,262][__main__][INFO] - no nan
+[2024-05-29 14:07:46,262][__main__][INFO] - LDS:
+[2024-05-29 14:23:45,836][__main__][INFO] - no inf
+[2024-05-29 14:23:45,865][__main__][INFO] - no nan

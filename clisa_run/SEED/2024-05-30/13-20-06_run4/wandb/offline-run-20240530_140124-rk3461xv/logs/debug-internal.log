@@ -1,0 +1,406 @@
+2024-05-30 14:01:24,986 INFO    StreamThr :3855892 [internal.py:wandb_internal():85] W&B internal server running at pid: 3855892, started at: 2024-05-30 14:01:24.985778
+2024-05-30 14:01:24,989 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status
+2024-05-30 14:01:24,992 INFO    WriterThread:3855892 [datastore.py:open_for_write():87] open: /home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-30/13-20-06_run4/wandb/offline-run-20240530_140124-rk3461xv/run-rk3461xv.wandb
+2024-05-30 14:01:25,003 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: run_start
+2024-05-30 14:01:25,004 DEBUG   HandlerThread:3855892 [system_info.py:__init__():26] System info init
+2024-05-30 14:01:25,004 DEBUG   HandlerThread:3855892 [system_info.py:__init__():41] System info init done
+2024-05-30 14:01:25,004 INFO    HandlerThread:3855892 [system_monitor.py:start():194] Starting system monitor
+2024-05-30 14:01:25,005 INFO    SystemMonitor:3855892 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-05-30 14:01:25,005 INFO    HandlerThread:3855892 [system_monitor.py:probe():214] Collecting system info
+2024-05-30 14:01:25,006 INFO    SystemMonitor:3855892 [interfaces.py:start():188] Started cpu monitoring
+2024-05-30 14:01:25,007 INFO    SystemMonitor:3855892 [interfaces.py:start():188] Started disk monitoring
+2024-05-30 14:01:25,008 INFO    SystemMonitor:3855892 [interfaces.py:start():188] Started gpu monitoring
+2024-05-30 14:01:25,010 INFO    SystemMonitor:3855892 [interfaces.py:start():188] Started memory monitoring
+2024-05-30 14:01:25,011 INFO    SystemMonitor:3855892 [interfaces.py:start():188] Started network monitoring
+2024-05-30 14:01:25,033 DEBUG   HandlerThread:3855892 [system_info.py:probe():150] Probing system
+2024-05-30 14:01:25,033 DEBUG   HandlerThread:3855892 [system_info.py:_probe_git():135] Probing git
+2024-05-30 14:01:25,042 DEBUG   HandlerThread:3855892 [system_info.py:_probe_git():143] Probing git done
+2024-05-30 14:01:25,042 DEBUG   HandlerThread:3855892 [system_info.py:probe():198] Probing system done
+2024-05-30 14:01:25,042 DEBUG   HandlerThread:3855892 [system_monitor.py:probe():223] {'os': 'Linux-5.19.0-40-generic-x86_64-with-glibc2.35', 'python': '3.11.3', 'heartbeatAt': '2024-05-30T06:01:25.033130', 'startedAt': '2024-05-30T06:01:24.067215', 'docker': None, 'cuda': None, 'args': ('log.run=4', 'log.proj_name=SEED_msLen5_loo', 'data=SEED', 'model.timeFilterLen=30', 'model.dilation_array=[1,3,6,12]', 'model.seg_att=15', 'model.avgPoolLen=15', 'model.timeSmootherLen=3', 'train.gpus=[0]', 'train.valid_method=loo', 'train.num_workers=8', 'hydra/job_logging=default', 'train.iftest=False', 'mlp.wd=0.005'), 'state': 'running', 'program': '/home/ncclab/shenxinke/att_model/CLISA_Hydra/train_mlp.py', 'codePathLocal': None, 'codePath': 'train_mlp.py', 'git': {'remote': 'git@github.com:RunminGan1218/CLISA_Hydra.git', 'commit': '7aa52932c017e2d781381336081caf4bf9c8e166'}, 'email': 'shenxk@sustech.edu.cn', 'root': '/home/ncclab/shenxinke/att_model/CLISA_Hydra', 'host': 'Precision5820', 'username': 'ncclab', 'executable': '/home/ncclab/miniconda3/envs/att_model/bin/python', 'cpu_count': 18, 'cpu_count_logical': 36, 'cpu_freq': {'current': 2.2998611111111114, 'min': 1200.0, 'max': 4633.333333333333}, 'cpu_freq_per_core': [{'current': 1.2, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 1.2, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 1.2, 'min': 1200.0, 'max': 4700.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 1.2, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4700.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4800.0}, {'current': 1.2, 'min': 1200.0, 'max': 4800.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 1.2, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 1.199, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 1.2, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4700.0}, {'current': 1.2, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 1.2, 'min': 1200.0, 'max': 4700.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}, {'current': 1.2, 'min': 1200.0, 'max': 4600.0}, {'current': 1.2, 'min': 1200.0, 'max': 4800.0}, {'current': 3.0, 'min': 1200.0, 'max': 4800.0}, {'current': 1.199, 'min': 1200.0, 'max': 4600.0}, {'current': 3.0, 'min': 1200.0, 'max': 4600.0}], 'disk': {'/': {'total': 937.5354804992676, 'used': 878.1044464111328}}, 'gpu': 'NVIDIA GeForce RTX 3080', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3080', 'memory_total': 10737418240}], 'memory': {'total': 251.422119140625}}
+2024-05-30 14:01:25,042 INFO    HandlerThread:3855892 [system_monitor.py:probe():224] Finished collecting system info
+2024-05-30 14:01:25,042 INFO    HandlerThread:3855892 [system_monitor.py:probe():227] Publishing system info
+2024-05-30 14:01:25,042 DEBUG   HandlerThread:3855892 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-05-30 14:01:31,414 DEBUG   HandlerThread:3855892 [system_info.py:_save_conda():222] Saving conda packages done
+2024-05-30 14:01:31,415 INFO    HandlerThread:3855892 [system_monitor.py:probe():229] Finished publishing system info
+2024-05-30 14:01:31,416 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:01:31,416 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 14:01:31,417 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:01:31,554 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: python_packages
+2024-05-30 14:01:35,418 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:01:35,418 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:01:37,651 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:01:37,672 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:01:40,421 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:01:40,421 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:01:41,758 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:01:41,771 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:01:45,423 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:01:45,424 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:01:45,963 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:01:45,977 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:01:50,122 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:01:50,135 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:01:50,425 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:01:50,425 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:01:54,244 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:01:54,247 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:01:55,427 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:01:55,427 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:01:58,264 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:01:58,267 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:00,429 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:02:00,430 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:02:02,514 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:02,536 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:05,432 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:02:05,433 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:02:06,882 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:06,901 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:10,435 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:02:10,435 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:02:10,935 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:10,939 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:15,018 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:15,021 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:15,436 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:02:15,437 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:02:18,873 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:18,886 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:20,438 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:02:20,438 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:02:22,952 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:22,965 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:25,011 DEBUG   SystemMonitor:3855892 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-05-30 14:02:25,440 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:02:25,441 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:02:26,937 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:26,940 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:30,442 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:02:30,443 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:02:31,329 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:31,331 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:35,285 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:35,288 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:35,444 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:02:35,444 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:02:38,819 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:38,826 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:40,446 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:02:40,446 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:02:42,875 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:42,894 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:45,447 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:02:45,447 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:02:46,838 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:46,841 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:50,449 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:02:50,449 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:02:51,222 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:51,225 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:55,391 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:55,394 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:55,451 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:02:55,451 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:02:59,336 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:02:59,338 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:00,452 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:03:00,452 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:03:03,399 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:03,413 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:05,453 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:03:05,454 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:03:07,382 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:07,384 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:10,455 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:03:10,456 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:03:11,254 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:11,258 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:15,451 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:15,456 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:15,457 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:03:15,457 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:03:19,530 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:19,533 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:20,459 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:03:20,459 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:03:23,409 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:23,412 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:25,460 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:03:25,461 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:03:27,428 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:27,430 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:30,461 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:03:30,462 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:03:31,630 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:31,633 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:35,463 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:03:35,463 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:03:35,599 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:35,604 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:39,723 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:39,745 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:40,465 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:03:40,465 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:03:43,530 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:43,537 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:45,467 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:03:45,467 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:03:47,638 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:47,641 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:50,469 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:03:50,469 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:03:51,425 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:51,432 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:55,470 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:03:55,470 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:03:55,476 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:55,490 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:59,718 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:03:59,720 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:00,472 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:04:00,472 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:04:03,789 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:03,792 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:05,474 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:04:05,474 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:04:07,660 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:07,663 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:10,475 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:04:10,476 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:04:11,530 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:11,533 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:15,362 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:15,366 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:15,477 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:04:15,477 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:04:19,553 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:19,556 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:20,479 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:04:20,479 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:04:23,784 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:23,786 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:25,481 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:04:25,482 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:04:27,688 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:27,691 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:30,484 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:04:30,484 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:04:31,898 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:31,900 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:35,486 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:04:35,486 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:04:35,585 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:35,588 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:39,498 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:39,511 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:40,487 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:04:40,488 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:04:43,554 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:43,557 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:45,489 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:04:45,490 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:04:47,992 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:47,995 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:50,491 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:04:50,492 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:04:51,700 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:51,703 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:55,493 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:04:55,493 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:04:55,789 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:55,792 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:59,963 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:04:59,966 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:00,495 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:05:00,495 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:05:03,887 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:03,891 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:05,497 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:05:05,497 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:05:08,037 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:08,040 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:10,498 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:05:10,499 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:05:12,057 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:12,060 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:15,501 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:05:15,501 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:05:16,192 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:16,197 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:20,482 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:20,485 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:20,503 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:05:20,503 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:05:24,537 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:24,540 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:25,505 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:05:25,505 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:05:28,378 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:28,381 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:30,506 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:05:30,507 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:05:32,669 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:32,672 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:35,508 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:05:35,509 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:05:36,753 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:36,756 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:40,511 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:05:40,511 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:05:40,989 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:40,994 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:45,016 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:45,021 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:45,513 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:05:45,513 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:05:49,221 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:49,227 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:50,514 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:05:50,515 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:05:52,955 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:52,957 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:55,516 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:05:55,516 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:05:57,144 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:05:57,147 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:00,518 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:06:00,518 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:06:01,238 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:01,240 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:05,519 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:06:05,519 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:06:05,663 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:05,667 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:09,860 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:09,863 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:10,521 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:06:10,522 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:06:13,866 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:13,869 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:15,524 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:06:15,524 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:06:17,667 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:17,670 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:20,525 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:06:20,526 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:06:21,738 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:21,740 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:25,528 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:06:25,528 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:06:25,871 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:25,873 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:29,746 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:29,749 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:30,530 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:06:30,530 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:06:33,692 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:33,695 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:35,531 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:06:35,532 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:06:37,792 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:37,794 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:40,533 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:06:40,534 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:06:42,009 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:42,012 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 14:06:42,089 DEBUG   SenderThread:3855892 [sender.py:send():378] send: exit
+2024-05-30 14:06:42,089 INFO    SenderThread:3855892 [sender.py:send_exit():585] handling exit code: 0
+2024-05-30 14:06:42,089 INFO    SenderThread:3855892 [sender.py:send_exit():587] handling runtime: 317
+2024-05-30 14:06:42,089 INFO    SenderThread:3855892 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 14:06:42,089 INFO    SenderThread:3855892 [sender.py:send_exit():593] send defer
+2024-05-30 14:06:42,089 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,089 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 0
+2024-05-30 14:06:42,089 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,089 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 0
+2024-05-30 14:06:42,089 INFO    SenderThread:3855892 [sender.py:transition_state():613] send defer: 1
+2024-05-30 14:06:42,089 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,089 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 1
+2024-05-30 14:06:42,090 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,090 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 1
+2024-05-30 14:06:42,090 INFO    SenderThread:3855892 [sender.py:transition_state():613] send defer: 2
+2024-05-30 14:06:42,090 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,090 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 2
+2024-05-30 14:06:42,090 INFO    HandlerThread:3855892 [system_monitor.py:finish():203] Stopping system monitor
+2024-05-30 14:06:42,090 DEBUG   SystemMonitor:3855892 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-05-30 14:06:42,091 INFO    HandlerThread:3855892 [interfaces.py:finish():200] Joined cpu monitor
+2024-05-30 14:06:42,091 DEBUG   SystemMonitor:3855892 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-05-30 14:06:42,091 INFO    HandlerThread:3855892 [interfaces.py:finish():200] Joined disk monitor
+2024-05-30 14:06:42,156 INFO    HandlerThread:3855892 [interfaces.py:finish():200] Joined gpu monitor
+2024-05-30 14:06:42,156 INFO    HandlerThread:3855892 [interfaces.py:finish():200] Joined memory monitor
+2024-05-30 14:06:42,157 INFO    HandlerThread:3855892 [interfaces.py:finish():200] Joined network monitor
+2024-05-30 14:06:42,157 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,157 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 2
+2024-05-30 14:06:42,157 INFO    SenderThread:3855892 [sender.py:transition_state():613] send defer: 3
+2024-05-30 14:06:42,157 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,158 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 3
+2024-05-30 14:06:42,158 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,158 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 3
+2024-05-30 14:06:42,158 INFO    SenderThread:3855892 [sender.py:transition_state():613] send defer: 4
+2024-05-30 14:06:42,158 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,158 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 4
+2024-05-30 14:06:42,158 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,158 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 4
+2024-05-30 14:06:42,158 INFO    SenderThread:3855892 [sender.py:transition_state():613] send defer: 5
+2024-05-30 14:06:42,159 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,159 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 5
+2024-05-30 14:06:42,159 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,159 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 5
+2024-05-30 14:06:42,159 INFO    SenderThread:3855892 [sender.py:transition_state():613] send defer: 6
+2024-05-30 14:06:42,159 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,159 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 6
+2024-05-30 14:06:42,160 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,160 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 6
+2024-05-30 14:06:42,160 INFO    SenderThread:3855892 [sender.py:transition_state():613] send defer: 7
+2024-05-30 14:06:42,160 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 14:06:42,160 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,160 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: status_report
+2024-05-30 14:06:42,160 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 7
+2024-05-30 14:06:42,161 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,161 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 7
+2024-05-30 14:06:42,161 INFO    SenderThread:3855892 [sender.py:transition_state():613] send defer: 8
+2024-05-30 14:06:42,161 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,161 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 8
+2024-05-30 14:06:42,161 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,161 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 8
+2024-05-30 14:06:42,161 INFO    SenderThread:3855892 [sender.py:transition_state():613] send defer: 9
+2024-05-30 14:06:42,161 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,161 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 9
+2024-05-30 14:06:42,161 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,161 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 9
+2024-05-30 14:06:42,161 INFO    SenderThread:3855892 [sender.py:transition_state():613] send defer: 10
+2024-05-30 14:06:42,161 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,161 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 10
+2024-05-30 14:06:42,162 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,162 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 10
+2024-05-30 14:06:42,162 INFO    SenderThread:3855892 [sender.py:transition_state():613] send defer: 11
+2024-05-30 14:06:42,162 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,162 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 11
+2024-05-30 14:06:42,162 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,162 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 11
+2024-05-30 14:06:42,162 INFO    SenderThread:3855892 [sender.py:transition_state():613] send defer: 12
+2024-05-30 14:06:42,162 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,162 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 12
+2024-05-30 14:06:42,162 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,162 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 12
+2024-05-30 14:06:42,162 INFO    SenderThread:3855892 [sender.py:transition_state():613] send defer: 13
+2024-05-30 14:06:42,162 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,162 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 13
+2024-05-30 14:06:42,163 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,163 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 13
+2024-05-30 14:06:42,163 INFO    SenderThread:3855892 [sender.py:transition_state():613] send defer: 14
+2024-05-30 14:06:42,163 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 14:06:42,163 INFO    HandlerThread:3855892 [handler.py:handle_request_defer():184] handle defer: 14
+2024-05-30 14:06:42,163 DEBUG   SenderThread:3855892 [sender.py:send():378] send: final
+2024-05-30 14:06:42,163 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: defer
+2024-05-30 14:06:42,163 INFO    SenderThread:3855892 [sender.py:send_request_defer():609] handle sender defer: 14
+2024-05-30 14:06:42,164 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: poll_exit
+2024-05-30 14:06:42,164 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: poll_exit
+2024-05-30 14:06:42,165 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: internal_messages
+2024-05-30 14:06:42,166 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: server_info
+2024-05-30 14:06:42,166 DEBUG   SenderThread:3855892 [sender.py:send_request():405] send_request: server_info
+2024-05-30 14:06:42,166 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: get_summary
+2024-05-30 14:06:42,167 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: sampled_history
+2024-05-30 14:06:42,209 DEBUG   HandlerThread:3855892 [handler.py:handle_request():158] handle_request: shutdown
+2024-05-30 14:06:42,210 INFO    HandlerThread:3855892 [handler.py:finish():882] shutting down handler
+2024-05-30 14:06:43,166 INFO    WriterThread:3855892 [datastore.py:close():296] close: /home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-30/13-20-06_run4/wandb/offline-run-20240530_140124-rk3461xv/run-rk3461xv.wandb
+2024-05-30 14:06:43,167 INFO    SenderThread:3855892 [sender.py:finish():1545] shutting down sender

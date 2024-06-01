@@ -1,0 +1,31 @@
+2024-05-27 18:45:45,797 INFO    MainThread:3266084 [wandb_setup.py:_flush():76] Current SDK version is 0.17.0
+2024-05-27 18:45:45,797 INFO    MainThread:3266084 [wandb_setup.py:_flush():76] Configure stats pid to 3266084
+2024-05-27 18:45:45,797 INFO    MainThread:3266084 [wandb_setup.py:_flush():76] Loading settings from /home/ncclab/.config/wandb/settings
+2024-05-27 18:45:45,797 INFO    MainThread:3266084 [wandb_setup.py:_flush():76] Loading settings from /home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-27/18-45-44_run4/wandb/settings
+2024-05-27 18:45:45,797 INFO    MainThread:3266084 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-05-27 18:45:45,798 INFO    MainThread:3266084 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-05-27 18:45:45,798 INFO    MainThread:3266084 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train_mlp.py', 'program_abspath': '/home/ncclab/shenxinke/att_model/CLISA_Hydra/train_mlp.py', 'program': '/home/ncclab/shenxinke/att_model/CLISA_Hydra/train_mlp.py'}
+2024-05-27 18:45:45,798 INFO    MainThread:3266084 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-05-27 18:45:45,798 INFO    MainThread:3266084 [wandb_init.py:_log_setup():520] Logging user logs to ./wandb/run-20240527_184545-nj7fdxcw/logs/debug.log
+2024-05-27 18:45:45,798 INFO    MainThread:3266084 [wandb_init.py:_log_setup():521] Logging internal logs to ./wandb/run-20240527_184545-nj7fdxcw/logs/debug-internal.log
+2024-05-27 18:45:45,798 INFO    MainThread:3266084 [wandb_init.py:init():560] calling init triggers
+2024-05-27 18:45:45,798 INFO    MainThread:3266084 [wandb_init.py:init():567] wandb.init called with sweep_config: {}
+config: {}
+2024-05-27 18:45:45,798 INFO    MainThread:3266084 [wandb_init.py:init():610] starting backend
+2024-05-27 18:45:45,798 INFO    MainThread:3266084 [wandb_init.py:init():614] setting up manager
+2024-05-27 18:45:45,801 INFO    MainThread:3266084 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-05-27 18:45:45,802 INFO    MainThread:3266084 [wandb_init.py:init():622] backend started and connected
+2024-05-27 18:45:45,806 INFO    MainThread:3266084 [wandb_init.py:init():711] updated telemetry
+2024-05-27 18:45:45,812 INFO    MainThread:3266084 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2024-05-27 18:47:15,868 ERROR   MainThread:3266084 [wandb_init.py:init():770] encountered error: Run initialization has timed out after 90.0 sec. 
+Please refer to the documentation for additional information: https://docs.wandb.ai/guides/track/tracking-faq#initstarterror-error-communicating-with-wandb-process-
+2024-05-27 18:47:15,868 ERROR   MainThread:3266084 [wandb_init.py:init():1174] error in wandb.init()
+Traceback (most recent call last):
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/sdk/wandb_init.py", line 1164, in init
+    return wi.init()
+           ^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/sdk/wandb_init.py", line 776, in init
+    raise error
+wandb.errors.CommError: Run initialization has timed out after 90.0 sec. 
+Please refer to the documentation for additional information: https://docs.wandb.ai/guides/track/tracking-faq#initstarterror-error-communicating-with-wandb-process-
+2024-05-27 18:47:17,155 WARNING MsgRouterThr:3266084 [router.py:message_loop():77] message_loop has been closed

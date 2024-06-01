@@ -1,5 +1,6 @@
 dataset_name: 'FACED'
-data_dir: '/mnt/data/model_weights/grm/FACED_new'
+data_dir: '/mnt/dataset0/qingzhu/AutoICA_Processed_EEG/Faced/Processed_data_filter_epoch_0.50_47_Auto_ICA_def_Threshold/data'
+param_dir: '/home/ncclab/shenxinke/att_model/CLISA_Hydra/params/FACEDnewdata/FACEDnewdata/mlpcp/'
 fs: 125
 n_channs: 30
 n_session: 1  

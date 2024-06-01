@@ -6,8 +6,8 @@ import os
 from data.dataset import PDataset
 from model.pl_models import MLPModel
 import pytorch_lightning as pl
-from pytorch_lightning.loggers.wandb import WandbLogger
-import wandb
+# from pytorch_lightning.loggers.wandb import WandbLogger
+# import wandb
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
 from torch.utils.data import DataLoader
 import torch
@@ -29,15 +29,16 @@ def interp_mlp(cfg: DictConfig) -> None:
         n_folds = cfg.train.n_subs
 
     n_per = round(cfg.data.n_subs / n_folds)
+    # print('n_per:', n_per)
     best_val_acc_list = []
     
     target_label = 0
     device = torch.device('cuda')
     for fold in range(0,1):
         cp_dir = os.path.join(cfg.log.cp_dir, cfg.data.dataset_name)
-        wandb_logger = WandbLogger(name=cfg.log.exp_name+'mlp'+'v'+str(cfg.train.valid_method)
-                                   +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
-                                   project=cfg.log.proj_name, log_model="all")
+        # wandb_logger = WandbLogger(name=cfg.log.exp_name+'mlp'+'v'+str(cfg.train.valid_method)
+        #                            +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
+        #                            project=cfg.log.proj_name, log_model="all")
         checkpoint_callback = ModelCheckpoint(monitor="mlp/val/acc", mode="max", dirpath=cp_dir, filename=cfg.log.exp_name+'_mlp_r'+str(cfg.log.run)+f'_f{fold}_best')
         earlyStopping_callback = EarlyStopping(monitor="mlp/val/acc", mode="max", patience=cfg.mlp.patience)
         log.info(f"fold:{fold}")
@@ -53,8 +54,10 @@ def interp_mlp(cfg: DictConfig) -> None:
         log.info(f'train_subs:{train_subs}')
         log.info(f'val_subs:{val_subs}')
         
-        save_dir = os.path.join(cfg.data.data_dir,'ext_fea',f'fea_r{cfg.log.run}')
-        save_path = os.path.join(save_dir,cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_fea_'+cfg.ext_fea.mode+'.npy')
+        # save_dir = os.path.join(cfg.data.data_dir,'ext_fea',f'fea_r{cfg.log.run}')
+        save_dir = '/mnt/dataset0/qingzhu/AutoICA_Processed_EEG/Faced/Processed_data_filter_epoch_0.50_47_Auto_ICA_def_Threshold/ext_fea/fea_r2'
+        # save_path = os.path.join(save_dir,cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_fea_'+cfg.ext_fea.mode+'.npy')
+        save_path = os.path.join(save_dir, '_r2_f0_fea_me.npy')
         data2 = np.load(save_path)
         # print(data2[:,160])
         if np.isnan(data2).any():
@@ -65,19 +68,26 @@ def interp_mlp(cfg: DictConfig) -> None:
         labels2_train = np.tile(onesub_label2, len(train_subs))
         labels2_val = np.tile(onesub_label2, len(val_subs))
         trainset2 = PDataset(data2[train_subs].reshape(-1,data2.shape[-1]), labels2_train)
-        # trainset2 = PDataset(data2[val_subs].reshape(-1,data2.shape[-1]), labels2_val)
         valset2 = PDataset(data2[val_subs].reshape(-1,data2.shape[-1]), labels2_val)
-        trainLoader = DataLoader(trainset2, batch_size=cfg.mlp.batch_size, shuffle=True, num_workers=cfg.mlp.num_workers)
-        valLoader = DataLoader(valset2, batch_size=cfg.mlp.batch_size, shuffle=False, num_workers=cfg.mlp.num_workers)
-        model_mlp = simpleNN3(cfg.mlp.fea_dim, cfg.mlp.hidden_dim, cfg.mlp.out_dim,0.1)
+        
+        n_samples_all = data2.shape[1]
+        # print('n_samples_all', n_samples_all)
+        trainLoader = DataLoader(trainset2, batch_size=n_samples_all, shuffle=True, num_workers=cfg.mlp.num_workers)
+        
+        # batch size is changed to n_samples_all
+        valLoader = DataLoader(valset2, batch_size=n_samples_all, shuffle=False, num_workers=cfg.mlp.num_workers)
+        
+        model_mlp = simpleNN3(cfg.mlp.fea_dim, cfg.mlp.hidden_dim, cfg.mlp.out_dim,0.1).to(device)
         
         # load checkpoint
         checkpoint = torch.load(os.path.join(cfg.data.param_dir, 'segatt_15_mlp_r13_f0_best.ckpt'))
         model_weights = checkpoint['state_dict']
+        for key in list(model_weights):
+            model_weights[key.replace("model.", "")] = model_weights.pop(key)
         model_mlp.load_state_dict(model_weights)
         model_mlp.eval()
         
-        n_samples_all = len(valset2)
+        
         attributions_all = torch.zeros((n_samples_all * len(val_subs), 256))
         for counter, (x_batch, y_batch) in enumerate(valLoader):
             print('counter:', counter)
@@ -95,7 +105,7 @@ def interp_mlp(cfg: DictConfig) -> None:
         if not os.path.exists(os.path.join(cfg.data.param_dir, 'importance')):
             os.makedirs(os.path.join(cfg.data.param_dir, 'importance'))
         np.save(os.path.join(cfg.data.param_dir, 'importance', 'attrs_fold0_cls0.npy'), attrs)
-        wandb.finish()
+        # wandb.finish()
         
 if __name__ == '__main__':
     interp_mlp()

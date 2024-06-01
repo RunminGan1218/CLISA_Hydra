@@ -1,0 +1,105 @@
+2024-05-18 12:55:57,427 INFO    MainThread:136791 [wandb_setup.py:_flush():76] Current SDK version is 0.17.0
+2024-05-18 12:55:57,427 INFO    MainThread:136791 [wandb_setup.py:_flush():76] Configure stats pid to 136791
+2024-05-18 12:55:57,427 INFO    MainThread:136791 [wandb_setup.py:_flush():76] Loading settings from /home/ncclab/.config/wandb/settings
+2024-05-18 12:55:57,427 INFO    MainThread:136791 [wandb_setup.py:_flush():76] Loading settings from /home/ncclab/shenxinke/att_model/CLISA_Hydra/clisa_run/SEED/2024-05-18/12-55-51_run2/wandb/settings
+2024-05-18 12:55:57,427 INFO    MainThread:136791 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-05-18 12:55:57,427 INFO    MainThread:136791 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-05-18 12:55:57,428 INFO    MainThread:136791 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train_mlp.py', 'program_abspath': '/home/ncclab/shenxinke/att_model/CLISA_Hydra/train_mlp.py', 'program': '/home/ncclab/shenxinke/att_model/CLISA_Hydra/train_mlp.py'}
+2024-05-18 12:55:57,428 INFO    MainThread:136791 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-05-18 12:55:57,428 INFO    MainThread:136791 [wandb_init.py:_log_setup():520] Logging user logs to ./wandb/run-20240518_125557-nmhzru1o/logs/debug.log
+2024-05-18 12:55:57,428 INFO    MainThread:136791 [wandb_init.py:_log_setup():521] Logging internal logs to ./wandb/run-20240518_125557-nmhzru1o/logs/debug-internal.log
+2024-05-18 12:55:57,428 INFO    MainThread:136791 [wandb_init.py:init():560] calling init triggers
+2024-05-18 12:55:57,428 INFO    MainThread:136791 [wandb_init.py:init():567] wandb.init called with sweep_config: {}
+config: {}
+2024-05-18 12:55:57,428 INFO    MainThread:136791 [wandb_init.py:init():610] starting backend
+2024-05-18 12:55:57,428 INFO    MainThread:136791 [wandb_init.py:init():614] setting up manager
+2024-05-18 12:55:57,431 INFO    MainThread:136791 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-05-18 12:55:57,433 INFO    MainThread:136791 [wandb_init.py:init():622] backend started and connected
+2024-05-18 12:55:57,437 INFO    MainThread:136791 [wandb_init.py:init():711] updated telemetry
+2024-05-18 12:55:57,445 INFO    MainThread:136791 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2024-05-18 12:56:55,670 INFO    Thread-1 (wrapped_target):136791 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1096, in _validate_conn
+    conn.connect()
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connection.py", line 212, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7f7bca184c90>, 'Connection to api.wandb.ai timed out. (connect timeout=20)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f7bca184c90>, 'Connection to api.wandb.ai timed out. (connect timeout=20)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/sdk/internal/internal_api.py", line 340, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f7bca184c90>, 'Connection to api.wandb.ai timed out. (connect timeout=20)'))
+2024-05-18 12:57:27,501 ERROR   MainThread:136791 [wandb_init.py:init():770] encountered error: Run initialization has timed out after 90.0 sec. 
+Please refer to the documentation for additional information: https://docs.wandb.ai/guides/track/tracking-faq#initstarterror-error-communicating-with-wandb-process-
+2024-05-18 12:57:27,501 ERROR   MainThread:136791 [wandb_init.py:init():1174] error in wandb.init()
+Traceback (most recent call last):
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/sdk/wandb_init.py", line 1164, in init
+    return wi.init()
+           ^^^^^^^^^
+  File "/home/ncclab/miniconda3/envs/att_model/lib/python3.11/site-packages/wandb/sdk/wandb_init.py", line 776, in init
+    raise error
+wandb.errors.CommError: Run initialization has timed out after 90.0 sec. 
+Please refer to the documentation for additional information: https://docs.wandb.ai/guides/track/tracking-faq#initstarterror-error-communicating-with-wandb-process-
+2024-05-18 12:57:28,767 WARNING MsgRouterThr:136791 [router.py:message_loop():77] message_loop has been closed
