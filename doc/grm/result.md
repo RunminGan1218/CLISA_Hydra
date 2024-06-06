@@ -58,17 +58,18 @@ mslen=7
 #### wd
 0.00015 0.001
 ![alt text](image-31.png)
-
+0.00015 0.0022
 ![alt text](image-32.png)
-
+0.00015 0.005  pretrain 100/30
 ![alt text](image-33.png)
-
+![alt text](image-45.png)
+0.00015 0.011
 ![alt text](image-34.png)
-
+0.00015 0.025
 ![alt text](image-35.png)
-
+0.00015 0.056
 ![alt text](image-36.png)
-
+0.00015 0.125
 ![alt text](image-37.png)
 
 0.0015 0.001
@@ -86,18 +87,19 @@ mslen=7
 0.0015 0.125
 ![alt text](image-30.png)
 
-
+0.015 0.001
+![alt text](image-44.png)
 0.015 0.0022
 ![alt text](image-38.png)
-
+0.015 0.005
 ![alt text](image-39.png)
-
+0.015 0.011
 ![alt text](image-40.png)
-
+0.015 0.025
 ![alt text](image-41.png)
-
+0.015 0.056
 ![alt text](image-42.png)
-
+0.015 0.125
 ![alt text](image-43.png)
 
 lr=0.00005
@@ -106,6 +108,11 @@ lr=0.00005
 std_model 10 5
 ![alt text](image-6.png)
 
+#### best model
+
+### def_c2_data
+
+### def_lessICA_data
 
 
 
