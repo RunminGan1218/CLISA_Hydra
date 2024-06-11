@@ -18,8 +18,20 @@
 
 # 6/1
 1. 30 epochs SEED 原数据 SEED 沈
-2. de  mlp  baseline  甘
-3. best model faced 2/9  甘
-4. FACED去噪更少  best model  甘
+2. de  mlp  baseline  甘  no
+3. best model faced 2/9  甘  half
+4. FACED去噪更少  best model  甘  running
 5. variation of conv  王
 6. FACED去噪  张
+
+# 6/8
+1. 检查seed 新老代码 看一下新科写的新代码  甘/新科
+2. variation of conv  王  
+3. transformer layer  甘
+4. k-means 杨
+5. 整理论文结构 新科
+
+next week 
+variation of conv  some results is strange
+check code together
+use another seed   
