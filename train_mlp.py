@@ -82,6 +82,8 @@ def train_mlp(cfg: DictConfig) -> None:
     
     average_val_acc = np.mean(best_val_acc_list)
     log.info(f"Average validation accuracy across all folds: {average_val_acc}")
+    std_val_acc = np.std(best_val_acc_list)
+    log.info(f"Standard deviation of validation accuracy across all folds: {std_val_acc}")
 
 if __name__ == '__main__':
     train_mlp()
