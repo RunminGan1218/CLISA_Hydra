@@ -4,11 +4,22 @@
 ## Results  
 ### def_data
 
+#### seg_att
 lr=0.0005
 seg_att=1
 ![alt text](image-9.png)
+seg_att=2
+![alt text](image-20.png)
+seg_att=3
+![alt text](image-21.png)
+seg_att=4
+![alt text](image-22.png)
+
 seg_att=5
 ![alt text](image-11.png)
+
+seg_att=7
+![alt text](image-23.png)
 
 seg_att=10
 ![alt text](image-7.png)
@@ -23,6 +34,73 @@ seg_att=20
 seg_att=25
 ![alt text](image-8.png)
 
+seg_att=30
+![alt text](image-13.png)
+
+#### mslen
+mslen=1
+![alt text](image-12.png)
+
+mslen=2
+![alt text](image-16.png)
+mslen=3
+![alt text](image-3.png)
+mslen=4
+![alt text](image-18.png)
+mslen=5
+![alt text](image-14.png)
+mslen=6
+![alt text](image-19.png)
+
+mslen=7
+![alt text](image-15.png)
+
+#### wd
+0.00015 0.001
+![alt text](image-31.png)
+0.00015 0.0022
+![alt text](image-32.png)
+0.00015 0.005  pretrain 100/30
+![alt text](image-33.png)
+![alt text](image-45.png)
+0.00015 0.011
+![alt text](image-34.png)
+0.00015 0.025
+![alt text](image-35.png)
+0.00015 0.056
+![alt text](image-36.png)
+0.00015 0.125
+![alt text](image-37.png)
+
+0.0015 0.001
+![alt text](image-26.png)
+0.0015 0.0022
+![alt text](image-25.png)
+0.0015 0.005
+![alt text](image-24.png)
+0.0015 0.011
+![alt text](image-27.png)
+0.0015 0.025
+![alt text](image-28.png)
+0.0015 0.056
+![alt text](image-29.png)
+0.0015 0.125
+![alt text](image-30.png)
+
+0.015 0.001
+![alt text](image-44.png)
+0.015 0.0022
+![alt text](image-38.png)
+0.015 0.005
+![alt text](image-39.png)
+0.015 0.011
+![alt text](image-40.png)
+0.015 0.025
+![alt text](image-41.png)
+0.015 0.056
+![alt text](image-42.png)
+0.015 0.125
+![alt text](image-43.png)
 
 lr=0.00005
 ![alt text](image-1.png)
@@ -30,6 +108,11 @@ lr=0.00005
 std_model 10 5
 ![alt text](image-6.png)
 
+#### best model
+
+### def_c2_data
+
+### def_lessICA_data
 
 
 
