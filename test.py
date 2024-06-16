@@ -258,9 +258,41 @@ def test_iter():
     print(next(b))  # 输出: 3
     print(next(b))  # 输出: 3
 
+def test_scheduler():
+    import torch
+    from torch.optim.lr_scheduler import CosineAnnealingLR, CosineAnnealingWarmRestarts,StepLR, OneCycleLR
+    import torch.nn as nn
+    from torchvision.models import resnet18
+    import matplotlib.pyplot as plt
+    
+    model = resnet18(pretrained=False)
+    optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
+    
+    mode = 'cosineAnnWarm'
+    #mode = 'cosineAnn'
+    if mode == 'cosineAnn':
+        scheduler = CosineAnnealingLR(optimizer, T_max=5, eta_min=0.001)
+    elif mode == 'cosineAnnWarm':
+        scheduler = CosineAnnealingWarmRestarts(optimizer, T_0=5, T_mult=2)
+    plt.figure()
+    max_epoch = 50
+    iters = 200
+    cur_lr_list = []
+    for epoch in range(max_epoch):
+        for batch in range(iters):
+            optimizer.step()
+            scheduler.step()
+        cur_lr = optimizer.param_groups[-1]['lr']
+        cur_lr_list.append(cur_lr)
+        print('Cur lr:', cur_lr)
+    x_list = list(range(len(cur_lr_list)))
+    plt.plot(x_list, cur_lr_list)
+    plt.show()
+
 if __name__ == "__main__":
     # pass
-    test_iter()
+    test_scheduler()
+    # test_iter()
     # test_zerolenarray()
     # test_extend()
     # test_isin()

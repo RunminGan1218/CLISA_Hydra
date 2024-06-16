@@ -13,6 +13,8 @@ class ExtractorModel(pl.LightningModule):
         self.model = model
         self.lr = cfg.lr
         self.wd = cfg.wd
+        self.max_epochs = cfg.max_epochs
+        self.restart_times = cfg.restart_times
         self.criterion = SimCLRLoss(cfg.loss_temp)
         self.metric = accuracy
     
@@ -21,7 +23,10 @@ class ExtractorModel(pl.LightningModule):
         return self.model(x)
     
     def configure_optimizers(self):
-        return torch.optim.Adam(self.parameters(), lr=self.lr, weight_decay=self.wd)
+        optimizer = torch.optim.Adam(self.parameters(), lr=self.lr, weight_decay=self.wd)
+        # scheduler1 = torch.optim.lr_scheduler.StepLR(optimizer, step_size=self.max_epochs, gamma=0.8, last_epoch=-1, verbose=False)
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=self.max_epochs // self.restart_times, eta_min=0,last_epoch=-1)
+        return {'optimizer': optimizer, 'lr_scheduler': scheduler}
     
     # remain to be implemented
     def training_step(self, batch, batch_idx):
@@ -31,7 +36,7 @@ class ExtractorModel(pl.LightningModule):
         # self.criterion.to(data.device)   # put it in the loss function
         loss, logits, logits_labels = self.criterion(proj)
         top1, top5 = self.metric(logits, logits_labels, topk=(1,5))
-        self.log_dict({'ext/train/loss': loss, 'ext/train/acc': top1[0], 'ext/train/acc5': top5[0]}, on_step=False, on_epoch=True, prog_bar=True)
+        self.log_dict({'ext/train/loss': loss, 'ext/train/acc': top1[0], 'ext/train/acc5': top5[0], 'ext/train/lr': self.optimizers().param_groups[-1]['lr']}, on_step=False, on_epoch=True, prog_bar=True)
         return loss
     
     def validation_step(self, batch, batch_idx):

@@ -58,11 +58,15 @@ mslen=7
 #### wd
 0.00015 0.001
 ![alt text](image-31.png)
-0.00015 0.0022
+0.00015 0.0022  pretrain 100/30
 ![alt text](image-32.png)
+![alt text](image-73.png)
+dif seed = 2469  不同seed之间很稳定
+![alt text](image-75.png)
 0.00015 0.005  pretrain 100/30
 ![alt text](image-33.png)
 ![alt text](image-45.png)
+
 0.00015 0.011
 ![alt text](image-34.png)
 0.00015 0.025
@@ -108,13 +112,68 @@ lr=0.00005
 std_model 10 5
 ![alt text](image-6.png)
 
-#### best model
+#### ablation
+no dilation
+15 3
+![alt text](image-67.png)
+![alt text](image-66.png)
+1 6
+![alt text](image-74.png)
 
+
+#### best model
+1 3
+![alt text](image-56.png)
+
+![alt text](image-57.png)
+
+![alt text](image-58.png)
+
+![alt text](image-59.png)
+
+![alt text](image-60.png)
+
+1 6
+![alt text](image-51.png)
+
+![alt text](image-52.png)
+
+![alt text](image-53.png)
+
+![alt text](image-54.png)
+
+![alt text](image-55.png)
 ### def_c2_data
 
+std_model
+0.00015 0.001
+![alt text](image-50.png)
+0.00015 0.0022
+![alt text](image-46.png)
+0.00015 0.005
+![alt text](image-47.png)
+0.00015 0.0075
+![alt text](image-48.png)
+0.00015 0.011
+![alt text](image-49.png)
 ### def_lessICA_data
+15 3
+![alt text](image-65.png)
 
+![alt text](image-64.png)
 
+![alt text](image-63.png)
+
+![alt text](image-62.png)
+
+![alt text](image-61.png)
+
+1 6
+![alt text](image-68.png)
+![alt text](image-69.png)
+![alt text](image-70.png)
+![alt text](image-71.png)
+![alt text](image-72.png)
 
 ### cus_data
 std_model
@@ -133,6 +192,17 @@ std_model 5 2
 
 
 
+# SEED
+## raw data raw code
+EPOCH_CHOOSE 1 3 15 [1 3 6 12]
+![alt text](image-78.png)
+EPOCH_CHOOSE 1 5 24 [1 5 10 19]
+![alt text](image-77.png)
+
+EPOCH_CHOOSE 0 3 15 [1 3 6 12]
+![alt text](image-79.png)
+EPOCH_CHOOSE 0 5 24 [1 5 10 19]
+![alt text](image-76.png)
 
 
 

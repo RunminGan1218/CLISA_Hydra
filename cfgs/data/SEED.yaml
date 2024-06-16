@@ -8,7 +8,7 @@ n_vids: 15
 n_class: 3
 
 # changeable
-timeLen: 22
-timeStep: 11
+timeLen: 30
+timeStep: 15
 timeLen2: 1
 timeStep2: 1

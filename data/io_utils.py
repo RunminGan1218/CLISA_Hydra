@@ -59,7 +59,7 @@ def load_processed_FACED_NEW_data(dir, fs, n_chans, timeLen,timeStep,n_session=1
         
         EEG_data = onesubsession_data['data_all_cleaned']
         thr = 30 * np.median(np.abs(EEG_data))
-        EEG_data = (EEG_data - np.mean(EEG_data[EEG_data<thr])) / np.std(EEG_data[EEG_data<thr])
+        EEG_data = (EEG_data - np.mean(EEG_data[np.abs(EEG_data)<thr])) / np.std(EEG_data[np.abs(EEG_data)<thr])
         n_points = onesubsession_data['n_samples_one'][0]*fs
         n_points_cum = np.cumsum(n_points).astype(int)
         start_points = n_points_cum-t*fs
@@ -195,7 +195,7 @@ def load_processed_SEEDV_NEW_data(dir, fs, n_chans, timeLen, timeStep, n_session
         onesub_data = sio.loadmat(file_path)     #keys: data,n_points
         EEG_data = onesub_data['merged_data_all_cleaned']   #(channels,tot_n_points_3session)  (60,tot_n_points_3session)
         thr = 30 * np.median(np.abs(EEG_data))
-        EEG_data = (EEG_data - np.mean(EEG_data[EEG_data<thr])) / np.std(EEG_data[EEG_data<thr])
+        EEG_data = (EEG_data - np.mean(EEG_data[np.abs(EEG_data)<thr])) / np.std(EEG_data[np.abs(EEG_data)<thr])
         n_points_cum = np.concatenate((np.array([0]),np.cumsum(n_points)))
 
         
@@ -246,7 +246,7 @@ def load_processed_SEED_NEW_data(dir, fs, n_chans, timeLen, timeStep, n_session=
         onesub_data = sio.loadmat(file_path)     #keys: data,n_points
         EEG_data = onesub_data['merged_data_all_cleaned']   #(channels,tot_n_points_3session)  (60,tot_n_points_3session)
         thr = 30 * np.median(np.abs(EEG_data))
-        EEG_data = (EEG_data - np.mean(EEG_data[EEG_data<thr])) / np.std(EEG_data[EEG_data<thr])
+        EEG_data = (EEG_data - np.mean(EEG_data[np.abs(EEG_data)<thr])) / np.std(EEG_data[np.abs(EEG_data)<thr])
         n_points_cum = np.concatenate((np.array([0]),np.cumsum(n_points)))
 
         

@@ -20,8 +20,9 @@ Table 2. Cross-subject performance on the FACED dataset (binary, nine-class).
 对比CLISA, a transformer-based architecture, PR-PL, RGNN
 (The comparison should highlight the strength of the architecture)
 
-Table 3. Cross-subject performance on the SEED dataset.
+Table 3. Cross-subject performance on the SEED/SEEDV dataset std model.
 对比CLISA, a transformer-based architecture, PR-PL, RGNN
+2 weeks
 
 Table 4. Variations of the attention design.
 Without attention, with global channel attention, different activation functions, substitute with a transformer layer

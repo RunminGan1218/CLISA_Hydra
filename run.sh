@@ -1,14 +1,15 @@
-run=44
-seg_att=15
-msFilterLen=3
+run=53
+seg_att=1
+msFilterLen=6
+dilation_array='[1,3,6,12]'
+restart_times=3
 ext_wd=0.00015
 # mlp_wds=(0.001 0.0022 0.005 0.011 0.025 0.056 0.125)
 mlp_wds=(0.001 0.0022 0.005 0.0075 0.011)
-gpus='[3]'
+gpus='[1]'
 
-
-dataset=FACED_def_c2
-valid_method=10
+dataset=SEED
+valid_method='loo'
 logging=default
 iftest=False
 proj_name="$dataset""_epoch30"
@@ -16,7 +17,8 @@ proj_name="$dataset""_epoch30"
 # exp_name="mslen$msFilterLen"
 # exp_name="ext_epoch30"
 # exp_name="extwd$ext_wd"
-exp_name="s$seg_att""_mslen$msFilterLen"
+exp_name="s$seg_att""_mslen$msFilterLen""_30_15_restart$restart_times"
+# exp_name="stdmodel_30_15_restart$restart_times"
 
 
 # you can run it in once
@@ -29,7 +31,9 @@ python train_ext.py log.run=$run log.proj_name=$proj_name data=$dataset \
                     model.seg_att=$seg_att\
                     model.msFilterLen=$msFilterLen\
                     train.wd=$ext_wd \
-                    # model.timeFilterLen=60 model.msFilterLen=3 model.dilation_array=[1,6,12,24] \
+                    model.dilation_array=$dilation_array \
+                    train.restart_times=$restart_times \
+                    # model.timeFilterLen=60 model.msFilterLen=3 \
                     # model.seg_att=30 model.avgPoolLen=30 model.timeSmootherLen=6
 echo "extract fea with wd: $ext_wd"
 python extract_fea.py log.run=$run log.proj_name=$proj_name data=$dataset \
@@ -39,7 +43,9 @@ python extract_fea.py log.run=$run log.proj_name=$proj_name data=$dataset \
                       model.seg_att=$seg_att\
                       model.msFilterLen=$msFilterLen\
                       train.wd=$ext_wd \
-                    #   model.timeFilterLen=60 model.msFilterLen=3 model.dilation_array=[1,6,12,24] \
+                      model.dilation_array=$dilation_array \
+                      train.restart_times=$restart_times \
+                    #   model.timeFilterLen=60 model.msFilterLen=3 \
                     #   model.seg_att=30 model.avgPoolLen=30 model.timeSmootherLen=6
 
 for mlp_wd in "${mlp_wds[@]}"
@@ -55,6 +61,8 @@ do
                     model.msFilterLen=$msFilterLen\
                     train.wd=$ext_wd \
                     mlp.wd=$mlp_wd \
-                    # model.timeFilterLen=60 model.msFilterLen=3 model.dilation_array=[1,6,12,24] \
+                    model.dilation_array=$dilation_array \
+                    train.restart_times=$restart_times \
+                    # model.timeFilterLen=60 model.msFilterLen=3 \
                     # model.seg_att=30 model.avgPoolLen=30 model.timeSmootherLen=6
 done
