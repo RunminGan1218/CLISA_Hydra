@@ -28,6 +28,7 @@ train:
   min_epochs: 10
   patience: 30
   num_workers: 8
+  restart_times: 3  # scheduler
 
 
 model:
