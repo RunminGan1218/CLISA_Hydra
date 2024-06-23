@@ -13,6 +13,7 @@ import torch
 import os
 from tqdm import tqdm
 import logging
+import mne
 
 log = logging.getLogger(__name__)
 
@@ -20,6 +21,7 @@ log = logging.getLogger(__name__)
 def ext_fea(cfg: DictConfig) -> None:
     load_dir = os.path.join(cfg.data.data_dir,'processed_data')
     data2, onesub_label2, n_samples2_onesub, n_samples2_sessions = load_finetune_EEG_data(load_dir, cfg.data)
+    #data2 shape (n_subs,session*vid*n_samples, n_chans, n_pionts)
     data2 = data2.reshape(cfg.data.n_subs, -1, data2.shape[-2], data2.shape[-1])
     save_dir = os.path.join(cfg.data.data_dir,'ext_fea',f'fea_r{cfg.log.run}')
     if not os.path.exists(save_dir):
@@ -60,38 +62,60 @@ def ext_fea(cfg: DictConfig) -> None:
             log.info('no normTrain')
             data2_fold = data2
         # print(data2_fold[0,0])
-        
-        data2_fold = data2_fold.reshape(-1, data2_fold.shape[-2], data2_fold.shape[-1])
-        label2_fold = np.tile(onesub_label2, cfg.data.n_subs)
-        foldset = SEEDV_Dataset(data2_fold, label2_fold)
-        del data2_fold, label2_fold
-        fold_loader = DataLoader(foldset, batch_size=cfg.ext_fea.batch_size, shuffle=False, num_workers=cfg.train.num_workers)
-        checkpoint =  os.path.join(cfg.log.cp_dir,cfg.data.dataset_name,cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_best.ckpt')
-        # checkpoint =  os.path.join(cfg.log.cp_dir,f'f_{fold}_best.ckpt.ckpt')
+        if cfg.ext_fea.use_pretrain:
+            log.info('Use pretrain model:')
+            data2_fold = data2_fold.reshape(-1, data2_fold.shape[-2], data2_fold.shape[-1])
+            label2_fold = np.tile(onesub_label2, cfg.data.n_subs)
+            foldset = SEEDV_Dataset(data2_fold, label2_fold)
+            del data2_fold, label2_fold
+            fold_loader = DataLoader(foldset, batch_size=cfg.ext_fea.batch_size, shuffle=False, num_workers=cfg.train.num_workers)
+            checkpoint =  os.path.join(cfg.log.cp_dir,cfg.data.dataset_name,cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_best.ckpt')
+            # checkpoint =  os.path.join(cfg.log.cp_dir,f'f_{fold}_best.ckpt.ckpt')
 
-        Extractor = ExtractorModel.load_from_checkpoint(checkpoint_path=checkpoint)
-        Extractor.model.stratified = []
-        log.info('load model:'+checkpoint)
-        trainer = pl.Trainer(accelerator='gpu', devices=cfg.train.gpus)
-        pred = trainer.predict(Extractor, fold_loader)
-        # data
-        # pred = torch.stack(pred,dim=0)
-        pred = torch.cat(pred, dim=0).cpu().numpy()
-        log.debug(pred.shape)
-        # pred = pred
-        
-        # max_fea = np.max(pred)
-        # min_fea = np.min(pred)
-        # print(max_fea,min_fea)
-        # if np.isinf(pred).any():
-        #     print("There are inf values in the array")
-        
-        fea = cal_fea(pred,cfg.ext_fea.mode)
-        # print('fea0:',fea[0])
+            Extractor = ExtractorModel.load_from_checkpoint(checkpoint_path=checkpoint)
+            Extractor.model.stratified = []
+            log.info('load model:'+checkpoint)
+            trainer = pl.Trainer(accelerator='gpu', devices=cfg.train.gpus)
+            pred = trainer.predict(Extractor, fold_loader)
+            # data
+            # pred = torch.stack(pred,dim=0)
+            pred = torch.cat(pred, dim=0).cpu().numpy()
+            log.debug(pred.shape)
+            # pred = pred
 
+            # max_fea = np.max(pred)
+            # min_fea = np.min(pred)
+            # print(max_fea,min_fea)
+            # if np.isinf(pred).any():
+            #     print("There are inf values in the array")
 
+            fea = cal_fea(pred,cfg.ext_fea.mode)
+            # print('fea0:',fea[0])
+            fea = fea.reshape(cfg.data.n_subs,-1,fea.shape[-1])
+            
+        else:
+            #data2_fold shape (n_subs,session*vid*n_samples, n_chans, n_pionts)
+            log.info('Direct DE extraction:')
+            n_subs, n_samples, n_chans, sfreqs = data2_fold.shape
+            freqs = [[1,4], [4,8], [8,14], [14,30], [30,47]]
+            de_data = np.zeros((n_subs, n_samples, n_chans, len(freqs)))
+            n_samples2_onesub_cum = np.concatenate((np.array([0]), np.cumsum(n_samples2_onesub)))
+            
+            for idx, band in enumerate(freqs):
+                for sub in range(n_subs):
+                    log.debug(f'sub:{sub}')
+                    for vid in tqdm(range(len(n_samples2_onesub)), desc=f'Direct DE Processing sub: {sub}', leave=False):
+                        data_onevid = data2_fold[sub,n_samples2_onesub_cum[vid]:n_samples2_onesub_cum[vid+1]]
+                        data_onevid = data_onevid.transpose(1,0,2)
+                        data_onevid = data_onevid.reshape(data_onevid.shape[0],-1)
+                        
+                        data_video_filt = mne.filter.filter_data(data_onevid, sfreqs, l_freq=band[0], h_freq=band[1])
+                        data_video_filt = data_video_filt.reshape(n_chans, -1, sfreqs)
+                        de_onevid = 0.5*np.log(2*np.pi*np.exp(1)*(np.var(data_video_filt, 2))).T
+                        de_data[sub,  n_samples2_onesub_cum[vid]:n_samples2_onesub_cum[vid+1], :, idx] = de_onevid
+            fea = de_data.reshape(n_subs, n_samples, -1)
+        log.debug(fea.shape)    
         
-        fea = fea.reshape(cfg.data.n_subs,-1,fea.shape[-1])
         fea_train = fea[train_subs]
         
         data_mean = np.mean(np.mean(fea_train, axis=1),axis=0)
@@ -199,6 +223,9 @@ def cal_fea(data,mode):
     # print(fea.shape)
     # print(fea[0])
     return fea
+
+
+
 
 if __name__ == '__main__':
     ext_fea()
