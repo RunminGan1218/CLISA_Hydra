@@ -289,9 +289,43 @@ def test_scheduler():
     plt.plot(x_list, cur_lr_list)
     plt.show()
 
+def test_adj_pool():
+    import torch.nn as nn
+    adaptive_pool = nn.AdaptiveAvgPool2d((1, 20))
+
+    # 创建一个输入张量，大小为 (batch_size, channels, height, width)
+    input_tensor = torch.randn(1, 1, 1, 12)
+
+    # 对输入张量进行池化
+    output_tensor = adaptive_pool(input_tensor)
+
+    print("Input size:", input_tensor.size())
+    print("Output size:", output_tensor.size())
+    print(input_tensor)
+    print(output_tensor)
+def test_layernorm():
+    import torch.nn as nn  
+    # ln = nn.LayerNorm()
+    # a = torch.randn(2,3,4)
+    # print(ln(a))
+    sizes = [2,4]
+    layers = [nn.Linear(sizes[0], sizes[1]), nn.Dropout(0.5), nn.LayerNorm()]
+    nn.Sequential(*layers)
+
+def test_append():
+    a = [2]
+    b = [1,2,3]
+    a.append(b)
+    print(a)
+    b = [4,5,6]
+    a.append(b)
+    print(a)
 if __name__ == "__main__":
     # pass
-    test_scheduler()
+    test_append()
+    # test_layernorm()
+    # test_adj_pool()
+    # test_scheduler()
     # test_iter()
     # test_zerolenarray()
     # test_extend()
