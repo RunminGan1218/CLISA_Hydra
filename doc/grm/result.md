@@ -120,6 +120,14 @@ no dilation
 1 6
 ![alt text](image-74.png)
 
+translayer 
+std model 15 3 cross channel no position embedding  4.15 MB
+![alt text](image-80.png)
+std model 10.06 MB
+![alt text](image-82.png)
+
+direct DE
+![alt text](image-83.png)
 
 #### best model
 1 3
@@ -156,6 +164,10 @@ std_model
 ![alt text](image-48.png)
 0.00015 0.011
 ![alt text](image-49.png)
+
+direct DE
+![alt text](image-85.png)
+
 ### def_lessICA_data
 15 3
 ![alt text](image-65.png)
@@ -174,6 +186,11 @@ std_model
 ![alt text](image-70.png)
 ![alt text](image-71.png)
 ![alt text](image-72.png)
+
+### def_lessICA_c2
+15 3
+![alt text](image-81.png)
+
 
 ### cus_data
 std_model
@@ -203,6 +220,11 @@ EPOCH_CHOOSE 0 3 15 [1 3 6 12]
 ![alt text](image-79.png)
 EPOCH_CHOOSE 0 5 24 [1 5 10 19]
 ![alt text](image-76.png)
+
+# SEEDV
+###
+direct DE
+![alt text](image-84.png)
 
 
 

@@ -31,18 +31,22 @@
 4. k-means 杨
 5. 整理论文结构 新科
 
-# 6/16
-1. transformer layer 甘
-2. DE + MLP 2/9   2分类 lessICA FACED 2/9 甘
+# 6/23
+1. transformer layer  2/9 甘 
+2. DE + MLP 2/9   lessICA FACED 2/9 甘 ok
 3. clisa  SEEDV   王
-4. ablation  无空域 active  sigmoid  2/9分类(补充之前只跑9分类的部分) 王
-5. DE + MLP  SEEDV  甘
-6. 预训练wd 加两个 甘
+4. ablation  无空域 active  sigmoid  2/9分类(补充之前只跑9分类的部分) 王 ok
+5. DE + MLP  SEEDV  甘  ok
+6. 预训练wd 加两个 杨
 7. 模型架构 时空模式 推理模式 std model 新科
 8. 混淆矩阵 FACED9 SEEDV SEED no_att DE+MLP std-model 甘/王
 
+|       | FACED9 | SEEDV | SEED |
+|:-------|:--------:|-------:|-------:|
+| no_att | 王 | 王 | 甘 |
+| DE+MLP | 甘 | 甘 | 原有 |
+| std-model | 甘 | 王 | 甘 |
 
-next week 
-variation of conv  some results is strange
-check code together
-use another seed   
+9. 训好整体model做分析 FACED 2/9  SEEDV
+10. 用官方FACED 数据 做一下 2/9
+
