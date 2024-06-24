@@ -35,8 +35,11 @@ def train_ext(cfg: DictConfig) -> None:
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'v'+str(cfg.train.valid_method)
                                    +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
                                    project=cfg.log.proj_name, log_model="all")
-        checkpoint_callback = ModelCheckpoint(monitor="ext/val/acc", mode="max", dirpath=cp_dir, filename=cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_best')
-        earlyStopping_callback = EarlyStopping(monitor="ext/val/acc", mode="max", patience=cfg.train.patience)
+
+        monitor = "ext/train/acc" if n_folds == 1 else "ext/val/acc"
+        checkpoint_callback = ModelCheckpoint(monitor=monitor, mode="max", dirpath=cp_dir, 
+                                              filename=cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_best')
+        earlyStopping_callback = EarlyStopping(monitor=monitor, mode="max", patience=cfg.train.patience)
         # split data
         if n_folds == 1:
             val_subs = []
@@ -50,8 +53,7 @@ def train_ext(cfg: DictConfig) -> None:
         print('train_subs:', train_subs)
         print('val_subs:', val_subs)
         
-        # load_dir = os.path.join(cfg.data.data_dir,'processed_data')
-        # save_dir = os.path.join(cfg.data.data_dir,'sliced_data')
+
         if cfg.data.dataset_name == 'FACED':
             if cfg.data.n_class == 2:
                 n_vids = 24
@@ -61,18 +63,7 @@ def train_ext(cfg: DictConfig) -> None:
             n_vids = cfg.data.n_vids
         train_vids = np.arange(n_vids)
         val_vids = np.arange(n_vids)
-        # if cfg.data.dataset_name == 'SEEDV':
-        #     dm = SEEDVDataModule(load_dir, save_dir, cfg.data.timeLen, cfg.data.timeStep, train_subs,
-        #                          val_subs, train_vids, val_vids, cfg.data.n_session, cfg.data.fs, 
-        #                          cfg.data.n_channs, cfg.data.n_subs, cfg.data.n_vids, cfg.data.n_class,
-        #                          cfg.train.valid_method=='loo', cfg.train.num_workers)
-        # elif cfg.data.dataset_name == 'FACED':
-        #     dm = FACEDDataModule(load_dir, save_dir, cfg.data.timeLen, cfg.data.timeStep, train_subs,
-        #                          val_subs, train_vids, val_vids, cfg.data.n_session, cfg.data.fs, 
-        #                          cfg.data.n_channs, cfg.data.n_subs, cfg.data.n_vids, cfg.data.n_class,
-        #                          cfg.train.valid_method=='loo', cfg.train.num_workers)
-        # elif cfg.data.dataset_name == 'SEED':
-        #     pass
+
         dm = EEGDataModule(cfg.data, train_subs, val_subs, train_vids, val_vids,
                            cfg.train.valid_method=='loo', cfg.train.num_workers)
             
@@ -86,7 +77,10 @@ def train_ext(cfg: DictConfig) -> None:
         log.info(f'Model size: {total_size} bytes ({total_size / (1024 ** 2):.2f} MB)')
         
         Extractor = ExtractorModel(model, cfg.train)
-        trainer = pl.Trainer(logger=wandb_logger, callbacks=[checkpoint_callback, earlyStopping_callback],max_epochs=cfg.train.max_epochs, min_epochs=cfg.train.min_epochs, accelerator='gpu', devices=cfg.train.gpus)
+        limit_val_batches = 0.0 if n_folds == 1 else 1.0
+        trainer = pl.Trainer(logger=wandb_logger, callbacks=[checkpoint_callback, earlyStopping_callback],
+                             max_epochs=cfg.train.max_epochs, min_epochs=cfg.train.min_epochs, 
+                             accelerator='gpu', devices=cfg.train.gpus, limit_val_batches=limit_val_batches)
         trainer.fit(Extractor, dm)
         wandb.finish()
         

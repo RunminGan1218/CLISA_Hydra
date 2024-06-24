@@ -35,8 +35,9 @@ def train_mlp(cfg: DictConfig) -> None:
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'mlp'+'v'+str(cfg.train.valid_method)
                                    +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
                                    project=cfg.log.proj_name, log_model="all")
-        checkpoint_callback = ModelCheckpoint(monitor="mlp/val/acc", mode="max", dirpath=cp_dir, filename=cfg.log.exp_name+'_mlp_r'+str(cfg.log.run)+f'_f{fold}_best_wd{cfg.mlp.wd}')
-        earlyStopping_callback = EarlyStopping(monitor="mlp/val/acc", mode="max", patience=cfg.mlp.patience)
+        monitor = "ext/train/acc" if n_folds == 1 else "ext/val/acc"
+        checkpoint_callback = ModelCheckpoint(monitor=monitor, mode="max", dirpath=cp_dir, filename=cfg.log.exp_name+'_mlp_r'+str(cfg.log.run)+f'_f{fold}_best_wd{cfg.mlp.wd}')
+        earlyStopping_callback = EarlyStopping(monitor=monitor, mode="max", patience=cfg.mlp.patience)
         log.info(f"fold:{fold}")
         if n_folds == 1:
             val_subs = []
@@ -69,7 +70,10 @@ def train_mlp(cfg: DictConfig) -> None:
         valLoader = DataLoader(valset2, batch_size=cfg.mlp.batch_size, shuffle=False, num_workers=cfg.mlp.num_workers)
         model_mlp = simpleNN3(fea_dim, cfg.mlp.hidden_dim, cfg.mlp.out_dim,0.1)
         predictor = MLPModel(model_mlp, cfg.mlp)
-        trainer = pl.Trainer(logger=wandb_logger, callbacks=[checkpoint_callback, earlyStopping_callback],max_epochs=cfg.mlp.max_epochs, min_epochs=cfg.mlp.min_epochs, accelerator='gpu', devices=cfg.mlp.gpus)
+        limit_val_batches = 0.0 if n_folds == 1 else 1.0
+        trainer = pl.Trainer(logger=wandb_logger, callbacks=[checkpoint_callback, earlyStopping_callback],
+                             max_epochs=cfg.mlp.max_epochs, min_epochs=cfg.mlp.min_epochs,
+                             accelerator='gpu', devices=cfg.mlp.gpus, limit_val_batches=limit_val_batches)
         trainer.fit(predictor, trainLoader, valLoader)
         best_val_acc_list.append(checkpoint_callback.best_model_score.item())
         wandb.finish()
@@ -77,14 +81,14 @@ def train_mlp(cfg: DictConfig) -> None:
         if cfg.train.iftest :
             break
 
-    log.info("Best validation accuracies for each fold:")
+    log.info("Best train/validation accuracies for each fold:")
     for fold, acc in enumerate(best_val_acc_list):
         log.info(f"    Fold {fold}: {acc}")
     
     average_val_acc = np.mean(best_val_acc_list)
-    log.info(f"Average validation accuracy across all folds: {average_val_acc}")
+    log.info(f"Average train/validation accuracy across all folds: {average_val_acc}")
     std_val_acc = np.std(best_val_acc_list)
-    log.info(f"Standard deviation of validation accuracy across all folds: {std_val_acc}")
+    log.info(f"Standard deviation of train/validation accuracy across all folds: {std_val_acc}")
     log.info(f"Extracting features with {cfg.mlp.wd}: $mlp_wd and ext_wd: {cfg.train.wd}")
 
 if __name__ == '__main__':
