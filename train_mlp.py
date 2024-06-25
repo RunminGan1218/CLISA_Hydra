@@ -35,9 +35,10 @@ def train_mlp(cfg: DictConfig) -> None:
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'mlp'+'v'+str(cfg.train.valid_method)
                                    +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
                                    project=cfg.log.proj_name, log_model="all")
-        monitor = "mlp/train/acc" if n_folds == 1 else "mlp/val/acc"
-        checkpoint_callback = ModelCheckpoint(monitor=monitor, mode="max", dirpath=cp_dir, filename=cfg.log.exp_name+'_mlp_r'+str(cfg.log.run)+f'_f{fold}_best_wd{cfg.mlp.wd}')
-        earlyStopping_callback = EarlyStopping(monitor=monitor, mode="max", patience=cfg.mlp.patience)
+        cp_monitor = None if n_folds == 1 else "mlp/val/acc"
+        es_monitor = "mlp/train/acc" if n_folds == 1 else "mlp/val/acc"
+        checkpoint_callback = ModelCheckpoint(monitor=cp_monitor, mode="max", dirpath=cp_dir, filename=cfg.log.exp_name+'_mlp_r'+str(cfg.log.run)+f'_f{fold}_best_wd{cfg.mlp.wd}')
+        earlyStopping_callback = EarlyStopping(monitor=es_monitor, mode="max", patience=cfg.mlp.patience)
         log.info(f"fold:{fold}")
         if n_folds == 1:
             val_subs = []

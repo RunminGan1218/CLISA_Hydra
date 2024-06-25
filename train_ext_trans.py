@@ -36,10 +36,11 @@ def train_ext(cfg: DictConfig) -> None:
                                    +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
                                    project=cfg.log.proj_name, log_model="all")
 
-        monitor = "ext/train/acc" if n_folds == 1 else "ext/val/acc"
-        checkpoint_callback = ModelCheckpoint(monitor=monitor, mode="max", dirpath=cp_dir, 
+        cp_monitor = None if n_folds == 1 else "ext/val/acc"
+        es_monitor = "ext/train/acc" if n_folds == 1 else "ext/val/acc"
+        checkpoint_callback = ModelCheckpoint(monitor=cp_monitor, mode="max", dirpath=cp_dir, 
                                               filename=cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_best')
-        earlyStopping_callback = EarlyStopping(monitor=monitor, mode="max", patience=cfg.train.patience)
+        earlyStopping_callback = EarlyStopping(monitor=es_monitor, mode="max", patience=cfg.train.patience)
         # split data
         if n_folds == 1:
             val_subs = []
