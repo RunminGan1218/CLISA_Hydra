@@ -35,7 +35,7 @@ def train_mlp(cfg: DictConfig) -> None:
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'mlp'+'v'+str(cfg.train.valid_method)
                                    +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
                                    project=cfg.log.proj_name, log_model="all")
-        monitor = "ext/train/acc" if n_folds == 1 else "ext/val/acc"
+        monitor = "mlp/train/acc" if n_folds == 1 else "mlp/val/acc"
         checkpoint_callback = ModelCheckpoint(monitor=monitor, mode="max", dirpath=cp_dir, filename=cfg.log.exp_name+'_mlp_r'+str(cfg.log.run)+f'_f{fold}_best_wd{cfg.mlp.wd}')
         earlyStopping_callback = EarlyStopping(monitor=monitor, mode="max", patience=cfg.mlp.patience)
         log.info(f"fold:{fold}")
@@ -54,6 +54,7 @@ def train_mlp(cfg: DictConfig) -> None:
         save_dir = os.path.join(cfg.data.data_dir,'ext_fea',f'fea_r{cfg.log.run}')
         save_path = os.path.join(save_dir,cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_fea_'+cfg.ext_fea.mode+'.npy')
         data2 = np.load(save_path)
+        log.info('data2 load from: '+save_path)
         # print(data2[:,160])
         if np.isnan(data2).any():
             log.warning('nan in data2')

@@ -32,3 +32,13 @@ def set_seed_everywhere(env: gym.Env, seed=0):
     # torch.backends.cudnn.deterministic = True
     # torch.backends.cudnn.benchmark = False
     # pl.seed_everything(cfg.seed) #equal to fist 3 lines and it can pass seeds
+    
+def get_confusionMat(output, target, n_class):
+    with torch.no_grad():
+        _, pred = output.topk(1, 1, True, True)
+        pred = pred.t()
+        confusionMat = torch.zeros((n_class, n_class))
+        for i in range(n_class):
+            for j in range(n_class):
+                confusionMat[i, j] = torch.sum((pred==i) & (target==j))
+        return confusionMat

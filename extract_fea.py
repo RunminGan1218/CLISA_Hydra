@@ -71,7 +71,7 @@ def ext_fea(cfg: DictConfig) -> None:
             fold_loader = DataLoader(foldset, batch_size=cfg.ext_fea.batch_size, shuffle=False, num_workers=cfg.train.num_workers)
             checkpoint =  os.path.join(cfg.log.cp_dir,cfg.data.dataset_name,cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_best.ckpt')
             # checkpoint =  os.path.join(cfg.log.cp_dir,f'f_{fold}_best.ckpt.ckpt')
-
+            log.info('checkpoint load from: '+checkpoint)
             Extractor = ExtractorModel.load_from_checkpoint(checkpoint_path=checkpoint)
             Extractor.model.stratified = []
             log.info('load model:'+checkpoint)
