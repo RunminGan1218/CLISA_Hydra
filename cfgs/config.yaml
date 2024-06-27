@@ -20,7 +20,7 @@ log:
 train:
   gpus: [2]
   valid_method: 10
-  iftest: True
+  iftest: False
   n_subs: ${data.n_subs}
   lr: 0.0007
   wd: 0.00015

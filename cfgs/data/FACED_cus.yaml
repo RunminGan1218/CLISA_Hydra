@@ -12,3 +12,5 @@ timeLen: 5
 timeStep: 2   
 timeLen2: 1   
 timeStep2: 1  
+
+class_names: ['Anger', 'Disgust', 'Fear', 'Sadness', 'neutral', 'Amusement', 'Inspiration', 'Joy', 'Tenderness']
