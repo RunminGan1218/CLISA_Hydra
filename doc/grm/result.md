@@ -125,6 +125,8 @@ std model 15 3 cross channel no position embedding  4.15 MB
 ![alt text](image-80.png)
 std model 10.06 MB
 ![alt text](image-82.png)
+1layer 7.04 MB
+![alt text](image-88.png)
 
 direct DE
 ![alt text](image-83.png)
@@ -167,6 +169,12 @@ std_model
 
 direct DE
 ![alt text](image-85.png)
+
+translayer
+channel:
+![alt text](image-86.png)
+time:
+![alt text](image-87.png)
 
 ### def_lessICA_data
 15 3
@@ -227,4 +235,29 @@ direct DE
 ![alt text](image-84.png)
 
 
+
+# confusion mat
+## std model
+FACED9
+![alt text](image-89.png)
+SEEDV 王
+
+SEED 甘
+
+## Direct DE
+FACED9
+![alt text](image-90.png)
+SEEDV
+![alt text](image-91.png)
+SEED 甘
+
+
+## no att
+FACED9 王
+
+
+SEEDV 王
+
+
+SEED 王
 
