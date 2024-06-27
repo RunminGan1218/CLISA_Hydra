@@ -31,13 +31,15 @@ def train_mlp(cfg: DictConfig) -> None:
     best_val_acc_list = []
     
     for fold in range(0,n_folds):
-        cp_dir = os.path.join(cfg.log.cp_dir, cfg.data.dataset_name)
+        cp_dir = os.path.join(cfg.log.cp_dir, cfg.data.dataset_name, f'r{cfg.log.run}')
+        os.makedirs(cp_dir, exist_ok=True)
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'mlp'+'v'+str(cfg.train.valid_method)
                                    +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
                                    project=cfg.log.proj_name, log_model="all")
         cp_monitor = None if n_folds == 1 else "mlp/val/acc"
         es_monitor = "mlp/train/acc" if n_folds == 1 else "mlp/val/acc"
-        checkpoint_callback = ModelCheckpoint(monitor=cp_monitor, mode="max", dirpath=cp_dir, filename=cfg.log.exp_name+'_mlp_r'+str(cfg.log.run)+f'_f{fold}_best_wd{cfg.mlp.wd}')
+        checkpoint_callback = ModelCheckpoint(monitor=cp_monitor, verbose=True, mode="max", 
+                                              dirpath=cp_dir, filename=f'mlp_f{fold}_wd={cfg.mlp.wd}_'+'{epoch}')
         earlyStopping_callback = EarlyStopping(monitor=es_monitor, mode="max", patience=cfg.mlp.patience)
         log.info(f"fold:{fold}")
         if n_folds == 1:
@@ -77,21 +79,22 @@ def train_mlp(cfg: DictConfig) -> None:
                              max_epochs=cfg.mlp.max_epochs, min_epochs=cfg.mlp.min_epochs,
                              accelerator='gpu', devices=cfg.mlp.gpus, limit_val_batches=limit_val_batches)
         trainer.fit(predictor, trainLoader, valLoader)
-        best_val_acc_list.append(checkpoint_callback.best_model_score.item())
+        if cfg.train.valid_method != 1:
+            best_val_acc_list.append(checkpoint_callback.best_model_score.item())
         wandb.finish()
         
         if cfg.train.iftest :
             break
-
-    log.info("Best train/validation accuracies for each fold:")
-    for fold, acc in enumerate(best_val_acc_list):
-        log.info(f"    Fold {fold}: {acc}")
-    
-    average_val_acc = np.mean(best_val_acc_list)
-    log.info(f"Average train/validation accuracy across all folds: {average_val_acc}")
-    std_val_acc = np.std(best_val_acc_list)
-    log.info(f"Standard deviation of train/validation accuracy across all folds: {std_val_acc}")
-    log.info(f"Extracting features with {cfg.mlp.wd}: $mlp_wd and ext_wd: {cfg.train.wd}")
+    if cfg.train.valid_method != 1:
+        log.info("Best train/validation accuracies for each fold:")
+        for fold, acc in enumerate(best_val_acc_list):
+            log.info(f"    Fold {fold}: {acc}")
+        
+        average_val_acc = np.mean(best_val_acc_list)
+        log.info(f"Average train/validation accuracy across all folds: {average_val_acc}")
+        std_val_acc = np.std(best_val_acc_list)
+        log.info(f"Standard deviation of train/validation accuracy across all folds: {std_val_acc}")
+        log.info(f"Extracting features with {cfg.mlp.wd}: $mlp_wd and ext_wd: {cfg.train.wd}")
 
 if __name__ == '__main__':
     train_mlp()

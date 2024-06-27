@@ -13,7 +13,7 @@ log:
   exp_name: ''
 
   # cp_dir: ext/mlp cp save path, different dataset will be saved in separate subfolder 
-  cp_dir: '/mnt/data/model_weights/grm/clisa_cp/'   
+  cp_dir: '/mnt/data/model_weights/grm/clisa_cp2/'   
 
 
 
