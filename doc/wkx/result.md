@@ -89,3 +89,38 @@ has_att = False, ext_fea.mode='me'
 二维卷积，2分类
 
 ![ablation-r22](ablation-r22.png)
+
+
+
+# confusion_matrix
+
+### FACED9_noatt
+
+<img src="FACED_noatt_c9_confusion_matrix.png" alt="FACED_noatt_c9_confusion_matrix" style="zoom: 50%;" /> 
+
+<img src="FACED_noatt_c9_mat_statistics1.png" alt="FACED_noatt_c9_mat_statistics1" style="zoom:67%;" /> 
+
+
+
+### SEEDV_std-model
+
+![SEEDV_std-model](SEEDV_std-model.png)
+
+<img src="SEEDV_std-model_confusion_matrix.png" alt="SEEDV_std-model_confusion_matrix" style="zoom: 50%;" /> 
+
+<img src="SEEDV_std-model_mat_statistics.png" alt="SEEDV_std-model_mat_statistics" style="zoom:67%;" /> 
+
+
+
+### SEEDV_noatt
+
+
+
+# Clisa_SEEDV
+
+
+
+
+
+
+
