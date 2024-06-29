@@ -13,14 +13,14 @@ log:
   exp_name: ''
 
   # cp_dir: ext/mlp cp save path, different dataset will be saved in separate subfolder 
-  cp_dir: '/mnt/data/model_weights/grm/clisa_cp/'   
+  cp_dir: '/mnt/data/model_weights/grm/clisa_cp2/'   
 
 
 
 train:
   gpus: [2]
   valid_method: 10
-  iftest: True
+  iftest: False
   n_subs: ${data.n_subs}
   lr: 0.0007
   wd: 0.00015
@@ -29,7 +29,7 @@ train:
   min_epochs: 10
   patience: 30
   num_workers: 8
-  restart_times: 3  # scheduler
+  restart_times: ${train.max_epochs}  # scheduler
 
 
 mlp:

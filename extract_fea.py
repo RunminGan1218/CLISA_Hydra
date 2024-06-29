@@ -14,6 +14,7 @@ import os
 from tqdm import tqdm
 import logging
 import mne
+import glob
 
 log = logging.getLogger(__name__)
 
@@ -69,9 +70,10 @@ def ext_fea(cfg: DictConfig) -> None:
             foldset = SEEDV_Dataset(data2_fold, label2_fold)
             del data2_fold, label2_fold
             fold_loader = DataLoader(foldset, batch_size=cfg.ext_fea.batch_size, shuffle=False, num_workers=cfg.train.num_workers)
-            checkpoint =  os.path.join(cfg.log.cp_dir,cfg.data.dataset_name,cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_best.ckpt')
-            # checkpoint =  os.path.join(cfg.log.cp_dir,f'f_{fold}_best.ckpt.ckpt')
-
+            checkpoint =  os.path.join(cfg.log.cp_dir,cfg.data.dataset_name,f'r{cfg.log.run}',f'f{fold}*')
+            checkpoint = glob.glob(checkpoint)[0]
+            
+            log.info('checkpoint load from: '+checkpoint)
             Extractor = ExtractorModel.load_from_checkpoint(checkpoint_path=checkpoint)
             Extractor.model.stratified = []
             log.info('load model:'+checkpoint)

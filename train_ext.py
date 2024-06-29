@@ -31,11 +31,12 @@ def train_ext(cfg: DictConfig) -> None:
     
     for fold in range(0,n_folds):
         print("fold:", fold)
-        cp_dir = os.path.join(cfg.log.cp_dir, cfg.data.dataset_name)
+        cp_dir = os.path.join(cfg.log.cp_dir, cfg.data.dataset_name, f'r{cfg.log.run}')
+        os.makedirs(cp_dir, exist_ok=True)
         wandb_logger = WandbLogger(name=cfg.log.exp_name+'v'+str(cfg.train.valid_method)
                                    +f'_{cfg.data.timeLen}_{cfg.data.timeStep}_r{cfg.log.run}'+f'_f{fold}', 
                                    project=cfg.log.proj_name, log_model="all")
-        checkpoint_callback = ModelCheckpoint(monitor="ext/val/acc", mode="max", dirpath=cp_dir, filename=cfg.log.exp_name+'_r'+str(cfg.log.run)+f'_f{fold}_best')
+        checkpoint_callback = ModelCheckpoint(monitor="ext/val/acc", mode="max", dirpath=cp_dir, filename=f'f{fold}'+'{epoch}')
         earlyStopping_callback = EarlyStopping(monitor="ext/val/acc", mode="max", patience=cfg.train.patience)
         # split data
         if n_folds == 1:

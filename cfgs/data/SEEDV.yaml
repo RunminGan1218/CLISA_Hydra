@@ -12,3 +12,5 @@ timeLen: 22
 timeStep: 11
 timeLen2: 1
 timeStep2: 1
+
+class_names: ['Disgust', 'Fear', 'Sad', 'Neutral', 'Happy']
