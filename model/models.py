@@ -399,6 +399,7 @@ class Conv_att_transformer(nn.Module):
         n_msFilters_total = n_timeFilters * n_msFilters * 4
 
         num_head = 8
+        num_hidden_layers = 1 
         # transformer_layer
         if attention_mode == 'channel':
             em_dim = 200
@@ -409,10 +410,11 @@ class Conv_att_transformer(nn.Module):
             max_len = 30*125
             
         transfomer_config = BertConfig(vocab_size=1, hidden_size=em_dim,
-                                            num_hidden_layers=2, num_attention_heads=num_head,
+                                            num_hidden_layers=num_hidden_layers, num_attention_heads=num_head,
                                             intermediate_size=int(4 * em_dim),
                                             hidden_dropout_prob=0.1, attention_probs_dropout_prob=0.1,
-                                            max_position_embeddings=max_len,)   # todo: magic param, 3layers?
+                                            max_position_embeddings=max_len,
+                                            is_decoder=True)   # todo: magic param, 3layers?
         self.transformer_layer = BertModel(transfomer_config)   
 
         # projector avepooling+timeSmooth
@@ -463,10 +465,11 @@ class Conv_att_transformer(nn.Module):
                 out = out.squeeze().transpose(1,2)
                 # print(out.shape)
                 position_ids = torch.arange(seq_len, device=out.device, dtype=torch.long).unsqueeze(0).expand(bs, seq_len) 
-                out, _ = self.transformer_layer(inputs_embeds=out, 
+                out = self.transformer_layer(inputs_embeds=out, 
                                        attention_mask=torch.ones(bs, seq_len, device=out.device, dtype=torch.long),
                                         position_ids=position_ids,
                                         return_dict=False)
+                out = out[0]
                 out = out.transpose(1,2).unsqueeze(2)
                 # print(out.shape)
 

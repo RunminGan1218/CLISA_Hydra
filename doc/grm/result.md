@@ -127,6 +127,8 @@ std model 10.06 MB
 ![alt text](image-82.png)
 1layer 7.04 MB
 ![alt text](image-88.png)
+1layer time
+![alt text](image-94.png)
 
 direct DE
 ![alt text](image-83.png)
@@ -175,6 +177,8 @@ channel:
 ![alt text](image-86.png)
 time:
 ![alt text](image-87.png)
+1layer time
+![alt text](image-95.png)
 
 ### def_lessICA_data
 15 3
@@ -211,8 +215,13 @@ std_model 22 11
 ![alt text](image-4.png)
 
 ### old_data
-std_model 5 2
+std_model except seg_att=3 
 ![alt text](image-5.png)
+std_model*2
+![alt text](image-93.png)
+### old_data_c2
+std_model*2
+![alt text](image-92.png)
 
 
 

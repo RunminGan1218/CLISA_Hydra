@@ -32,21 +32,38 @@
 5. 整理论文结构 新科
 
 # 6/23
-1. transformer layer  2/9 甘 
-2. DE + MLP 2/9   lessICA FACED 2/9 甘 ok
-3. clisa  SEEDV   王
-4. ablation  无空域 active  sigmoid  2/9分类(补充之前只跑9分类的部分) 王 ok
-5. DE + MLP  SEEDV  甘  ok
-6. 预训练wd 加两个 杨
-7. 模型架构 时空模式 推理模式 std model 新科
-8. 混淆矩阵 FACED9 SEEDV SEED no_att DE+MLP std-model 甘/王
+1. transformer layer  2/9 甘 ok
+2. transformer 1 layer 2/9 time 甘 ok
+3. DE + MLP 2/9   lessICA FACED 2/9 甘 ok
+4. clisa  SEEDV   王
+5. ablation  无空域 active  sigmoid  2/9分类(补充之前只跑9分类的部分) 王 ok
+6. DE + MLP  SEEDV  甘  ok
+7. 预训练wd 加两个 杨  0.0005，0.0001，0.0003 0.00005 is ok 
+8. pretrain wd 0.0003 00.0002 杨
+9. 模型架构 时空模式 推理模式 std model 新科
+10. 混淆矩阵 FACED9 SEEDV SEED no_att DE+MLP std-model 甘/王
 
 |       | FACED9 | SEEDV | SEED |
 |:-------|:--------:|-------:|-------:|
-| no_att | 王 | 王 | 甘 |
-| DE+MLP | 甘 | 甘 | 原有 |
-| std-model | 甘 | 王 | 甘 |
+| no_att | 王 ok| 王 | 王 |
+| DE+MLP | 甘 ok| 甘 ok| 原有（甘） |
+| std-model | 甘 ok| 王 ok| 甘 |
 
-9. 训好整体model做分析 FACED 2/9  SEEDV
-10. 用官方FACED 数据 做一下 2/9
+9. 训好整体model做分析 FACED 2/9  SEEDV ok
+10. 用官方FACED 数据 做一下 2/9 std is ok  官方结果稍高
+11. 官方FACED 数据 调2分类best seg_att=7 杨
+12. SEED best model 甘 
+13. SEED DE model 甘 
+14. seed no_att model 王
 
+# 7/21 截止
+## -7/7
+1. 填表格 甘 恺璇 杨
+2. SEED  老代码调整超参 杨
+3. 可视化 新科
+## 7/7-7/10
+1. translayer
+
+## 7/10-7/21
+1. 画图写文章
+2. 混淆矩阵 SEED
