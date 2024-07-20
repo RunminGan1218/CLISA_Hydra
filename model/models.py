@@ -127,7 +127,7 @@ class ConvNet_complete_baseline_new(nn.Module):
             if 'middle2' in self.stratified:
                 out = stratified_layerNorm(out, int(out.shape[0]/2))
             proj_out = out.reshape(out.shape[0], -1)
-            return proj_out, fea_out
+            return F.normalize(proj_out, dim=1)
     
     def set_saveFea(self, saveFea):
         self.saveFea = saveFea
@@ -202,15 +202,15 @@ class ConvNet_attention_simple(nn.Module):
             return out
 
 class simpleNN3(nn.Module):
-    def __init__(self, inp_dim, hidden_dim, out_dim, dropout=0.2, bn='no'):
+    def __init__(self, inp_dim, hidden_dim=[128,64], out_dim=9, dropout=0.2, bn='no'):
         super(simpleNN3, self).__init__()
-        self.fc1 = nn.Linear(inp_dim, hidden_dim)
+        self.fc1 = nn.Linear(inp_dim, hidden_dim[0])
         # if (bn == 'bn1') or (bn == 'bn2'):
-        self.bn1 = nn.BatchNorm1d(hidden_dim, affine=False)
-        self.fc2 = nn.Linear(hidden_dim, hidden_dim//2)
+        self.bn1 = nn.BatchNorm1d(hidden_dim[0], affine=False)
+        self.fc2 = nn.Linear(hidden_dim[0], hidden_dim[1])
         # if bn == 'bn2':
-        self.bn2 = nn.BatchNorm1d(hidden_dim//2, affine=False)
-        self.fc3 = nn.Linear(hidden_dim//2, out_dim)
+        self.bn2 = nn.BatchNorm1d(hidden_dim[1], affine=False)
+        self.fc3 = nn.Linear(hidden_dim[1], out_dim)
         self.bn = bn
         self.drop = nn.Dropout(p=dropout)
         # self.flag = False
@@ -232,6 +232,18 @@ class simpleNN3(nn.Module):
     
     # def set_debug_flag(self,flag):
     #     self.flag = flag
+
+class simpleNN3_seed(nn.Module):
+    def __init__(self, inp_dim, hidden_dim, out_dim):
+        super(simpleNN3, self).__init__()
+        self.fc1 = nn.Linear(inp_dim, hidden_dim)
+        self.fc2 = nn.Linear(hidden_dim, hidden_dim)
+        self.fc3 = nn.Linear(hidden_dim, out_dim)
+    def forward(self, input):
+        out = F.relu(self.fc1(input))
+        out = F.relu(self.fc2(out))
+        out = self.fc3(out)
+        return out
 
 
 class Conv_att_simple_new(nn.Module):
@@ -298,6 +310,8 @@ class Conv_att_simple_new(nn.Module):
                 att_w = F.relu(att_w)
             elif self.activ == 'softmax':
                 att_w = F.softmax(att_w / self.temp, dim=1)
+            elif self.activ == 'sigmoid':
+                att_w = F.sigmoid(att_w)
             out = att_w * F.relu(out)          # (B, dims, 1, T)
         else:
             if self.extract_mode == 'me':
@@ -398,7 +412,7 @@ class Conv_att_transformer(nn.Module):
 
         n_msFilters_total = n_timeFilters * n_msFilters * 4
 
-        num_head = 8
+        num_head = 4
         num_hidden_layers = 1 
         # transformer_layer
         if attention_mode == 'channel':
@@ -407,11 +421,11 @@ class Conv_att_transformer(nn.Module):
             self.adaptive_pool = nn.AdaptiveAvgPool2d((1, em_dim))
         elif attention_mode == 'time':
             em_dim = n_msFilters_total
-            max_len = 30*125
+            max_len = 5*125
             
         transfomer_config = BertConfig(vocab_size=1, hidden_size=em_dim,
                                             num_hidden_layers=num_hidden_layers, num_attention_heads=num_head,
-                                            intermediate_size=int(4 * em_dim),
+                                            intermediate_size=int(2 * em_dim),
                                             hidden_dropout_prob=0.1, attention_probs_dropout_prob=0.1,
                                             max_position_embeddings=max_len,
                                             is_decoder=True)   # todo: magic param, 3layers?

@@ -72,7 +72,7 @@ def train_mlp(cfg: DictConfig) -> None:
         valset2 = PDataset(data2[val_subs].reshape(-1,data2.shape[-1]), labels2_val)
         trainLoader = DataLoader(trainset2, batch_size=cfg.mlp.batch_size, shuffle=True, num_workers=cfg.mlp.num_workers)
         valLoader = DataLoader(valset2, batch_size=cfg.mlp.batch_size, shuffle=False, num_workers=cfg.mlp.num_workers)
-        model_mlp = simpleNN3(fea_dim, cfg.mlp.hidden_dim, cfg.mlp.out_dim,0.1)
+        model_mlp = simpleNN3(fea_dim, cfg.mlp.hidden_dim, cfg.mlp.out_dim,cfg.mlp.dropout,cfg.mlp.bn)
         predictor = MLPModel(model_mlp, cfg.mlp)
         limit_val_batches = 0.0 if n_folds == 1 else 1.0
         trainer = pl.Trainer(logger=wandb_logger, callbacks=[checkpoint_callback, earlyStopping_callback],

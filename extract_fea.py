@@ -219,7 +219,7 @@ def cal_fea(data,mode):
     if mode == 'de':
         # print(np.var(data, 3).squeeze()[0])
         fea = 0.5*np.log(2*np.pi*np.exp(1)*(np.var(data, 3))).squeeze()
-        fea[fea<-40] = -40
+        # fea[fea<-40] = -40
     elif mode == 'me':
         fea = np.mean(data, axis=3).squeeze()
     # print(fea.shape)

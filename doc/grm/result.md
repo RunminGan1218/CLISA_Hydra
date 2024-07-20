@@ -3,13 +3,21 @@
 
 ## Results  
 ### def_data
+seg_att = [1, 2, 3, 4, 5, 7, 10, 15, 20, 25, 30]
+a = [56.0, 55.0, 54.7, 53.5, 52.7, 52.8, 55.0, 55.5, 55.3, 53.8, 52.5] 
+
+mslen = [1, 2, 3, 4, 5, 6, 7]
+b = [52.3, 54.1, 55.5, 54.9, 55.6, 55.3 ]
 
 #### seg_att
 lr=0.0005
 seg_att=1
 ![alt text](image-9.png)
+![alt text](image-108.png)
+![alt text](image-107.png)
 seg_att=2
 ![alt text](image-20.png)
+![alt text](image-109.png)
 seg_att=3
 ![alt text](image-21.png)
 seg_att=4
@@ -23,6 +31,7 @@ seg_att=7
 
 seg_att=10
 ![alt text](image-7.png)
+![alt text](image-110.png)
 
 seg_att=15
 ![alt text](image-2.png)
@@ -30,6 +39,7 @@ seg_att=15
 
 seg_att=20
 ![alt text](image-10.png)
+![alt text](image-111.png)
 
 seg_att=25
 ![alt text](image-8.png)
@@ -47,13 +57,17 @@ mslen=3
 ![alt text](image-3.png)
 mslen=4
 ![alt text](image-18.png)
+![alt text](image-112.png)
 mslen=5
 ![alt text](image-14.png)
+![alt text](image-113.png)
 mslen=6
 ![alt text](image-19.png)
+![alt text](image-114.png)
 
 mslen=7
 ![alt text](image-15.png)
+![alt text](image-115.png)
 
 #### wd
 0.00015 0.001
@@ -129,9 +143,14 @@ std model 10.06 MB
 ![alt text](image-88.png)
 1layer time
 ![alt text](image-94.png)
+1layer decoder: 4.0 MB
+![alt text](image-96.png)
 
 direct DE
 ![alt text](image-83.png)
+
+sigmoid 1 3
+![alt text](image-118.png)
 
 #### best model
 1 3
@@ -155,9 +174,14 @@ direct DE
 ![alt text](image-54.png)
 
 ![alt text](image-55.png)
-### def_c2_data
 
-std_model
+#### clisa
+
+![alt text](image-117.png)
+### def_c2_data
+#### clisa
+![alt text](image-116.png)
+#### std_model
 0.00015 0.001
 ![alt text](image-50.png)
 0.00015 0.0022
@@ -179,6 +203,8 @@ time:
 ![alt text](image-87.png)
 1layer time
 ![alt text](image-95.png)
+1layer time decoder 7.04 MB
+![alt text](image-97.png)
 
 ### def_lessICA_data
 15 3
@@ -215,7 +241,7 @@ std_model 22 11
 ![alt text](image-4.png)
 
 ### old_data
-std_model except seg_att=3 
+std_model except mslen=3 
 ![alt text](image-5.png)
 std_model*2
 ![alt text](image-93.png)
@@ -223,6 +249,28 @@ std_model*2
 std_model*2
 ![alt text](image-92.png)
 
+83 30 5
+![alt text](image-104.png)
+84 16 8 15 5
+
+85 16 16 15 5
+
+86 restart3 15 5
+![alt text](image-105.png)
+87 restart5 15 5
+![alt text](image-106.png)
+
+15 5
+drop 0.1
+![alt text](image-98.png)
+drop 0
+![alt text](image-101.png)
+15 6
+![alt text](image-99.png)
+![alt text](image-102.png)
+15 7
+![alt text](image-100.png)
+![alt text](image-103.png)
 
 
 

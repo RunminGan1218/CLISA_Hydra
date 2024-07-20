@@ -45,7 +45,7 @@
 
 |       | FACED9 | SEEDV | SEED |
 |:-------|:--------:|-------:|-------:|
-| no_att | 王 ok| 王 | 王 |
+| no_att | 王 ok| 王 | 甘 |
 | DE+MLP | 甘 ok| 甘 ok| 原有（甘） |
 | std-model | 甘 ok| 王 ok| 甘 |
 
@@ -57,13 +57,35 @@
 14. seed no_att model 王
 
 # 7/21 截止
-## -7/7
-1. 填表格 甘 恺璇 杨
-2. SEED  老代码调整超参 杨
-3. 可视化 新科
+## 7/4-7/7   计算一下自己要跑的实验量  
+1. 填表格 甘ok 恺璇
+2. FACED-2  FACED-9 ablation 二维卷积结果调整 两个都取1/3 调成局部二维卷积 甘 1  搁置  No temporal convolution 2分类结果调整
+3. translayer  甘
+4. SEED  老代码调整超参 杨
+5. SEED 新代码跑老数据尝试 甘 有戏
+6. 可视化 新科
+
 ## 7/7-7/10
-1. translayer
+1. seg_att，mslen 变化图  修正结果要跑 seg=10 15 20 mslen 4 5 6 7 8
+2. 混淆矩阵 SEED  甘
+3. wd变化图  杨
+4. 官方FACED 数据 调2分类best  调整mslen=7  seg_att=15/30  滤波器个数 余弦退火
+5. 
 
 ## 7/10-7/21
-1. 画图写文章
-2. 混淆矩阵 SEED
+1. 
+
+most important：
+1. seed result up to 88.4
+2. FACED-2  FACED-9 ablation 二维卷积结果调整 两个都取1/3 调成局部二维卷积 甘 1 model size过大导致性能还可以 9分类关注更长尺度信息 2分类关注更长尺度信息导致更多噪声 搁置  No temporal convolution 2分类结果调整   2分类较为简单，不用关注更长时间尺度的信息 
+3. FACED-2 old data best result up to 82.8 修改/堆叠架构 -> 余弦退火->mlp dropout/隐层维度 / mslen
+6个实验  甘/庆祝
+
+王：4+1个实验  song4
+
+CLISA FACED2/9分类 2个实验 song3 杨
+
+
+1. significance test 都和sigmoid比
+2. 剩下的图表
+

@@ -34,8 +34,10 @@ train:
 
 mlp:
   # fea_dim: 256 #${model.n_timeFilters*model.n_msFilters*4}
-  hidden_dim: 128
+  hidden_dim: [128,64]
   out_dim: ${data.n_class}
+  dropout: 0.1
+  bn: 'no'
   lr: 0.0005  #0.0005
   wd: 0.0022   #0.001-0.005
   max_epochs: 100
