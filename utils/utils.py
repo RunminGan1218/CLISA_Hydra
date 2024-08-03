@@ -34,6 +34,7 @@ def set_seed_everywhere(env: gym.Env, seed=0):
     # pl.seed_everything(cfg.seed) #equal to fist 3 lines and it can pass seeds
     
 def get_confusionMat(pred, target, n_class):
+    #y row: pred, x column: target
     if isinstance(pred, torch.Tensor) and isinstance(target, torch.Tensor):
         with torch.no_grad():
             # _, pred = output.topk(1, 1, True, True)
